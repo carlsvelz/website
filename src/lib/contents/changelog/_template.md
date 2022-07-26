@@ -28,6 +28,11 @@ The following are beta Gitpod features not currently in [general availability](h
 
 **Please note:** Some features might require a specific IDE or editor version, or certain configuration steps to be enabled. 
 
+### Deprecations
+
+Please ensure to update any necessary Gitpod enabled repositories, configurations or installations in accordance with the following deprecations:
+
+* **01/02/2022** - Lorem Ipsum
 
 ### Fixes and improvements
 

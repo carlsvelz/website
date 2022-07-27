@@ -79,3 +79,7 @@ These are the components expected on each node:
 ### Kubernetes Privilege Requirements
 
 Your Kubernetes cluster must allow Gitpod to run privileged pods and manage PodSecurityPolicies, as Gitpod depends on these privileges to provide workspace isolation.
+
+### Load Balancer Requirements
+
+Gitpod uses [`LoadBalancer` type services](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) to expose the Gitpod Dashboard, browser based IDEs, and SSH connections used by desktop IDEs. Your Kubernetes cluster must be able to provision load balancers that can route HTTP/HTTPS and SSH connections to Gitpod services.

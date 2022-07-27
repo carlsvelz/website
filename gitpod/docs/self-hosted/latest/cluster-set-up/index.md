@@ -82,4 +82,13 @@ Your Kubernetes cluster must allow Gitpod to run privileged pods and manage PodS
 
 ### Load Balancer Requirements
 
-Gitpod uses [`LoadBalancer` type services](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) to expose the Gitpod Dashboard, browser based IDEs, and SSH connections used by desktop IDEs. Your Kubernetes cluster must be able to provision load balancers that can route HTTP/HTTPS and SSH connections to Gitpod services.
+Gitpod uses [`LoadBalancer` type services](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) to expose the Gitpod Dashboard, browser based IDEs, and SSH connections used by desktop IDEs. Your Kubernetes cluster must be able to provision layer 4 or layer 7 load balancers for `LoadBalancer` type services that can route HTTP(S) connections to Gitpod services. If you intend to use desktop IDEs or SSH to workspaces then your cluster must also be able to provision layer 4 load balancers that can route SSH connectiosn to Gitpod services.
+
+All supported Kubernetes distributions provide load balancers that meet Gitpod's needs. For more information see the Kubernetes distribution documentation below:
+
+- [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer)
+- Amazon Elastic Kubernetes Engine:
+  - Layer 4/7 (default): [Classic Load Balancer](https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-services-cluster/)
+  - Layer 4 only: [Network Load Balancing](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
+- [Microsoft Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/concepts-network)
+- [K3s](https://rancher.com/docs/k3s/latest/en/networking/#service-load-balancer)

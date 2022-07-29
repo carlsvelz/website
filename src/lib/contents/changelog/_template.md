@@ -4,7 +4,7 @@ excerpt:
 date: {{releaseDate}}
 image: {{releaseDate}}.jpg
 alt:
-tag:
+tag: //incase its a self-hosted Changelog add the value `self-hosted`, otherwise tis prop can be left empty
 ---
 
 <script>

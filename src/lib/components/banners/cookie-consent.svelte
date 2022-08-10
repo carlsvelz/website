@@ -9,7 +9,9 @@
 
   let isModalOpen: boolean = false;
 
-  const handleClose = () => (isModalOpen = false);
+  const handleClose = () => {
+    isModalOpen = false;
+  };
 </script>
 
 <div data-analytics={`{"position":"cookie-consent"}`}>
@@ -28,7 +30,13 @@
       class="flex flex-row-reverse md:flex-row items-center justify-between mt-micro md:mt-x-small"
     >
       <div class="space-x-micro">
-        <button on:click={closeBanner} class="underline">Opt-out</button>
+        <button
+          on:click={() => {
+            Cookies.set(cookies.ANALYTICAL, "false", { expires: 365 });
+            handleClose();
+          }}
+          class="underline">Opt-out</button
+        >
         <button
           on:click={() => {
             isModalOpen = true;

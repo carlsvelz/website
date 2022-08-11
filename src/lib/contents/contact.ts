@@ -67,3 +67,10 @@ export const cloudPlatforms = [
   "Kubernetes",
   "Microsoft Azure Kubernetes Service (AKS)",
 ];
+
+export const licenseFormsQuestions = [
+  "Local preview installation",
+  "Gitpod website / docs",
+  "Someone else told me about it",
+  " Other",
+];

@@ -14,7 +14,7 @@
   import { countryList } from "$lib/contents/license-key";
   import type { Email, EmailToType } from "$lib/api/api";
   import Header from "$lib/components/header.svelte";
-  import { noOfEngineers } from "$lib/contents/contact";
+  import { licenseFormsQuestions, noOfEngineers } from "$lib/contents/contact";
   import Checkbox from "$lib/components/ui-library/checkbox";
   import { tick } from "svelte";
   import { scrollToElement } from "../lib/utils/helpers";
@@ -54,6 +54,11 @@
     noOfEngineers: {
       el: null,
       valid: false,
+      value: "",
+    },
+    referrer: {
+      el: null,
+      valid: true,
       value: "",
     },
     message: {
@@ -97,7 +102,7 @@
         ${formData.firstName.value} ${formData.lastName.value}
 
         developers: ${formData.noOfEngineers.value}
-
+        Referrer: ${formData.referrer.value}
         Message:
         ${formData.message.value}
       `,
@@ -114,6 +119,7 @@
                 cloudInfrastructure: formData.cloudInfrastructure
                   ? formData.cloudInfrastructure.value
                   : "",
+                referrer: formData.referrer.value,
                 message: formData.message.value,
               },
             }
@@ -290,6 +296,22 @@
                   formData.noOfEngineers.value &&
                   formData.noOfEngineers.el.checkValidity();
               }}
+            />
+          </div>
+          <div>
+            <Select
+              label="How did you hear about the professional license?"
+              hasError={isFormDirty && !formData.referrer.valid}
+              name="referrer"
+              bind:value={formData.referrer.value}
+              on:change={(e) => {
+                formData.referrer.valid =
+                  formData.referrer.value &&
+                  // @ts-ignore
+                  e.target.validity.valid;
+              }}
+              options={licenseFormsQuestions}
+              placeholder="How did you hear about the professional license?"
             />
           </div>
         </div>

@@ -13,7 +13,11 @@
 
   import type { Email } from "$lib/api/api";
   import Header from "$lib/components/header.svelte";
-  import { cloudPlatforms, noOfEngineers } from "$lib/contents/contact";
+  import {
+    cloudPlatforms,
+    licenseFormsQuestions,
+    noOfEngineers,
+  } from "$lib/contents/contact";
   import Checkbox from "$lib/components/ui-library/checkbox";
   import { tick } from "svelte";
   import { scrollToElement } from "../../lib/utils/helpers";
@@ -48,6 +52,11 @@
     cloudInfrastructure: {
       el: null,
       valid: false,
+      value: "",
+    },
+    referrer: {
+      el: null,
+      valid: true,
       value: "",
     },
     message: {
@@ -92,6 +101,7 @@
 
         developers: ${formData.noOfEngineers.value}
         Cloud Infrastructure: ${formData.cloudInfrastructure.value}
+        Referrer: ${formData.referrer.value}
         Message:
         ${formData.message.value}
       `,
@@ -99,6 +109,7 @@
         company: formData.company.value,
         noOfEngineers: formData.noOfEngineers.value,
         cloudInfrastructure: formData.cloudInfrastructure.value,
+        referrer: formData.referrer.value,
         message: formData.message.value,
       },
     };
@@ -244,7 +255,22 @@
             }}
             options={cloudPlatforms}
             placeholder="Which cloud infrastructure do you use?"
-            class="max-w-md"
+          />
+        </div>
+        <div>
+          <Select
+            label="How did you hear about the community license?"
+            hasError={isFormDirty && !formData.referrer.valid}
+            name="referrer"
+            bind:value={formData.referrer.value}
+            on:change={(e) => {
+              formData.referrer.valid =
+                formData.referrer.value &&
+                // @ts-ignore
+                e.target.validity.valid;
+            }}
+            options={licenseFormsQuestions}
+            placeholder="How did you hear about the community license?"
           />
         </div>
       </div>

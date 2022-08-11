@@ -145,27 +145,6 @@ The example `eksctl` config file includes services accounts that might not be re
 
 Provided below is a complete `eksctl` configuration file that will deploy all the components required for an EKS installation to support Gitpod. All references to a `gitpod-cluster.yaml` file refer to this reference.
 
-`eksctl` will be configuring the VPC and networking along with creating the EKS cluster itself, if you need to use pre-existing networking provisioned by another team or department, refer to the [custom VPC documentation](https://eksctl.io/usage/vpc-networking/#use-existing-vpc-other-custom-configuration).
-
-<details>
-  <summary  class="text-p-medium">Note on AMI Usage</summary>
-
-In this reference example, the Ubuntu2004 AMI family is used instead of listing a specific AMI ID. This simplifies portability and allows for the use of the built-in bootstrap command instead of having to create a custom one. If you want to do more customization of your bootstrap command or use a static AMI, first, replace `amiFamily: Ubuntu2004` with `ami: ami-customid` where `ami-customid` is from Ubuntu's EKS AMI list or the output from the below command. You will then replace `preBootstrapCommands` with your bootstrap script under a new section labeled `overrideBootstrapCommand`.
-
-```bash
-aws ec2 describe-images --owners 099720109477 \
-    --filters 'Name=name,Values=ubuntu-eks/k8s_1.22/images/*' \
-    --query 'sort_by(Images,&CreationDate)[-1].ImageId' \
-    --executable-users all \
-    --output text --region us-west-2
-```
-
-Refer to `eksctl`'s documentation on [AMI Family](https://eksctl.io/usage/custom-ami-support/) for more information on its behavior.
-
-</details>
-
-<br/>
-
 **`gitpod-cluster.yaml`**
 
 ```yaml

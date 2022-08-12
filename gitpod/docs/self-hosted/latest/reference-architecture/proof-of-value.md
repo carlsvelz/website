@@ -389,7 +389,7 @@ aws iam delete-policy --policy-arn 'arn:aws:iam::12344:policy/gitpod_s3_access_p
 
 </CloudPlatformToggle>
 
-## Ingress
+## Networking
 
 <Networking />
 
@@ -399,8 +399,8 @@ Congratulations. You have set up your cluster. Now, you are ready to install Git
 
 If you followed the steps to create your infrastructure of this guide, you need to use the following config settings for your Gitpod installation:
 
-| General settings |                         |
-| ---------------- | ----------------------- |
+| General settings |                    |
+| ---------------- | ------------------ |
 | Domain name      | value of `$DOMAIN` |
 
 Keep cert-manager selected for the TLS certificates options.

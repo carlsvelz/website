@@ -2,7 +2,7 @@ import type { Handler } from "@netlify/functions";
 import fetch, { Response } from "node-fetch";
 
 const handler: Handler = async (event, _) => {
-  const { username, size = 20 } = event.queryStringParameters;
+  const { username, size = "54" } = event.queryStringParameters;
   const resLocation: Response = await fetch(
     `https://github.com/${username}.png`,
     { redirect: "manual" }

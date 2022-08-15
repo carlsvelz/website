@@ -16,10 +16,11 @@
 
 <!-- This uses a Netlify-Endpoint for returning the image -->
 <img
-  src="https://www.gitpod.io/.netlify/functions/avatar?username={username}"
-  alt="Avatar of {username}"
-  title="Avatar of {username}"
+  src="https://www.gitpod.io/.netlify/functions/avatar?username={username}&size=54"
+  alt="@{username}'s avatar on GitHub"
   height="28"
   width="28"
+  title="@{username}"
   class="inline !rounded-full border border-solid border-card {socialMediaImgClasses}"
+  loading="lazy"
 />

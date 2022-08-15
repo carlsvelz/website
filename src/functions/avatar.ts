@@ -7,7 +7,7 @@ const handler: Handler = async (event, _) => {
     `https://www.github.com/${username}.png`,
     { redirect: "manual" }
   );
-  const res = await fetch(`${resLocation.headers.get("location")}?s=${size}`);
+  const res = await fetch(`${resLocation.headers.get("location")}&s=${size}`);
   const buffer = Buffer.from(await res.arrayBuffer()).toString("base64");
   return {
     statusCode: 200,

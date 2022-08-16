@@ -144,6 +144,8 @@ customization:
 
 ## Limitations
 
+> This limitation has been removed as of [`2022.08.0`](https://github.com/gitpod-io/gitpod/releases/tag/2022.08.0).
+
 Labels are immutable on some Kubernetes resources, such as `Deployments`, `DaemonSets` and `StatefulSets`.
 
 If you wish to change a label on one of these resources, you must destroy that resource first. This can be achieved by running `kubectl delete <resource> --namespace <namespace> <name>` prior to running the KOTS deployment.

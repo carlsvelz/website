@@ -10,7 +10,8 @@ export const compatibilityMatrix: Matrix[] = [
         availibility: "supported",
         policy: {
           text: "the last minor three releases",
-          description: null,
+          description:
+            'The description can go here which can contain links as well <a href="/docs">Docs</a>.',
         },
         supportedVersions: "1.22, 1.23 and 1.24",
       },

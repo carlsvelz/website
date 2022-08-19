@@ -25,6 +25,14 @@
     --col-3: 100px;
     --col-4: 173px;
     --col-5: 196px;
+
+    @media (max-width: 767px) {
+      --col-1: 133px;
+      --col-2: 133px;
+      --col-3: 85px;
+      --col-4: 173px;
+      --col-5: 156px;
+    }
   }
 
   .wrapper > * {
@@ -35,7 +43,7 @@
 
   header {
     & > * {
-      @apply px-xx-small py-3;
+      @apply px-3 md:px-xx-small py-2 md:py-3;
 
       &:nth-child(1) {
         flex: 0 0 var(--col-1);
@@ -75,6 +83,7 @@
 
   .row {
     & > * {
+      @apply flex items-center;
       &:nth-child(1) {
         flex: 0 0 var(--col-2);
       }
@@ -112,6 +121,10 @@
   .relelvant > :global(*) {
     &:first-child {
       flex: 0 0 100px;
+
+      @media (max-width: 767px) {
+        flex: 0 0 90px;
+      }
     }
   }
 
@@ -123,7 +136,7 @@
 </style>
 
 <div
-  class="flex flex-wrap gap-micro justify-center xl:justify-between mt-x-small mb-3"
+  class="flex flex-wrap gap-xx-small justify-center xl:justify-between mt-x-small mb-micro md:mb-3"
 >
   <div class="relelvant flex items-center justify-between w-72">
     <!-- Todo fix the the arrow size -->
@@ -139,7 +152,7 @@
     />
   </div>
 
-  <div class="flex flex-wrap  justify-center status gap-3 sm:gap-micro">
+  <div class="flex flex-wrap justify-center status gap-3 sm:gap-micro">
     <p>
       <No class="mr-1 sm:mr-3 h-6 w-6" />
       not supported
@@ -161,20 +174,22 @@
   <header class="flex font-bold rounded-t-2xl">
     <div>Category</div>
     <div>Component</div>
-    <div>Status</div>
+    <div class="text-center md:text-left">Status</div>
     <div>Support Policy</div>
     <div>Supported Versions</div>
   </header>
   {#each matrixToRender as { name, components }}
     <div class="body flex bg">
-      <div class="pl-xx-small flex items-center border-r border-divider">
+      <div
+        class="pl-3 md:pl-xx-small flex items-center border-r border-divider"
+      >
         {name}
       </div>
       <div class="divide-y divide-divider">
         {#each components as { name, availibility, policy, supportedVersions }}
-          <div class="flex row py-3">
-            <div class="pl-xx-small">{name}</div>
-            <div class="flex justify-center">
+          <div class="flex row py-macro md:py-3">
+            <div class="pl-3 md:pl-xx-small">{name}</div>
+            <div class="justify-center">
               {#if availibility === "supported"}
                 <Yes />
               {:else if availibility === "not-supported"}
@@ -183,13 +198,13 @@
                 <Untested />
               {/if}
             </div>
-            <div class="px-xx-small">
+            <div class="px-3 md:px-xx-small">
               {policy.text}
               {#if policy.description}
                 <Tooltip title={policy.description} />
               {/if}
             </div>
-            <div class="px-xx-small">
+            <div class="px-3 md:px-xx-small">
               {supportedVersions}
             </div>
           </div>

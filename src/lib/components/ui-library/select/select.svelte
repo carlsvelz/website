@@ -7,6 +7,7 @@
   export let placeholder: string = "";
   export let hasError: boolean = false;
   export let label: string = "";
+  export let labelClassNames = "text-body block mb-2";
   export let element: HTMLElement = null;
   export let name: string;
 </script>
@@ -27,7 +28,7 @@
 </style>
 
 {#if label}
-  <label class:error={hasError} class="text-body block mb-2" for={label}
+  <label class:error={hasError} class={labelClassNames} for={label}
     >{@html label}</label
   >
 {/if}
@@ -42,7 +43,9 @@
   on:change
   {...$$restProps}
 >
-  <option disabled class="text-body" value="">{placeholder}</option>
+  {#if placeholder}
+    <option disabled class="text-body" value="">{placeholder}</option>
+  {/if}
   {#each options as option}
     <option value={option}>
       {option}

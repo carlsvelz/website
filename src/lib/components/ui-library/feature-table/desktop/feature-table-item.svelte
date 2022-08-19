@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Cross from "$lib/components/svgs/cross.svelte";
+  import No from "$lib/components/svgs/no.svelte";
+  import Yes from "$lib/components/svgs/yes.svelte";
   import type { FeatureItemDetail } from "../feature-table.types";
   export let definition: FeatureItemDetail;
 </script>
@@ -32,11 +33,10 @@
       {@html definition.text}
     {/if}
     {#if definition.availability}
-      <img alt="Yes" class="mx-auto" height="24" width="24" src="/tick.svg" />
+      <Yes />
     {/if}
-
     {#if definition.availability === false}
-      <Cross />
+      <No />
     {/if}
   </div>
 {/if}

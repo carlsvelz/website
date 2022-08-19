@@ -118,13 +118,17 @@
     }
   }
 
-  .relelvant > :global(*) {
+  .relevant > :global(*) {
     &:first-child {
       flex: 0 0 100px;
 
       @media (max-width: 767px) {
         flex: 0 0 90px;
       }
+    }
+
+    &:last-child {
+      background-size: 0.8em auto, 100%;
     }
   }
 
@@ -138,8 +142,7 @@
 <div
   class="flex flex-wrap gap-xx-small justify-center xl:justify-between mt-x-small mb-micro md:mb-3"
 >
-  <div class="relelvant flex items-center justify-between w-72">
-    <!-- Todo fix the the arrow size -->
+  <div class="relevant flex items-center justify-between w-72">
     <Select
       label="Relevant for"
       value="All"

@@ -2,134 +2,467 @@ import type { Matrix } from "$lib/types/matrix.type";
 
 export const compatibilityMatrix: Matrix[] = [
   {
-    name: "Orchestration System",
-    relevance: "admins", // this is optional used for filtering based on relevance.
+    name: "Browser", // RESPONSIBLE TEAM: WEBAPP
+    relevance: "users", // this is optional used for filtering based on relevance.
     components: [
       {
-        name: "Kubernetes",
+        name: "Google Chrome",
         availibility: "supported",
+        limitations: null,
         policy: {
-          text: "the last minor three releases",
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Safari",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Firefox",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+    ],
+  },
+  {
+    name: "IDE", // RESPONSIBLE TEAM: IDE
+    relevance: "users", // this is optional used for filtering based on relevance.
+    components: [
+      {
+        name: "VS Code Web",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "VS Code Desktop",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "IntelliJ IDEA",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "GoLand",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "PyCharm",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "CLI access (e.g. vim)",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+    ],
+  },
+  {
+    name: "Source Control Management System (SCM)", // RESPONSIBLE TEAM: WEBAPP
+    relevance: "everyone", // this is optional used for filtering based on relevance.
+    components: [
+      {
+        name: "Github.com",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Github Enterprise Server",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "see officially supported versions",
           description:
-            'The description can go here which can contain links as well <a href="/docs">Docs</a>.', // description it the tooltip that appears once the question mark is hovered upon.
+            'all <a href="https://docs.github.com/en/enterprise-server@3.6/admin/all-releases">officially supported versions</a> in Github\'s documentation',
         },
-        supportedVersions: "1.22, 1.23 and 1.24",
+        supportedVersions: "see Github's documentation",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
-        availibility: "not-supported",
+        name: "Gitlab.com",
+        availibility: "supported",
+        limitations: null,
         policy: {
-          text: "default",
+          text: "current version",
           description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "current version",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
+        name: "Gitlab Self-Managed",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "see officially supported versions",
+          description:
+            'all <a href="https://docs.gitlab.com/ee/policy/maintenance.html">officially supported versions</a> in Gitlab\'s documentation',
+        },
+        supportedVersions: "see Gitlab's documentation",
+      },
+      {
+        name: "Bitbucket.org",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Bitbucket Server",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "> v7.20 (Jan 2022)",
+          description: null,
+        },
+        supportedVersions: "> v7.20 (Jan 2022)",
+      },
+    ],
+  },
+  {
+    name: "Operating System (Kernel)", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    components: [
+      {
+        name: "Linux Kernel",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "> 5.4",
+          description: null,
+        },
+        supportedVersions: "5.4 > x > 5.15",
+      },
+    ],
+  },
+  {
+    name: "Operating System (Distribution)", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    components: [
+      {
+        name: "Ubuntu",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "All LTS versions and the latest",
+          description: null,
+        },
+        supportedVersions: "18.04, 20.04, 22.04",
+      },
+      {
+        name: "Amazon Linux",
         availibility: "untested",
+        limitations: null,
         policy: {
-          text: "default",
-          description: "",
+          text: "",
+          description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "",
       },
     ],
   },
   {
-    name: "Container Network Interface (CNI)",
-    relevance: "users",
+    name: "Orchestration System", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
     components: [
       {
         name: "Kubernetes",
         availibility: "supported",
+        limitations: null,
         policy: {
-          text: "the last minor three releases",
+          text: "the last three minor releases",
           description: null,
         },
         supportedVersions: "1.22, 1.23 and 1.24",
-      },
-      {
-        name: "Elastic Kubernetes Service (EKS)",
-        availibility: "not-supported",
-        policy: {
-          text: "default",
-          description: null,
-        },
-        supportedVersions: "default",
-      },
-      {
-        name: "Elastic Kubernetes Service (EKS)",
-        availibility: "supported",
-        policy: {
-          text: "default",
-          description: "",
-        },
-        supportedVersions: "default",
       },
     ],
   },
   {
-    name: "Image Registry",
-    relevance: "users",
+    name: "Orchestration Platform", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
     components: [
       {
-        name: "Kubernetes",
+        name: "Amazon Elastic Kubernetes Service (EKS)",
         availibility: "supported",
+        limitations: null,
         policy: {
-          text: "the last minor three releases",
+          text: "see Kubernetes support policy",
           description: null,
         },
-        supportedVersions: "1.22, 1.23 and 1.24",
+        supportedVersions: "see Kubernetes support policy",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
-        availibility: "not-supported",
+        name: "Google Kubernetes Engine (GKE)",
+        availibility: "supported",
+        limitations:
+          '- <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2">Dataplane V2</a> unsupported, <br/> - Not supported in combination with <a href="https://github.com/gitpod-io/gitpod/issues/11168">self-signed certs</a>',
         policy: {
-          text: "default",
+          text: "see Kubernetes support policy",
           description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "see Kubernetes support policy",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
+        name: "Azure Kubernetes Service (AKS)",
         availibility: "supported",
+        limitations: null,
         policy: {
-          text: "default",
-          description: "",
+          text: "see Kubernetes support policy",
+          description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "see Kubernetes support policy",
+      },
+      {
+        name: "K3s",
+        availibility: "untested",
+        limitations: null,
+        policy: {
+          text: "see Kubernetes support policy",
+          description: null,
+        },
+        supportedVersions: "see Kubernetes support policy",
       },
     ],
   },
   {
-    name: "Container Network Interface (CNI)",
+    name: "Container Runtime", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins",
     components: [
       {
-        name: "Kubernetes",
+        name: "containerd",
         availibility: "supported",
+        limitations: "- Socket access required",
         policy: {
-          text: "the last minor three releases",
+          text: "Last three minor releases",
           description: null,
         },
-        supportedVersions: "1.22, 1.23 and 1.24",
+        supportedVersions: "1.4, 1.5 and 1.6.",
+      },
+    ],
+  },
+  {
+    name: "Container Network Interface (CNI)", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins",
+    components: [
+      {
+        name: "Calico VXLAN",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+    ],
+  },
+  {
+    name: "Certificate Management Tools", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins",
+    components: [
+      {
+        name: "Cert Manager",
+        availibility: "supported",
+        limitations:
+          "Cert-Manager is required even if you don't use it for your own certificates because Gitpod uses it internally.",
+        policy: {
+          text: "Most recent versions",
+          description:
+            'Any version that implements <a href="https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1">cert-manager.io/v1</a>',
+        },
+        supportedVersions: "Most recent versions",
+      },
+    ],
+  },
+  {
+    name: "Object Storage", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins",
+    components: [
+      {
+        name: "AWS S3",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
+        name: "Google Cloud Storage (GCS)",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Azure",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "MiniIO ",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "",
+          description: null,
+        },
+        supportedVersions: "",
+      },
+    ],
+  },
+  {
+    name: "Image Registry", // RESPONSIBLE TEAM: WORKSPACE
+    relevance: "self-hosted admins",
+    components: [
+      {
+        name: "MiniIO backed by AWS S3",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "",
+          description: null,
+        },
+        supportedVersions: "",
+      },
+      {
+        name: "Amazon Elastic Container Registry (ECR)",
         availibility: "not-supported",
+        limitations:
+          'Amazon Elastic Container Registry (ECR) does not implement the <a href="https://docs.docker.com/registry/spec/api/">Docker Registry HTTP API V2</a> spec fully. The spec expects that, if an image is pushed to a repository that doesn’t exist, it creates the repository before uploading the image. Amazon ECR does not do this - if the repository doesn’t exist, it will error on push. We advise to use MiniIO backed by S3 instead.',
         policy: {
-          text: "default",
+          text: "",
           description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "",
       },
       {
-        name: "Elastic Kubernetes Service (EKS)",
+        name: "Google Container Registry (GCR)",
         availibility: "supported",
+        limitations: null,
         policy: {
-          text: "default",
-          description: "",
+          text: "current version",
+          description: null,
         },
-        supportedVersions: "default",
+        supportedVersions: "current version",
+      },
+      {
+        name: "Google Artifact Registry (GAR)",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Azure Container Registry (ACR)",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "current version",
+          description: null,
+        },
+        supportedVersions: "current version",
+      },
+      {
+        name: "Artifactory",
+        availibility: "untested",
+        limitations: null,
+        policy: {
+          text: "",
+          description: null,
+        },
+        supportedVersions: "",
+      },
+      {
+        name: "Other Docker Registry API compliant registries",
+        availibility: "untested",
+        limitations:
+          'Any image registry that implements the <a href="https://docs.docker.com/registry/spec/api/">Docker Registry HTTP API V2</a> spec should work - however we cannot guarantee that it will. ',
+        policy: {
+          text: "",
+          description: null,
+        },
+        supportedVersions: "",
+      },
+    ],
+  },
+  {
+    name: "Database", // RESPONSIBLE TEAM: WEBAPP
+    relevance: "self-hosted admins",
+    components: [
+      {
+        name: "MySQL",
+        availibility: "supported",
+        limitations: null,
+        policy: {
+          text: "5.7",
+          description: null,
+        },
+        supportedVersions: "5.7",
       },
     ],
   },
@@ -138,4 +471,6 @@ export const compatibilityMatrix: Matrix[] = [
 export const filterMatrixByRelevance = (relevance: string) =>
   relevance === "all"
     ? compatibilityMatrix
-    : compatibilityMatrix.filter((matrix) => matrix.relevance === relevance);
+    : compatibilityMatrix.filter((matrix) =>
+        matrix.relevance === "everyone" ? true : matrix.relevance === relevance
+      );

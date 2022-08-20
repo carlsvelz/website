@@ -1,6 +1,7 @@
 type Component = {
   name: string;
   availibility: "supported" | "not-supported" | "untested";
+  limitations: string;
   policy: {
     text: string;
     description?: string;
@@ -10,6 +11,6 @@ type Component = {
 
 export type Matrix = {
   name: string;
-  relevance?: "admins" | "users";
+  relevance?: "everyone" | "self-hosted admins" | "users";
   components: Component[];
 };

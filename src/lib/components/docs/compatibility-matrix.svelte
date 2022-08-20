@@ -4,8 +4,8 @@
     filterMatrixByRelevance,
   } from "$lib/contents/docs/compatibility-matrix";
   import type { Matrix } from "$lib/types/matrix.type";
-  import No from "../svgs/no.svelte";
-  import Untested from "../svgs/untested.svelte";
+  import Untestedcompmtrx from "../svgs/untestedcompmtrx.svelte";
+  import Nocompmtrx from "../svgs/nocompmtrx.svelte";
   import Yes from "../svgs/yes.svelte";
   import Tooltip from "../tooltip.svelte";
   import Select from "../ui-library/select/select.svelte";
@@ -142,12 +142,12 @@
 <div
   class="flex flex-wrap gap-xx-small justify-center xl:justify-between mt-x-small mb-micro md:mb-3"
 >
-  <div class="relevant flex items-center justify-between w-72">
+  <div class="relevant flex items-center justify-between w-100">
     <Select
       label="Relevant for"
       value="All"
       name="for"
-      options={["All", "Admins", "Users"]}
+      options={["All", "Users", "Self-Hosted Admins"]}
       class="flex"
       labelClassNames="font-bold text-important text-medium mr-micro mb-0"
       style="padding: 4px 40px 4px var(--micro)"
@@ -157,15 +157,15 @@
 
   <div class="flex flex-wrap justify-center status gap-3 sm:gap-micro">
     <p>
-      <No class="mr-1 sm:mr-3 h-6 w-6" />
-      not supported
+      <Yes class="mr-1 sm:mr-3 h-6 w-6" />
+      supported
     </p>
     <p>
-      <Untested class="mr-1 sm:mr-3 h-6 w-6" />
+      <Untestedcompmtrx class="mr-1 sm:mr-3 h-6 w-6" />
       untested
     </p>
     <p>
-      <Yes class="mr-1 sm:mr-3 h-6 w-6" />
+      <Nocompmtrx class="mr-1 sm:mr-3 h-6 w-6" />
       not supported
     </p>
   </div>
@@ -189,16 +189,19 @@
         {name}
       </div>
       <div class="divide-y divide-divider">
-        {#each components as { name, availibility, policy, supportedVersions }}
+        {#each components as { name, availibility, limitations, policy, supportedVersions }}
           <div class="flex row py-macro md:py-3">
             <div class="pl-3 md:pl-xx-small">{name}</div>
             <div class="justify-center">
               {#if availibility === "supported"}
                 <Yes />
               {:else if availibility === "not-supported"}
-                <No />
+                <Nocompmtrx />
               {:else}
-                <Untested />
+                <Untestedcompmtrx />
+              {/if}
+              {#if limitations}
+                <Tooltip title={limitations} />
               {/if}
             </div>
             <div class="px-3 md:px-xx-small">

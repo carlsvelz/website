@@ -39,7 +39,7 @@ export const compatibilityMatrix: Matrix[] = [
   },
   {
     name: "IDE", // RESPONSIBLE TEAM: IDE
-    relevance: "users", // this is optional used for filtering based on relevance.
+    relevance: "users",
     components: [
       {
         name: "VS Code Web",
@@ -105,7 +105,7 @@ export const compatibilityMatrix: Matrix[] = [
   },
   {
     name: "Source Control Management System (SCM)", // RESPONSIBLE TEAM: WEBAPP
-    relevance: "everyone", // this is optional used for filtering based on relevance.
+    relevance: "everyone",
     components: [
       {
         name: "Github.com",
@@ -173,7 +173,7 @@ export const compatibilityMatrix: Matrix[] = [
   },
   {
     name: "Operating System (Kernel)", // RESPONSIBLE TEAM: WORKSPACE
-    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    relevance: "self-hosted admins",
     components: [
       {
         name: "Linux Kernel",
@@ -183,13 +183,13 @@ export const compatibilityMatrix: Matrix[] = [
           text: "> 5.4",
           description: null,
         },
-        supportedVersions: "5.4 > x > 5.15",
+        supportedVersions: "5.4 < x < 5.15",
       },
     ],
   },
   {
     name: "Operating System (Distribution)", // RESPONSIBLE TEAM: WORKSPACE
-    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    relevance: "self-hosted admins",
     components: [
       {
         name: "Ubuntu",
@@ -215,12 +215,13 @@ export const compatibilityMatrix: Matrix[] = [
   },
   {
     name: "Orchestration System", // RESPONSIBLE TEAM: WORKSPACE
-    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    relevance: "self-hosted admins",
     components: [
       {
         name: "Kubernetes",
         availibility: "supported",
-        limitations: null,
+        limitations:
+          "- Nodes with at least 4 vCPU and 16GB of RAM are expected <br/> - Your Kubernetes cluster must allow Gitpod to run privileged pods and manage PodSecurityPolicies, because Gitpod depends on these privileges to provide workspace isolation.",
         policy: {
           text: "the last three minor releases",
           description: null,
@@ -231,7 +232,7 @@ export const compatibilityMatrix: Matrix[] = [
   },
   {
     name: "Orchestration Platform", // RESPONSIBLE TEAM: WORKSPACE
-    relevance: "self-hosted admins", // this is optional used for filtering based on relevance.
+    relevance: "self-hosted admins",
     components: [
       {
         name: "Amazon Elastic Kubernetes Service (EKS)",
@@ -283,7 +284,7 @@ export const compatibilityMatrix: Matrix[] = [
       {
         name: "containerd",
         availibility: "supported",
-        limitations: "- Socket access required",
+        limitations: "Socket access required",
         policy: {
           text: "Last three minor releases",
           description: null,

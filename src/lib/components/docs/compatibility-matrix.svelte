@@ -9,6 +9,7 @@
   import GreenTick from "../svgs/green-tick.svelte";
   import Tooltip from "../tooltip.svelte";
   import Select from "../ui-library/select/select.svelte";
+  import { fade } from "svelte/transition";
 
   let matrixToRender: Matrix[] = compatibilityMatrix;
 
@@ -181,41 +182,43 @@
     <div>Support Policy</div>
     <div>Supported Versions</div>
   </header>
-  {#each matrixToRender as { name, components }}
-    <div class="body flex bg">
-      <div
-        class="pl-3 md:pl-xx-small flex items-center border-r border-divider"
-      >
-        {@html name}
+  {#key matrixToRender}
+    {#each matrixToRender as { name, components }, i}
+      <div class="body flex bg" in:fade={{ delay: i * 20 }}>
+        <div
+          class="pl-3 md:pl-xx-small flex items-center border-r border-divider"
+        >
+          {@html name}
+        </div>
+        <div class="flex flex-col justify-center divide-y divide-divider">
+          {#each components as { name, availibility, limitations, policy, supportedVersions }}
+            <div class="flex row py-macro md:py-micro">
+              <div class="pl-3 md:pl-xx-small">{@html name}</div>
+              <div class="justify-center">
+                {#if availibility === "supported"}
+                  <GreenTick />
+                {:else if availibility === "not-supported"}
+                  <RedCross />
+                {:else}
+                  <GreyDash title="untested" />
+                {/if}
+                {#if limitations}
+                  <Tooltip title={limitations} />
+                {/if}
+              </div>
+              <div class="px-3 md:px-xx-small">
+                {@html policy.text}
+                {#if policy.description}
+                  <Tooltip title={policy.description} />
+                {/if}
+              </div>
+              <div class="px-3 md:px-xx-small">
+                {@html supportedVersions}
+              </div>
+            </div>
+          {/each}
+        </div>
       </div>
-      <div class="flex flex-col justify-center divide-y divide-divider">
-        {#each components as { name, availibility, limitations, policy, supportedVersions }}
-          <div class="flex row py-macro md:py-micro">
-            <div class="pl-3 md:pl-xx-small">{@html name}</div>
-            <div class="justify-center">
-              {#if availibility === "supported"}
-                <GreenTick />
-              {:else if availibility === "not-supported"}
-                <RedCross />
-              {:else}
-                <GreyDash title="untested" />
-              {/if}
-              {#if limitations}
-                <Tooltip title={limitations} />
-              {/if}
-            </div>
-            <div class="px-3 md:px-xx-small">
-              {@html policy.text}
-              {#if policy.description}
-                <Tooltip title={policy.description} />
-              {/if}
-            </div>
-            <div class="px-3 md:px-xx-small">
-              {@html supportedVersions}
-            </div>
-          </div>
-        {/each}
-      </div>
-    </div>
-  {/each}
+    {/each}
+  {/key}
 </div>

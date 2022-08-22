@@ -6,7 +6,7 @@ layout: false
   import CloudPlatformToggle from "$lib/components/docs/cloud-platform-toggle.svelte";
 </script>
 
-Congratulations. You have set up your cluster. Now, you are ready to install Gitpod. Follow the instructions of [step 4 of the Getting Started Guide](../getting-started#step-4-install-gitpod).
+Congratulations. You have set up your cluster. Now, you are ready to install Gitpod. Follow the instructions in the [installation guide](../installing-gitpod#install-gitpod).
 
 <CloudPlatformToggle id="cloud-platform-toggle-install">
 <div slot="gcp">

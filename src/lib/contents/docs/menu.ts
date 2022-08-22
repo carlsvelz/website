@@ -93,7 +93,6 @@ export const MENU: MenuEntry[] = [
   M("Gitpod Self-Hosted", "self-hosted/latest", [
     M("Installation Guides", "self-hosted/latest/installation-guides", [
       M("Local Preview", "self-hosted/latest/local-preview", [], "beta"),
-      M("Getting Started", "self-hosted/latest/getting-started"),
       M(
         "Reference Architectures",
         "self-hosted/latest/reference-architecture",
@@ -101,6 +100,7 @@ export const MENU: MenuEntry[] = [
         "alpha"
       ),
       M("Cluster Set-Up", "self-hosted/latest/cluster-set-up"),
+      M("Installing Gitpod", "self-hosted/latest/installing-gitpod"),
       M("Advanced Installation", "self-hosted/latest/advanced"),
     ]),
     M("Operational Guides", "self-hosted/latest/operational-guides", [

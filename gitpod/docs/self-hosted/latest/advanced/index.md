@@ -17,5 +17,5 @@ Here you can find advanced topics related to installing Gitpod:
 - [Setting up your EKS cluster with dual ALB + NLB load balancers](./advanced/eks-with-alb-and-nlb)
 - [Applying custom annotations, labels and environment variables](./advanced/customization)
 - [Component Customization](./advanced/components)
-- [Manual installation of Gitpod using the Gitpod Installer](https://github.com/gitpod-io/gitpod/tree/main/install/installer) (not recommended - we strongly recommend the default installation method in the [Getting Started Guide](./getting-started))
+- [Manual installation of Gitpod using the Gitpod Installer](https://github.com/gitpod-io/gitpod/tree/main/install/installer) (not recommended - we strongly recommend the default installation method in the [installation guide](../latest/installing-gitpod))
 <!-- The above should be removed as soon as we have most customers using the default method (a.k.a. replicated flow) -->

@@ -12,7 +12,7 @@ title: Component Customization
 
 In this guide, we expect you to have a cluster up and running that [meets the requirements](../cluster-set-up) and has the [required components](../required-components) installed and configured (at least cert-manager is needed).
 
-This guide assumes that you are using our default installation method from our [getting started guide](../getting-started).
+This guide assumes that you are using our default installation method from our [installation guide](../installing-gitpod).
 
 ## Rationale
 

@@ -18,13 +18,13 @@ Gitpod is a Kubernetes application running with certain expectations on the char
 
 ## Reference Architectures
 
-We have created a set of [reference architectures](../latest/reference-architecture) for all the major cloud providers that fulfill the requirements below. These are intended as a starting point for you to create an environment to install Gitpod into. If you wish to use K3s, please refer to the [k3s guide](../cluster-set-up/on-k3s).
+We have created a set of [reference architectures](../latest/reference-architecture) for all the major cloud providers that fulfill the requirements below. These are intended as a starting point for you to create an environment to install Gitpod into. If you wish to use K3s, please refer to the [k3s guide](../latest/cluster-set-up/on-k3s).
 
 ## Cluster Requirements
 
 ### Supported Kubernetes Distributions
 
-Gitpod requires Kubernetes as an orchestration technology in order to spin workspaces up and down--ideally in combination with cluster autoscaling to minimise cost. We strongly recommend deploying a dedicated Kubernetes cluster just for Gitpod Self-Hosted.
+Gitpod requires Kubernetes as an orchestration technology in order to spin workspaces up and down--ideally in combination with cluster autoscaling to minimize cost. We strongly recommend deploying a dedicated Kubernetes cluster just for Gitpod Self-Hosted.
 
 > Kubernetes version `1.21` or above is required
 

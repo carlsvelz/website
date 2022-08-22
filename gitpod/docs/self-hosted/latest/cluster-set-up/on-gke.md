@@ -21,4 +21,4 @@ Instructions on how to create a Google GKE environment that is ready to install 
 
 > **Note:** GKE Dataplane V2 uses Cilium as container network interface (CNI) which is not supported by Gitpod. Please use GKE Dataplane V1.
 
-Upon completion, this script will print the config for the resources created (including passwords) and what is the [next relevant step](./../getting-started#step-4-install-gitpod) in the installation process. Note that you will be able to skip steps 2 and 3 in the getting started guide because the script can do these steps for you.
+Upon completion, this script will print the config for the resources created (including passwords) and what is the [next relevant step](./../installing-gitpod#install-gitpod) in the installation process. Note that you will be able to skip steps 2 and 3 in the getting started guide because the script can do these steps for you.

@@ -71,4 +71,4 @@ Gitpod expects to be connected to a Source Control Management System (SCM) such 
 
 ## Cert Manager
 
-[Cert-manager](https://cert-manager.io/) must be installed in your cluster before you can install Gitpod. It is used to create and manage certificates needed to secure communication between the various internal Gitpod components. It can also be used to fetch a TLS certificate for your Gitpod instance from Let's Encrypt for example. See the [getting started guide](./getting-started#step-2-install-cert-manager) for details on how to install cert-manager.
+[Cert-manager](https://cert-manager.io/) must be installed in your cluster before you can install Gitpod. It is used to create and manage certificates needed to secure communication between the various internal Gitpod components. It can also be used to fetch a TLS certificate for your Gitpod instance from Let's Encrypt for example. Please consider the [cert-manager documentation](https://cert-manager.io/docs/) on how to install it.

@@ -101,4 +101,4 @@ Click on “choose a bundle to upload” and select your `gitpod-<version>.airga
 
 Uploading this file and pushing the images to your registry will take a while (could take several hours depending on your internet connection). Grab a cup of coffee or tea and wait for it to be ready. ☕
 
-Once the images has been pushed to your registry, you can continue to install Gitpod as described in the [getting started guide](../getting-started). Happy coding!
+Once the images has been pushed to your registry, you can continue to install Gitpod as described in the [installation guide](../installing-gitpod). Happy coding!

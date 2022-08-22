@@ -1,5 +1,6 @@
 ---
 section: self-hosted/latest
+subsection: installation-guides
 title: K3s Cluster for Gitpod Self-Hosted
 ---
 
@@ -82,4 +83,4 @@ Copy that file to `node0` in the following folder (create folder if missing):
 /var/lib/rancher/k3s/server/manifests/
 ```
 
-That's it. Your K3s cluster is ready to install Gitpod. The next step is to install cert-manager. Just follow the instructions of the [getting started guide](../getting-started#step-2-install-cert-manager)!
+That's it. Your K3s cluster is ready to install Gitpod. The next step is to install cert-manager. Just follow the instructions of the [installation guide](../installing-gitpod#prerequisites) to install !

@@ -138,12 +138,12 @@ kubectl create clusterrolebinding cluster-admin-binding \
 
 ## Install Gitpod
 
-Congratulations. You have set up your cluster. Now, you are ready to install Gitpod. Follow the instructions of [step 4 of the Getting Started Guide](../getting-started#step-4-install-gitpod).
+Congratulations. You have set up your cluster. Now, you are ready to install Gitpod. Follow the instructions of the [installation guide](../installing-gitpod).
 
 If you followed the steps to create your infrastructure of this guide, you need to use the following config settings for your Gitpod installation:
 
-| General settings |                         |
-| ---------------- | ----------------------- |
+| General settings |                    |
+| ---------------- | ------------------ |
 | Domain name      | value of `$DOMAIN` |
 
 Keep cert-manager selected for the TLS certificates options.

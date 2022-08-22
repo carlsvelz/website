@@ -1,24 +1,39 @@
 ---
 section: self-hosted/latest
 subsection: installation-guides
-title: Getting Started with Gitpod Self-Hosted
+title: Installing Gitpod Self-Hosted
 ---
 
 <script context="module">
   export const prerender = true;
 </script>
 
-# Getting Started with Gitpod Self-Hosted
+# Installing Gitpod Self-Hosted
 
 > **Note:** Setting up a self-hosted Gitpod instance needs some Kubernetes experience. Detailed guidance on how to setup and maintain a Kubernetes cluster is behind the scope of these docs. See also [_Prerequisites to Install Gitpod Self-Hosted_](../latest#prerequisites-to-install-gitpod-self-hosted).
 
-## Step 1: Create a Kubernetes Cluster
+## Prerequisites
 
-Gitpod is a Kubernetes application that uses Kubernetes internally to provision workspaces as Kubernetes pods. Before you can start installing Gitpod, you need to create a compatible Kubernetes cluster. Since the steps needed to create a proper cluster differ between the cloud providers, it's up to you to setup a cluster that meets the proper [requirements](./cluster-set-up). We have created a [list of examples and scripts](./cluster-set-up#cluster-set-up-guides) that will help you to get started with your favorite cloud provider.
+> These prerequisites are fulfilled already if you used one of the [reference architectures](./reference-architecture). We strongly encourage the use of these reference architectures. Please see the [cluster requirements](./cluster-set-up) for more information on what Gitpod needs to function.
 
-## Step 2: Install Cert-Manager
+<details>
+  <summary  class="text-p-medium"><b> Kubernetes Cluster</b></summary>
+
+Gitpod is a Kubernetes application that uses Kubernetes internally to provision workspaces as Kubernetes pods. Before you can start installing Gitpod, you need to create a compatible Kubernetes cluster. The [reference architectures](./reference-architecture) will help you to get started with your favorite cloud provider. If you are creating a cluster yourself, it's up to you to set up a cluster that meets the [requirements](./cluster-set-up).
+
+</details>
+
+<details>
+  <summary  class="text-p-medium"><b>Cert-Manager installed on the cluster</b></summary>
 
 Once you have created your Kubernetes cluster you need to install [cert-manager](https://cert-manager.io/). cert-manager is needed even when you bring your own TLS certificate for your domain. Please consider the [cert-manager documentation](https://cert-manager.io/docs/) on how to install it.
+
+</details>
+
+<details>
+  <summary  class="text-p-medium"><b>DNS and TLS configured</b></summary>
+
+To install Gitpod you need a domain with a TLS certificate. The DNS setup to your domain needs to be configured such that it points to the ingress of your Kubernetes cluster. You need to configure your actual domain (say `example.com`) as well as the wildcard subdomains `*.example.com` and `*.ws.example.com`. Alternatively, you can rely on a configured `Issuer`/`ClusterIssuer` plus a `Certificate` (that also includes the wildcard domains) for cert-manager:
 
 **Creating TLS certs for your domain with cert-manager**
 
@@ -32,20 +47,11 @@ Following the cert-manager instructions, you will have an `Issuer` or `ClusterIs
 
 _(replace `example.com` with your Gitpod domain)_
 
-## Step 3: Configure DNS
+</details>
 
-To install Gitpod you need a domain with a TLS certificate. The DNS setup to your domain needs to be configured such that it points to the ingress of your Kubernetes cluster. You need to configure your actual domain (say `example.com`) as well as the wildcard subdomains `*.example.com` and `*.ws.example.com`.
+## Install Gitpod
 
-## Step 4: Install Gitpod
-
-At this point, you should have:
-
-- a running Kubernetes cluster
-- cert-manager installed in this cluster
-- a TLS certificate for your domain (incl. wildcard subdomains) _or_ a configured `Issuer`/`ClusterIssuer` plus `Certificate` for cert-manager
-- a domain with proper DNS setup
-
-To start with installing Gitpod, you need a terminal where you can run `kubectl` to access your cluster. First, install the KOTS kubectl plugin:
+To start with installing Gitpod, you need a terminal where you can run `kubectl` against your cluster. First, install the KOTS kubectl plugin:
 
 ```shell
 curl https://kots.io/install | bash

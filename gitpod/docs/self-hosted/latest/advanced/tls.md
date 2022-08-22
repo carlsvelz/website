@@ -14,7 +14,7 @@ To run your own Gitpod instance, you need a TLS certificate for your Gitpod doma
 
 ## Option 1: Cert-Manager
 
-Configure cert-manager to issue these certificates (usually with a DNS-01 challenge and services like [Let's encrypt](https://letsencrypt.org/)). See the [getting started guide](../getting-started#step-2-install-cert-manager) for more information.
+Configure cert-manager to issue these certificates (usually with a DNS-01 challenge and services like [Let's encrypt](https://letsencrypt.org/)). See the [installation guide](../installing-gitpod#prerequisites)) for more information.
 
 ![kots-tls-cert-manager](../../static/images/docs/self-hosted/kots-tls-cert-manager.png)
 

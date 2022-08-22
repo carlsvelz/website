@@ -4,9 +4,9 @@
     filterMatrixByRelevance,
   } from "$lib/contents/docs/compatibility-matrix";
   import type { Matrix } from "$lib/types/matrix.type";
-  import Untestedcompmtrx from "../svgs/untestedcompmtrx.svelte";
-  import Nocompmtrx from "../svgs/nocompmtrx.svelte";
-  import Yes from "../svgs/yes.svelte";
+  import GreyDash from "../svgs/grey-dash.svelte";
+  import RedCross from "../svgs/red-cross.svelte";
+  import GreenTick from "../svgs/green-tick.svelte";
   import Tooltip from "../tooltip.svelte";
   import Select from "../ui-library/select/select.svelte";
 
@@ -157,15 +157,15 @@
 
   <div class="flex flex-wrap justify-center status gap-3 sm:gap-micro">
     <p>
-      <Yes class="mr-1 sm:mr-3 h-6 w-6" />
+      <GreenTick class="mr-1 sm:mr-3 h-6 w-6" />
       supported
     </p>
     <p>
-      <Untestedcompmtrx class="mr-1 sm:mr-3 h-6 w-6" />
+      <GreyDash title="untested" class="mr-1 sm:mr-3 h-6 w-6" />
       untested
     </p>
     <p>
-      <Nocompmtrx class="mr-1 sm:mr-3 h-6 w-6" />
+      <RedCross class="mr-1 sm:mr-3 h-6 w-6" />
       not supported
     </p>
   </div>
@@ -194,11 +194,11 @@
             <div class="pl-3 md:pl-xx-small">{name}</div>
             <div class="justify-center">
               {#if availibility === "supported"}
-                <Yes />
+                <GreenTick />
               {:else if availibility === "not-supported"}
-                <Nocompmtrx />
+                <RedCross />
               {:else}
-                <Untestedcompmtrx />
+                <GreyDash title="untested" />
               {/if}
               {#if limitations}
                 <Tooltip title={limitations} />

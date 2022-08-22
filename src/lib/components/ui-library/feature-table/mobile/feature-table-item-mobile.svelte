@@ -1,7 +1,7 @@
 <script lang="ts">
   import QaTooltip from "$lib/components/qa-tooltip.svelte";
-  import No from "$lib/components/svgs/no.svelte";
-  import Yes from "$lib/components/svgs/yes.svelte";
+  import GreyDash from "$lib/components/svgs/grey-dash.svelte";
+  import GreenTick from "$lib/components/svgs/green-tick.svelte";
   export let definition: any;
 </script>
 
@@ -35,10 +35,10 @@
       {@html definition.text}
     {/if}
     {#if definition.availability}
-      <Yes />
+      <GreenTick />
     {/if}
     {#if definition.availability === false}
-      <No />
+      <GreyDash />
     {/if}
   </div>
 {/if}

@@ -16,11 +16,16 @@ title: "Proof-of-Value Reference Architecture"
 
 # Proof-of-Value Reference Architecture
 
-You like Gitpod and want to introduce it in your company? You want to evaluate the value of Gitpod Self-Hosted connected to your local Git provider with a couple of volunteers? This guide is for you! On this page, we describe a reference architecture for Gitpod that is optimized on a quick and simple setup. It is explicitly intended for the proof-of-value phase and not for productive usage. For the latter, please take a look at the other [reference architectures](../reference-architecture). After the proof-of-value phase, you should tear down your cluster and start again with the desired productive architecture.
+|               |                                                                                                                                                                                                                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Intended for: | Trying out Gitpod in a representative way but with only the minimum of infrastructure required                                                                                                                                                                                                                   |
+| Limitations:  | - Not intended for long-term, production usage <br/> - Higher risk of data loss due to in-cluster dependencies - if you lose your cluster, you may lose your data <br/> - Data is not carried over when moving to the [Single Cluster Reference Architecture](./single-cluster-ref-arch) for production purposes |
 
 ## Overview
 
-This reference architecture provides you with a setup where all components that are needed to operate Gitpod are deployed to the Kubernetes cluster. In contrast to a productive setup, this includes a database, an object storage, as well as a registry. For simplicity, we create only a single node where all workload will be deployed to.
+This reference architecture provides you with a setup where all components that are needed to operate Gitpod are deployed within the Kubernetes cluster. In contrast to a production-oriented setup, this means that the required database, object storage, well as a registry are deployed for you within the cluster. For simplicity, we create only a single node where all workload will be deployed to.
+
+> Looking for a sustainable architecture to run Gitpod? Please take a look at our [Single Cluster Reference Architecture](./single-cluster-ref-arch).
 
 ## Cloud Provider Preparations
 
@@ -399,15 +404,31 @@ Congratulations. You have set up your cluster. Now, you are ready to install Git
 
 If you followed the steps to create your infrastructure of this guide, you need to use the following config settings for your Gitpod installation:
 
-| General settings |                    |
-| ---------------- | ------------------ |
-| Domain name      | value of `$DOMAIN` |
+| General settings | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Domain name      | value of `$DOMAIN`                                                                                                     |
+
+| Container Registry      | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use in-cluster registry | ✅                                                                                                                                                                                    |
+
+| Database             | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use MySQL in-cluster | ✅                                                                                                                                                                                    |
+
+| Object Storage | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| In-cluster     | 🔘                                                                                                                            |
 
 Keep cert-manager selected for the TLS certificates options.
 
-| TLS certificates            |                         |
-| --------------------------- | ----------------------- |
-| Self-signed TLS certificate | no                      |
-| cert-manager                | yes                     |
-| Issuer name                 | `gitpod-issuer`         |
-| Issuer type                 | Select “cluster issuer” |
+| TLS certificates            | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Self-signed TLS certificate | no                                                                                                                                                                                                                       |
+| cert-manager                | yes                                                                                                                                                                                                                      |
+| Issuer name                 | `gitpod-issuer`                                                                                                                                                                                                          |
+| Issuer type                 | Select “cluster issuer”                                                                                                                                                                                                  |
+
+| Additional features                                                     | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Allow login to your workspace via SSH (if you wish to use desktop IDEs) | ✅                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |

@@ -122,11 +122,11 @@ export const compatibilityMatrix: Matrix[] = [
         availibility: "supported",
         limitations: null,
         policy: {
-          text: "see officially supported versions",
-          description:
-            'all <a href="https://docs.github.com/en/enterprise-server@3.6/admin/all-releases">officially supported versions</a> in Github\'s documentation',
+          text: "all officially supported versions",
+          description: null,
         },
-        supportedVersions: "see Github's documentation",
+        supportedVersions:
+          ' <a href="https://docs.github.com/en/enterprise-server@3.6/admin/all-releases#currently-supported-releases" target=”_blank">see currently supported versions</a>',
       },
       {
         name: "Gitlab.com",
@@ -143,11 +143,11 @@ export const compatibilityMatrix: Matrix[] = [
         availibility: "supported",
         limitations: null,
         policy: {
-          text: "see officially supported versions",
-          description:
-            'all <a href="https://docs.gitlab.com/ee/policy/maintenance.html">officially supported versions</a> in Gitlab\'s documentation',
+          text: "all officially supported versions",
+          description: null,
         },
-        supportedVersions: "see Gitlab's documentation",
+        supportedVersions:
+          ' <a href="https://docs.gitlab.com/ee/policy/maintenance.html" target=”_blank">see support policy</a>',
       },
       {
         name: "Bitbucket.org",
@@ -247,7 +247,7 @@ export const compatibilityMatrix: Matrix[] = [
         name: "Google Kubernetes Engine (GKE)",
         availibility: "supported",
         limitations:
-          '- <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2">Dataplane V2</a> unsupported, <br/> - Not supported in combination with <a href="https://github.com/gitpod-io/gitpod/issues/11168">self-signed certs</a>',
+          '- <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2" target=”_blank">Dataplane V2</a> unsupported, <br/> - Not supported in combination with <a href="https://github.com/gitpod-io/gitpod/issues/11168">self-signed certs</a>',
         policy: {
           text: "see Kubernetes support policy",
           description: null,
@@ -318,11 +318,12 @@ export const compatibilityMatrix: Matrix[] = [
         limitations:
           "Cert-Manager is required even if you don't use it for your own certificates because Gitpod uses it internally.",
         policy: {
-          text: "Most recent versions",
+          text: "Versions using cert-manager API V1",
           description:
-            'Any version that implements <a href="https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1">cert-manager.io/v1</a>',
+            'More info: <a href="https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1" target=”_blank”>cert-manager.io/v1</a>',
         },
-        supportedVersions: "Most recent versions",
+        supportedVersions:
+          '<a href="https://cert-manager.io/docs/release-notes/" target=”_blank">see cert-manager release notes</a>',
       },
     ],
   },

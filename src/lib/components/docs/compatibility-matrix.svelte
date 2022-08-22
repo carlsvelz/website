@@ -186,12 +186,12 @@
       <div
         class="pl-3 md:pl-xx-small flex items-center border-r border-divider"
       >
-        {name}
+        {@html name}
       </div>
       <div class="flex flex-col justify-center divide-y divide-divider">
         {#each components as { name, availibility, limitations, policy, supportedVersions }}
           <div class="flex row py-macro md:py-3">
-            <div class="pl-3 md:pl-xx-small">{name}</div>
+            <div class="pl-3 md:pl-xx-small">{@html name}</div>
             <div class="justify-center">
               {#if availibility === "supported"}
                 <GreenTick />
@@ -205,13 +205,13 @@
               {/if}
             </div>
             <div class="px-3 md:px-xx-small">
-              {policy.text}
+              {@html policy.text}
               {#if policy.description}
                 <Tooltip title={policy.description} />
               {/if}
             </div>
             <div class="px-3 md:px-xx-small">
-              {supportedVersions}
+              {@html supportedVersions}
             </div>
           </div>
         {/each}

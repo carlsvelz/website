@@ -8,7 +8,7 @@ title: Cluster Set-Up
   export const prerender = true;
 </script>
 
-# Cluster Set-Up
+# Cluster Requirements
 
 Gitpod is a Kubernetes application running with certain expectations on the characteristics of the cluster it is running on.
 
@@ -16,20 +16,9 @@ Gitpod is a Kubernetes application running with certain expectations on the char
 
 <!-- raw editable diagram can be found under static/images/docs/self-hosted/cluster-requirements.excalidraw -->
 
-## Cluster Set-up Guides
+## Reference Architectures
 
-> These guides are intended as a starting point for most users, but will not cover edge cases. In these situations, please see the requirements below to create your own cluster.
-
-Our guides help you set up the infrastructure needed to run Gitpod Self-Hosted. These guides will also create cloud-provider specific versions of the [required components](./required-components) that you can then connect to your Gitpod installation during the installation process. They will also install [cert-manager](./required-components#cert-manager) for you.
-
-There are guides for the most popular cloud providers and Kubernetes distributions:
-
-- [Amazon Elastic Kubernetes Service (EKS)](./cluster-set-up/on-amazon-eks)
-- [Google Kubernetes Engine (GKE)](./cluster-set-up/on-gke)
-- [Microsoft Azure Kubernetes Service (AKS)](./cluster-set-up/on-microsoft-aks)
-- [K3s](./cluster-set-up/on-k3s)
-
-After completing the guides you will still need to configure [DNS](./requirements#dns) and have [certificates](./requirements#ssl) ready in order to proceed with the [installation](./getting-started).
+We have created a set of [reference architectures](../latest/reference-architecture) for all the major cloud providers that fulfill the requirements below. These are intended as a starting point for you to create an environment to install Gitpod into. If you wish to use K3s, please refer to the [k3s guide](../cluster-set-up/on-k3s).
 
 ## Cluster Requirements
 

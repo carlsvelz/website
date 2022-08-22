@@ -188,7 +188,7 @@
       >
         {name}
       </div>
-      <div class="divide-y divide-divider">
+      <div class="flex flex-col justify-center divide-y divide-divider">
         {#each components as { name, availibility, limitations, policy, supportedVersions }}
           <div class="flex row py-macro md:py-3">
             <div class="pl-3 md:pl-xx-small">{name}</div>

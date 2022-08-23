@@ -8,9 +8,9 @@
   text="During our regular offsites we get to build a deeper bond and simply celebrate an amazing team and a great product."
   textClassNames="max-w-3xl mx-auto"
 >
-  <div slot="content" class="grid grid-cols-3 gap-micro">
+  <div slot="content" class="grid grid-cols-3 gap-micro mt-x-small md:mt-small">
     {#each teamImages as { src, alt }}
-      <img {src} {alt} class="object-cover" />
+      <img {src} {alt} class="rounded-3xl" />
     {/each}
   </div>
 </SectionCommon>

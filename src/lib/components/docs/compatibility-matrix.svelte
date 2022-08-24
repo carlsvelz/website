@@ -10,13 +10,22 @@
   import Tooltip from "../tooltip.svelte";
   import Select from "../ui-library/select/select.svelte";
   import { fade } from "svelte/transition";
+  import { afterNavigate } from "$app/navigation";
 
   let matrixToRender: Matrix[] = compatibilityMatrix;
+  let selectValue = "All";
 
   const handleChange = (e: Event) => {
     const relevance = (e.target as any).value.toLowerCase();
     matrixToRender = filterMatrixByRelevance(relevance);
   };
+
+  afterNavigate(() => {
+    if (window.location.search.includes("user")) {
+      selectValue = "Users";
+      matrixToRender = filterMatrixByRelevance("users");
+    }
+  });
 </script>
 
 <style lang="postcss">
@@ -146,7 +155,7 @@
   <div class="relevant flex items-center justify-between w-100">
     <Select
       label="Relevant for"
-      value="All"
+      value={selectValue}
       name="for"
       options={["All", "Users", "Self-Hosted Admins"]}
       class="flex"

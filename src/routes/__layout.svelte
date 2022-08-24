@@ -9,6 +9,7 @@
       return {
         props: {
           bannerData: data.banner,
+          stars: data.stars,
         },
       };
     }
@@ -37,6 +38,11 @@
   import ContactWidget from "$lib/components/contact-widget.svelte";
 
   export let bannerData: BannerData;
+
+  export let stars: number;
+
+  //TODO Remove log
+  console.log({ stars });
 
   setContext(key, bannerData);
 

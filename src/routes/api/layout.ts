@@ -9,7 +9,7 @@ const USE_CACHE = process.env.USE_CACHE;
 const CACHE_PATH = path.resolve("stars-cache.json");
 
 let stars: number;
-let bannerData;
+let bannerData: { display: boolean; startDate: Date; endDate: Date };
 
 export const get: RequestHandler = async ({ request }) => {
   if (USE_CACHE) {
@@ -27,7 +27,6 @@ export const get: RequestHandler = async ({ request }) => {
 
   if (!stars) {
     const res = await fetch("https://api.github.com/repos/gitpod-io/gitpod");
-    console.log("API Hit");
     if (res.ok) {
       const data = await res.json();
       const starsCount = data.stargazers_count;

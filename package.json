@@ -21,7 +21,7 @@
     "build:css": "run-p build:css:*",
     "build:css:global": "NODE_ENV=production postcss src/lib/assets/global.css -o static/global.css",
     "build:css:styles": "NODE_ENV=production postcss src/lib/assets/styles.scss -o static/styles.css",
-    "build:svelte": "svelte-kit build --verbose",
+    "build:svelte": "USE_CACHE=true svelte-kit build --verbose",
     "deploy": "run-s clean build:css build:svelte",
     "start": "svelte-kit preview",
     "validate": "svelte-check",

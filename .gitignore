@@ -13,4 +13,5 @@ static/styles.css
 yarn-error.log
 yarn.lock
 .idea
+stars-cache.json
 .env

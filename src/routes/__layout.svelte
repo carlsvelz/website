@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  const url = "/api/banner";
+  const url = "/api/layout";
   export const load: Load = async ({ fetch }) => {
     const res = await fetch(url, {
       headers: { "content-type": "application/json" },
@@ -8,7 +8,7 @@
       const data = await res.clone().json();
       return {
         props: {
-          bannerData: data,
+          bannerData: data.banner,
         },
       };
     }

@@ -8,8 +8,8 @@
   import DashboardButton from "../dashboard-button.svelte";
   import menuState from "./state";
   import DemoButton from "../demo-button.svelte";
+  import MobileDropdown from "./mobile-dropdown.svelte";
 
-  export let navItems = [];
   export let isLoggedIn: boolean;
 
   onMount(() => {
@@ -36,6 +36,24 @@
 </script>
 
 <style lang="postcss">
+  .nav-items > :global(*:not(:last-child)) {
+    @apply py-macro border-b border-divider;
+  }
+
+  .nav-items > :global(a) {
+    &:hover,
+    &:focus {
+      @apply bg-sand-light;
+    }
+  }
+
+  :global(body.dark) .nav-items > :global(a) {
+    &:hover,
+    &:focus {
+      @apply bg-light-black;
+    }
+  }
+
   /* Always make sure to keep the media query intact with one specified above in the matchMedia call. */
   @media (min-width: 1190px) {
     .nav-items {
@@ -52,19 +70,44 @@
 
 {#if $menuState}
   <div
-    class="nav-items absolute flex flex-col py-x-small w-screen items-center bg-card space-y-xx-small z-10 shadow-md max-h-screen overflow-y-auto"
+    class="nav-items absolute flex flex-col py-x-small px-micro md:px-x-small w-screen bg-card z-10 shadow-md max-h-screen overflow-y-auto"
   >
-    {#each navItems as navItem}
-      <NavItem {navItem} />
-    {/each}
-    {#if isLoggedIn}
-      <DashboardButton />
-    {:else}
-      <LoginButton />
-      <DemoButton
-        class="text-lg h-8 w-28 button flex-shrink-0"
-        on:click={toggle}
-      />
-    {/if}
+    <NavItem
+      navItem={{
+        href: "/docs",
+        label: "Docs",
+      }}
+    />
+    <MobileDropdown />
+    <NavItem
+      navItem={{
+        href: "/for/enterprise",
+        label: "Enterprise",
+      }}
+    />
+    <NavItem
+      navItem={{
+        href: "/customers",
+        label: "Customers",
+        highlight: true,
+      }}
+    />
+    <NavItem
+      navItem={{
+        href: "/pricing",
+        label: "Pricing",
+      }}
+    />
+    <div class="flex flex-col items-center pt-x-small space-y-micro">
+      {#if isLoggedIn}
+        <DashboardButton />
+      {:else}
+        <DemoButton
+          class="text-lg h-8 w-28 button flex-shrink-0"
+          on:click={toggle}
+        />
+        <LoginButton />
+      {/if}
+    </div>
   </div>
 {/if}

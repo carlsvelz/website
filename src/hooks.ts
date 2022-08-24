@@ -1,6 +1,7 @@
 // import type { Handle } from "@sveltejs/kit";
 // import * as cookie from "cookie";
 import { sequence } from "@sveltejs/kit/hooks";
+import { basename } from "path";
 
 export const getSession: import("@sveltejs/kit").GetSession = async (event) => {
   return {
@@ -9,6 +10,7 @@ export const getSession: import("@sveltejs/kit").GetSession = async (event) => {
     posts: event.locals.posts,
     guides: event.locals.guides,
     customers: event.locals.customers,
+    educationCustomers: event.locals.educationCustomers,
     securityLogs: event.locals.securityLogs,
   };
 };
@@ -32,11 +34,13 @@ const handleChangelogEntries = async ({ event, resolve }) => {
   const changelogEntries = await Promise.all(
     Object.entries(import.meta.glob("/src/lib/contents/changelog/*.md"))
       .filter(([path]) => !path.endsWith("_template.md"))
-      .map(async ([, mod]) => {
+      .map(async ([path, mod]) => {
         const { default: content, metadata } = await mod();
+        const fileName = basename(path);
         return {
           ...metadata,
           content: content.render().html,
+          fileName,
         };
       })
   );
@@ -92,6 +96,21 @@ const handleCustomers = async ({ event, resolve }) => {
   return await resolve(event);
 };
 
+const handleEducationCustomers = async ({ event, resolve }) => {
+  const customers = await Promise.all(
+    Object.entries(import.meta.glob("/src/routes/for/education/*.md")).map(
+      async ([path, page]) => {
+        const { metadata } = await page();
+        const filename = path.split("/").pop();
+        return { ...metadata, filename };
+      }
+    )
+  );
+  customers.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+  event.locals.educationCustomers = customers;
+  return await resolve(event);
+};
+
 // const handleLoggedIn: Handle = async ({ event, resolve }) => {
 //   const cookies = cookie.parse(event.request.headers.get("cookie") || "");
 //   event.locals.loggedIn =
@@ -102,13 +121,6 @@ const handleCustomers = async ({ event, resolve }) => {
 
 const handleHeaders = async ({ event, resolve }) => {
   const response = await resolve(event);
-  response.headers.set(
-    "Set-Cookie",
-    // If you change the cookie, please also change it in src/routes/__layout.svelte
-    `gitpod-marketing-website-visited=true; Domain=.gitpod.io; Path=/; max-age=${
-      365 * 24 * 60 * 60
-    }`
-  );
   // Avoid clickjacking attacks, see https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html
   response.headers.set(
     "Content-Security-Policy",
@@ -124,5 +136,6 @@ export const handle = sequence(
   handleChangelogEntries,
   handleSecurityLogs,
   handleGuides,
-  handleCustomers
+  handleCustomers,
+  handleEducationCustomers
 );

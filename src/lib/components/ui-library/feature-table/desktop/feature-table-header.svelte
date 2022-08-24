@@ -12,7 +12,7 @@
       <img
         src={headerData.image.path}
         alt={headerData.image.alt}
-        class="h-10"
+        class={headerData.image.height || "h-10"}
       />
     {:else}
       <svelte:component this={headerData.image} class="h-10" />

@@ -28,7 +28,7 @@ For simplicity we use a GitHub template, but Gitpod works similarly with GitLab 
 
 - Install the [Gitpod App](https://github.com/apps/gitpod-io/installations/new).
 
-  Gitpod's GitHub app is similar to a CI server and will continuously prepare prebuilds for all your branches and pull requests - so you don't have to wait for installation of dependancies from the internet when you want to start coding.
+  Gitpod's GitHub app is similar to a CI server and will continuously prepare prebuilds for all your branches and pull requests - so you don't have to wait for installation of dependencies from the internet when you want to start coding.
 
 ## Step 3: First prebuild
 

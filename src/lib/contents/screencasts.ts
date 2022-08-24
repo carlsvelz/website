@@ -88,7 +88,9 @@ export const screencasts: Screencast[] = [
     duration: 207,
     tile: "screencast-6.jpg",
     youtubeId: "n7Ca3jHFtZg",
-    relatedDocs: [{ path: "", title: "Introduction to Gitpod" }],
+    relatedDocs: [
+      { path: "/docs/life-of-workspace", title: "Life of a Workspace" },
+    ],
     tags: ["Advanced"],
   },
   {

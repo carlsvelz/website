@@ -4,7 +4,7 @@ date: Fri Sep 21 2018 13:23:34 GMT+0000 (UTC)
 author: svenefftinge
 title: Developing a Nuxt.js app entirely in your browser
 image: developing-nuxtjs-in-a-browser.jpeg
-excerpt: A walkthrough to create a fully working Nuxt.js web application with only a browser, using Gitpod.io the online IDE for GitHub.
+excerpt: A walk-through to create a fully working Nuxt.js web application with only a browser, using Gitpod.io the online IDE for GitHub.
 slug: developing-nuxtjs-in-browser
 ---
 
@@ -12,7 +12,7 @@ slug: developing-nuxtjs-in-browser
   export const prerender = true;
 </script>
 
-A walkthrough to create a fully working Nuxt.js web application with only a browser, using Gitpod.io the online IDE for GitHub.
+A walk-through to create a fully working Nuxt.js web application with only a browser, using Gitpod.io the online IDE for GitHub.
 
 Version 2.0 of [Nuxt.js has just been released](https://medium.com/@nuxt_js/nuxt-js-2-0-webpack-4-esm-modules-create-nuxt-app-and-more-6936ce80d94c). It comes with a convenient scaffolding tool that let’s you get started in no time. In the following I will explain the steps necessary to create, run and **develop a Nuxt.js application with only a browser using Gitpod.io**.
 
@@ -22,7 +22,7 @@ Version 2.0 of [Nuxt.js has just been released](https://medium.com/@nuxt_js/nuxt
 
 ![GitHub Dashboard 'repositories' tab](https://cdn-images-1.medium.com/max/2048/0*I9sury8siGTS6GtF)
 
-Clicking anywhere on Github’s Octocat logo on the top left will bring you to your dashboard, where you can create a new repository.
+Clicking anywhere on GitHub’s Octocat logo on the top left will bring you to your dashboard, where you can create a new repository.
 
 Enter any name description, you can later change it.
 

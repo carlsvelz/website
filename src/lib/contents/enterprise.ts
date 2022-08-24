@@ -37,7 +37,7 @@ export const featureCards: Card[] = [
     },
   },
   {
-    title: "Saas",
+    title: "SaaS",
     text: "Gitpod, managed in the cloud for you. Secure data storage in the cloud and minimal setup cost. Scale users as you need with full flexibility.",
     icon: {
       src: "/svg/icons/cloud.svg",

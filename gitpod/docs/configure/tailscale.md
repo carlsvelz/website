@@ -15,16 +15,16 @@ With Tailscale you can automatically and securely connect your Gitpod workspace 
 
 ## Integration
 
-If you’re already using Tailscale, the following steps need to be done (see https://github.com/gitpod-io/template-tailscale for a working example):
+If you’re already using Tailscale, the following steps need to be done (see https://github.com/gitpod-io/demo-tailscale-with-gitpod for a working example):
 
 1. Install `tailscale` through a custom `.gitpod.Dockerfile` by adding the following layer to it.
 
 ```Dockerfile
 USER root
 
-RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add - \\
-     && curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list \\
-     && apt-get update \\
+RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add - \
+     && curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list \
+     && apt-get update \
      && apt-get install -y tailscale
 ```
 

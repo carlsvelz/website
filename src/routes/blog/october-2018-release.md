@@ -65,9 +65,9 @@ We will add more features to the CLI. If you have ideas or demands please file t
 
 ## GitHub Bot 🤖
 
-The [Gitpod Bot for Github](https://github.com/apps/gitpod-io) can automatically add Gitpod-links to issues and pull-requests. For instance, if you want to improve onboarding for new contributors you should configure the bot so it adds links to **good_first_issue** or **help_wanted **tagged issues.
+The [Gitpod Bot for GitHub](https://github.com/apps/gitpod-io) can automatically add Gitpod-links to issues and pull-requests. For instance, if you want to improve onboarding for new contributors you should configure the bot so it adds links to **good_first_issue** or **help_wanted **tagged issues.
 
-![Gitpod Bot for Github](../../../static/images/blog/october-2018-release/gitpod-bot-for-gh.png)
+![Gitpod Bot for GitHub](../../../static/images/blog/october-2018-release/gitpod-bot-for-gh.png)
 
 We will shortly write a post dedicated to streamlining the contributor’s experience.
 

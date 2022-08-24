@@ -14,45 +14,10 @@
   import SkipToContent from "../skip-to-content.svelte";
   import GithubStars from "./github-stars.svelte";
 
+  import Dropdown from "./dropdown.svelte";
   // import { session } from "$app/stores";
 
   let scroll: number;
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-  const navItems = [
-    // {
-    //   href: "/screencasts/getting-started-with-gitpod",
-    //   label: "Screencasts",
-    // },
-    {
-      href: "/for/enterprise",
-      label: "Enterprise",
-    },
-    {
-      href: "/blog",
-      label: "Blog",
-    },
-    {
-      href: "/docs",
-      label: "Docs",
-    },
-    {
-      href: "/changelog",
-      label: "Changelog",
-    },
-    {
-      href: "/customers",
-      label: "Customers",
-      highlight: true,
-    },
-    {
-      href: "/pricing",
-      label: "Pricing",
-    },
-  ];
 
   // const isLoggedIn = $session.loggedIn;
   const isLoggedIn =
@@ -135,7 +100,6 @@
         $menuState = !menuState;
         showHideOverflowY(false);
         goto("/");
-        scrollToTop();
       }}
     >
       <Logo class="h-8 w-28 lgx:h-10 lgx:w-32" />
@@ -143,9 +107,32 @@
     <div
       class="nav-items mx-auto hidden px-2 space-x-6 items-center md:space-x-12"
     >
-      {#each navItems as navItem}
-        <NavItem on:focus={scrollToTop} {navItem} />
-      {/each}
+      <NavItem
+        navItem={{
+          href: "/docs",
+          label: "Docs",
+        }}
+      />
+      <Dropdown />
+      <NavItem
+        navItem={{
+          href: "/for/enterprise",
+          label: "Enterprise",
+        }}
+      />
+      <NavItem
+        navItem={{
+          href: "/customers",
+          label: "Customers",
+          highlight: true,
+        }}
+      />
+      <NavItem
+        navItem={{
+          href: "/pricing",
+          label: "Pricing",
+        }}
+      />
     </div>
     <div class="login-wrapper items-center hidden space-x-x-small">
       <GithubStars />
@@ -166,5 +153,5 @@
       <MobileMenuToggle />
     </div>
   </div>
-  <MobileMenu {navItems} {isLoggedIn} />
+  <MobileMenu {isLoggedIn} />
 </nav>

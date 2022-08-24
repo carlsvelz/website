@@ -12,6 +12,8 @@ teaserImage: header.jpg
   export const prerender = true;
 </script>
 
+> **Update (July 2022):** You can now also access workspaces with an [SSH key](/blog/ssh-key-upload).
+
 Developer experience is sometimes about making big changes, such as migrating to a new industry-defining tool or technology. But sometimes developer experience is about paying attention to the little things. Taking actions that we do as developers every day, and making them quicker, easier and removing friction.
 
 Recently, we shipped a feature on Gitpod that we’re excited to share with you, and we hope that it brings some more joy to your developer experience with Gitpod.

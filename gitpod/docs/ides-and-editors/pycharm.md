@@ -22,7 +22,7 @@ title: PyCharm
 1. **Install [JetBrains Gateway](https://www.jetbrains.com/help/pycharm/remote-development-a.html#gateway)** - With the [JetBrains Gateway and Gitpod](jetbrains-gateway) plugin you can create and manage your latest 20 Gitpod workspaces.
 2. **Install the Gitpod plugin** - Open JetBrains Gateway and you'll see the Gitpod logo on the main page. Click "install" to install the [Gitpod plugin](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway) for JetBrains Gateway.
 3. **Update your Gitpod preferences** - Select {title} on the [Gitpod preferences page](https://gitpod.io/preferences) which will set {title} as your default IDE for future workspace starts.
-4. **Start (or restart) your workspace** - Either start a workspace directly from within the [JetBrains Gateway](jetbrains-gateway) via the Gitpod plugin **OR** open a new workspace direclty in Gitpod where on workspace start you will be prompted to open {title} for that workspace.
+4. **Start (or restart) your workspace** - Either start a workspace directly from within the [JetBrains Gateway](jetbrains-gateway) via the Gitpod plugin **OR** open a new workspace directly in Gitpod where on workspace start you will be prompted to open {title} for that workspace.
 
 <figure>
 <video playsinline autoplay no-controls loop muted class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Updating Gitpod IDE preferences to {title}" src="/images/editors/select-jetbrains-ide.mp4"></video>

@@ -4,6 +4,7 @@
   import type { FeatureTable } from "./feature-table.types";
   import FeatureTableColumnMobile from "./mobile/feature-table-column-mobile.svelte";
   export let tableData: FeatureTable;
+  export let footnote: string = "";
   let custom = tableData.columns.some((column) => column.enteries.length > 1);
 
   const colMap = {
@@ -55,3 +56,16 @@
     {/each}
   </div>
 </div>
+
+{#if footnote}
+  <div
+    class="mt-x-small max-w-md lg:max-w-none mx-auto {tableData.columns.length >
+    3
+      ? 'lg:grid lg:gap-4 lg:mt-0'
+      : 'md:grid md:gap-4 md:mt-0'}"
+    style="grid-template-columns: 1fr {tableData.columns.length}fr;"
+  >
+    <span />
+    <p class="text-xs text-center">{@html footnote}</p>
+  </div>
+{/if}

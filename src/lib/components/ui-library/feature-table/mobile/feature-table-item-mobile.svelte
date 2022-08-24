@@ -6,7 +6,7 @@
 
 {#if definition.list}
   <div class="flex flex-col justify-center px-8">
-    <div class="font-bold uppercase mb-macro">{definition.term}</div>
+    <div class="font-bold  mb-2">{definition.term}</div>
     <ul class="list-disc list-outside text-left">
       {#each definition.list as item}
         <li>
@@ -17,12 +17,16 @@
   </div>
 {:else}
   <div class="flex items-center flex-col justify-center">
-    <div class="font-bold uppercase mb-macro">
+    <div class="font-bold  mb-2">
       <div class="flex items-start">
         {#if definition.type === "tooltip"}
           <QaTooltip text={definition.term} tooltip={definition.data.tooltip} />
         {:else}
-          {definition.term}
+          <span
+            class={definition.isHeadline
+              ? "text-black dark:text-important font-semibold text-h4"
+              : "text-[#565252] dark:text-important"}>{definition.term}</span
+          >
         {/if}
       </div>
     </div>

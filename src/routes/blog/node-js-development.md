@@ -50,7 +50,7 @@ Now, we can open the created project in Gitpod. You can do it by simply prefixin
 
 The first time, you will need to sign in Gitpod with your GitHub account. GitHub will ask you to authorize read access to your email address. Write access to repositories can be granted later on [your access control page](https://gitpod.io/access-control/).
 
-![Github Authorize Gitpod Page](https://cdn-images-1.medium.com/max/5692/1*K8cn3G30eQouKmWQb228LQ.png)
+![GitHub Authorize Gitpod Page](https://cdn-images-1.medium.com/max/5692/1*K8cn3G30eQouKmWQb228LQ.png)
 
 Gitpod starts a new workspace, which is a Linux-based cloud container, and provides access to it via a VS Code powered online IDE. Workspaces are started on demand and automatically shut-down if you don’t use them. They are continuously replicated and never deleted, so you always can restart a workspace later from [your Gitpod dashboard](https://gitpod.io/workspaces/).
 

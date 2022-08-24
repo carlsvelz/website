@@ -7,13 +7,14 @@
   export let posts: BlogPost[];
   export let title: string = "More articles";
   export let text: string = "";
+  export let textMaxW: string = "max-w-4xl";
   export let type: "blog" | "guides" | "customers" = "blog";
 </script>
 
 <Section>
   <h2 class="text-center text-h2" class:mb-small={!text}>{title}</h2>
   {#if text}
-    <p class="text-center text-large max-w-4xl mb-small mx-auto">
+    <p class="text-center text-large mb-small mx-auto {textMaxW}">
       {text}
     </p>
   {/if}

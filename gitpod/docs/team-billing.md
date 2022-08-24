@@ -11,7 +11,7 @@ title: Team Billing
 
 > Team Billing is part of [Teams & Projects](/docs/teams-and-projects), currently in [Beta](/docs/references/gitpod-releases).
 
-> **NOTE**  
+> **NOTE**
 > This first iteration of Team Billing improves Team Plans by:
 >
 > 1. Auto-subscribing new members when they join or leave the team.

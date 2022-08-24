@@ -21,6 +21,8 @@ To get the most out of ephemeral developer environments, it is important to let 
 
 Tasks are shell scripts that run on top of the Docker image you configure (learn more about [custom Docker images](/docs/config-docker)).
 
+`youtube: fA2fpqP1xaM`
+
 ## Execution order
 
 With Gitpod, you have the following three types of tasks:
@@ -54,7 +56,7 @@ As displayed in the diagram above, we highly recommend you enable Prebuilds for 
 
 By the time you start a new workspace, all that's left to do is execute the `before` (optional) and `command` tasks. The latter most often starts a database and/or development server.
 
-> Let Gitpod run the time-consuming `init` tasks continously behind the scene so you and anyone who opens your project on Gitpod doesn't have to wait.
+> Let Gitpod run the time-consuming `init` tasks continuously behind the scene so you and anyone who opens your project on Gitpod doesn't have to wait.
 
 ### Restart a Workspace
 

@@ -22,7 +22,7 @@ data={{
 
 # Getting Started
 
-Gitpod can provide fully initialized, perfectly set-up developer environmments for any kind of software project. This page helps you understand how to provide such a configuration for _your project_.
+Gitpod can provide fully initialized, perfectly set-up developer environments for any kind of software project. This page helps you understand how to provide such a configuration for _your project_.
 `youtube: w65POyu3ZUQ`
 
 ## Start your first workspace
@@ -44,13 +44,15 @@ To make it easy for anyone to start a Gitpod workspace based on your project, we
 <img src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod" alt="Contribute with Gitpod"/>
 
 ```html
-<a href="https://gitpod.io/#<your-project-url>">
+<a href="https://gitpod.io/#<your-repository-url>">
   <img
     src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
     alt="Contribute with Gitpod"
   />
 </a>
 ```
+
+> here, `your-repository-url` can be something like: `https://github.com/gitpod-io/website` or any of your Repository URLs.
 
 ### Open in Gitpod button
 
@@ -59,8 +61,10 @@ You can add the following button to your Development/Setup Docs so that users ca
 <img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open with Gitpod"/>
 
 ```markdown
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#<your-project-url>)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#<your-repository-url>)
 ```
+
+> here, `your-repository-url` can be something like: `https://github.com/gitpod-io/website` or any of your Repository URLs.
 
 Next, let's help Gitpod understand your repository to automate the developer environment and turn on prebuilds to supercharge your development workflow.
 

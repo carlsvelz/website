@@ -1,5 +1,6 @@
 ---
 section: self-hosted/latest
+subsection: installation-guides
 title: TLS configuration for Gitpod Self-Hosted
 ---
 
@@ -9,7 +10,7 @@ title: TLS configuration for Gitpod Self-Hosted
 
 # TLS configuration for Gitpod Self-Hosted
 
-To run your own Gitpod instance, you need a TLS certificate for your Gitpod domain. There are the following three options to provide these TLS certificates.
+To run your own Gitpod instance, you need a TLS certificate for your Gitpod domain. There are three options to provide these TLS certificates.
 
 ## Option 1: Cert-Manager
 
@@ -33,10 +34,10 @@ $ kubectl get secrets -n <namespace> ca-issuer-ca -o jsonpath='{.data.ca\.crt}' 
 
 ## Option 3: Bring your own certificate
 
-Upload your own TLS certificate, key, and (optionally) CA certificate. When your TLS certificate is signed by a publicly accepted TLS authority, you just need to upload your certificate and key. In case it is a self-signed certificate (e.g. signed by a corporate CA), you also need to upload your CA.
-
-![kots-tls-bring-own](../../static/images/docs/self-hosted/kots-tls-bring-own.png)
-
 > ⚠️ **Limitation**
 >
 > Adding custom CA certificates is currently _not_ supported on **Google Kubernetes Engine (GKE)** because on GKE `containerd` does not support custom certificates.
+
+Upload your own TLS certificate, key, and (optionally) CA certificate. When your TLS certificate is signed by a publicly accepted TLS authority, you just need to upload your certificate and key. In case it is a self-signed certificate (e.g. signed by a corporate CA), you also need to upload your CA.
+
+![kots-tls-bring-own](../../static/images/docs/self-hosted/kots-tls-bring-own.png)

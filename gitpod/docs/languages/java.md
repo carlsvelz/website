@@ -404,10 +404,9 @@ See [IDEs & Editors](/docs/ides-and-editors) for more.
 
 ### VS Code Desktop Settings Sync
 
-<figure>
-<img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Enable Settings Sync with Gitpod" src="/images/editors/enable-signin-with-gitpod.png">
-    <figcaption>Enable Settings Sync with Gitpod</figcaption>
-</figure>
+![Enable Settings Sync with Gitpod](/images/editors/enable-signin-with-gitpod-light-theme.png)
+![Enable Settings Sync with Gitpod](/images/editors/enable-signin-with-gitpod-dark-theme.png)
+_Enable Settings Sync with Gitpod_
 
 VS Code Desktop by default is not setup to sync your VS Code settings (e.g. your fonts, layouts, etc) with VS Code running in the browser of Gitpod. You can configure Gitpod to sync settings between browser and desktop by running the command palette action "Settings Sync: Enable signing in with Gitpod" from the Gitpod VS Code extension.
 

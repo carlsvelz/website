@@ -51,7 +51,7 @@ inlets client --remote=<see-above> --token=<see-above> --upstream=<local-addr>
 There's a lot going on there, so let's look at things in detail.
 In the workspace we first download `inlets` using its shell installer (we could have used `brew install inlets`, too, but that's a tad slower). Then we produce a token which prevents unauthorized access to our inlets server. Note that without tokens, the handshake performed by the inlets client and server fails.
 
-When starting the inlets server, we seperate the control port from the server port. We do this so that we can expose one port, but not the other. This way the control port is exposed to the internet (albeit secured with the access token), but the server port is not. This way we do not expose our local service globally, but only make it available within our Gitpod workspace.
+When starting the inlets server, we separate the control port from the server port. We do this so that we can expose one port, but not the other. This way the control port is exposed to the internet (albeit secured with the access token), but the server port is not. This way we do not expose our local service globally, but only make it available within our Gitpod workspace.
 
 On the client side (where I just assumed you already have [inlets installed](https://github.com/inlets/inlets#install-the-cli)), we need to connect to the server we just started. To that end we use the corret remote URL (note the `wss://`) and token.
 What you choose as `--upstream` depends on which kind of service you want to expose. Suppose you had a webserver running on port 8080 (e.g. `curl lama.sh | sh`), then this would be `--upstream localhost:8080`.

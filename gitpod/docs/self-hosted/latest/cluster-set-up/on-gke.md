@@ -13,7 +13,7 @@ Instructions on how to create a Google GKE environment that is ready to install 
 
 - A GKE cluster running Kubernetes v1.21 ([rapid channel](https://cloud.google.com/kubernetes-engine/docs/release-notes-rapid)).
 - GCP L4 load balancer.
-- Cloud SQL - Mysql database.
+- Cloud SQL - MySQL database.
 - Cloud DNS zone.
 - In-cluster Docker registry using [Cloud Storage](https://cloud.google.com/storage) as storage backend.
 - Installation of [calico](https://docs.projectcalico.org) as CNI and NetworkPolicy implementation

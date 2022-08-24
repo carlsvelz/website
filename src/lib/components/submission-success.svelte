@@ -2,11 +2,13 @@
   import GitpodIllustration from "./gitpod-illustration.svelte";
 
   export let title: string;
-  export let text: string;
+  export let text: string = "";
 </script>
 
 <h2 class="h3 text-center mb-8">{title}</h2>
-<p class="text-center">
-  {@html text}
-</p>
+{#if text}
+  <p class="text-center">
+    {@html text}
+  </p>
+{/if}
 <GitpodIllustration />

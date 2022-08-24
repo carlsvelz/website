@@ -5,17 +5,19 @@
   import Textarea from "$lib/components/ui-library/textarea";
   import Button from "$lib/components/ui-library/button";
   import Card from "$lib/components/ui-library/card";
+  import Input from "../ui-library/input/input.svelte";
 
   let selectedEmotion: number;
-  let note = "";
+  let note: string = "";
+  let email: string = "";
   let resultMessage: string;
-  let isSubmittedOnce = false;
   let clazz = "";
+  let isSubmissionInProgress: boolean = false;
   export { clazz as class };
   export let type: "docs" | "guides" | "digests";
 
   const submitFeedback = async () => {
-    isSubmittedOnce = true;
+    isSubmissionInProgress = true;
 
     trackEvent(
       "feedback_submitted",
@@ -28,18 +30,20 @@
       true
     );
 
-    const response = await fetch("/.netlify/functions/feedback", {
+    const response = await fetch("/api/feedback", {
       method: "post",
       body: JSON.stringify({
         type,
         emotion: selectedEmotion,
         note,
+        email,
         url: $page.url.toString(),
       }),
     });
 
     if (response.status === 201) {
       resultMessage = "Thanks for your feedback, we appreciate it.";
+      isSubmissionInProgress = false;
     } else {
       resultMessage = "Oh no, something went wrong :(.";
     }
@@ -91,9 +95,8 @@
           {/each}
         </div>
         {#if selectedEmotion}
-          <div class="mt-x-small">
+          <div class="mt-x-small space-y-macro">
             <Textarea
-              label="Feedback"
               bind:value={note}
               id="note"
               name="feedback"
@@ -104,25 +107,32 @@
               autocomplete="off"
               autocorrect="off"
               type="text"
-              class="mb-0"
+              class="mb-0 text-xs"
             />
-            <div>
-              <p class="text-sm my-4">
-                By submitting this form I acknowledge that I have read and
-                understood <a class="link" href="/privacy"
-                  >Gitpod’s Privacy Policy.</a
-                >
-              </p>
-              <span>
-                <Button
-                  variant="primary"
-                  size="medium"
-                  disabled={isSubmittedOnce}
-                  class="mt-micro"
-                  type="submit"><span>Send</span></Button
-                >
-              </span>
-            </div>
+            <Input
+              bind:value={email}
+              id="email"
+              name="email"
+              width="100%"
+              placeholder="Email (optional)"
+              class="text-xs"
+            />
+          </div>
+          <div class="mt-micro">
+            <p class="text-xs mb-x-small">
+              I consent to having this website store my submitted information so
+              that the support team can respond to my message. For more
+              information, see our
+              <a class="link" href="/privacy"> Privacy Policy. </a>
+            </p>
+            <Button
+              variant="primary"
+              size="medium"
+              disabled={isSubmissionInProgress}
+              type="submit"
+              isLoading={isSubmissionInProgress}
+              ><span>Send</span>
+            </Button>
           </div>
         {/if}
       </form>

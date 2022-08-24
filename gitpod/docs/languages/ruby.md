@@ -13,18 +13,25 @@ It's relatively easy to set up your Ruby project in Gitpod.
 
 ## Ruby Versions
 
-As of this writing, Gitpod comes with Ruby 2.7.5p203 pre-installed.
+As of this writing, Gitpod comes with Ruby 2.7.6 pre-installed in the [gitpod/workspace-full](https://hub.docker.com/r/gitpod/workspace-full).
 
-To use a different Ruby version (for example, 2.5.1) you can create a [.gitpod.Dockerfile](/docs/config-docker) for your project, and then add something like the second paragraph to it:
+To use a more recent Ruby version, you can [change the base image](https://www.gitpod.io/docs/config-docker#configure-a-public-docker-image) to one of the following:
+
+- [gitpod/workspace-ruby-3.0](https://hub.docker.com/r/gitpod/workspace-ruby-3.0)
+- [gitpod/workspace-ruby-3.1](https://hub.docker.com/r/gitpod/workspace-ruby-3.1)
+
+These images are automatically updated every week with the latest ruby patch versions (3.0.x and 3.1.x).
+
+To use another version, you may use a [custom Dockerfile](https://www.gitpod.io/docs/config-docker#configure-a-custom-dockerfile).
 
 ```dockerfile
 FROM gitpod/workspace-full
 USER gitpod
 
-# Install Ruby version 2.5.1 and set it as default
+# Install Ruby version 3.1.1 and set it as default
 RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
-RUN bash -lc "rvm install ruby-2.5.1 && \
-              rvm use ruby-ruby-2.5.1 --default"
+RUN bash -lc "rvm install ruby-3.1.1 && \
+              rvm use ruby-ruby-3.1.1 --default"
 RUN echo "rvm_gems_path=/workspace/.rvm" > ~/.rvmrc
 ```
 
@@ -57,8 +64,8 @@ To add this extension to your repository, simply add these lines to your [.gitpo
 ```YAML
 vscode:
   extensions:
-    - connorshea.vscode-ruby-test-adapter@0.6.1:HO9rpcRv7bmRIuo7Mty/zg==
-    - hbenl.vscode-test-explorer@2.15.0:koqDUMWDPJzELp/hdS/lWw==
+    - connorshea.vscode-ruby-test-adapter@0.9.0
+    - hbenl.vscode-test-explorer@2.21.1
 ```
 
 ## Ruby On Rails

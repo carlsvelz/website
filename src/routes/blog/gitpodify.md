@@ -174,9 +174,9 @@ Then add a new file called `.gitpod.dockerfile` at the root of your repository, 
 ```dockerfile
 FROM gitpod/workspace-full
 
-RUN sudo apt-get update \\
- && sudo apt-get install -y \\
-    tool \\
+RUN sudo apt-get update \
+ && sudo apt-get install -y \
+    tool \
  && sudo rm -rf /var/lib/apt/lists/*
 ```
 
@@ -240,9 +240,9 @@ To install Redis for your project, simply add these instructions to your `.gitpo
 FROM gitpod/workspace-full
 
 # Install Redis.
-RUN sudo apt-get update \\
- && sudo apt-get install -y \\
-  redis-server \\
+RUN sudo apt-get update \
+ && sudo apt-get install -y \
+  redis-server \
  && sudo rm -rf /var/lib/apt/lists/*
 ```
 

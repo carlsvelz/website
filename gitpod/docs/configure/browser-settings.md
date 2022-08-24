@@ -55,13 +55,13 @@ Each browser handles this slightly differently:
 ### Clipboard
 
 1. Navigate to the Clipboard site permissions at [brave://settings/content/clipboard](brave://settings/content/clipboard).
-1. To the right of the "Allow" heading, click the "Add" button.
+1. To the right of the "Allowed to see your clipboard" heading, click the "Add" button.
 1. Paste `[*.]gitpod.io` in the _Site_ field and click "Add".
 
 ### Pop-ups
 
 1. Navigate to the Pop-ups site permissions at [brave://settings/content/popups](brave://settings/content/popups).
-1. To the right of the "All" heading, click the "Add" button.
+1. To the right of the "Allowed to send pop-ups and use redirects" heading, click the "Add" button.
 1. Paste `[*.]gitpod.io` in the _Site_ field and click "Add".
 
 ## Firefox

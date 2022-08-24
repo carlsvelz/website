@@ -15,7 +15,7 @@ title: DevX Conf wrap & distributing USD 10k of open-source funding
 
 On April 28- 29 we hosted the [DevX Conference](http://www.devxconf.org), a space where creators could collaborate, listen, discuss and declutter dev workflows, toolchains and minds. To improve developer experience. We wanted to foster an ecosystem that sparks dialogue and establishes best practices and frameworks across the areas of coding, testing, building, deploying, collaborating on, and running software.
 
-Speakers included [Jason Warner](https://twitter.com/jasoncwarner) (CTO Github), [Beyang Liu](https://twitter.com/beyang) (CTO Sourcegraph), [Josh Long](https://twitter.com/starbuxman) (Spring), [Shanea Leven](https://www.linkedin.com/in/shaneak/) (Founder Codesee), [Ellen Chisa](https://twitter.com/ellenchisa) (Founder Darklang), [Henry Zhu](https://twitter.com/left_pad) (Steward of BabelJS), [Maël Nison](https://twitter.com/arcanis) (Creator Yarn), [Nader Dabit](https://twitter.com/dabit3) (GraphQL & Serverless), [Anurag Goel](https://www.linkedin.com/in/anuragoel/) (Founder Render), [Yihong Cheng](https://github.com/xcv58) (Github1s), [Tuomas Artman](https://twitter.com/artman) (Founder Linear) and many more.
+Speakers included [Jason Warner](https://twitter.com/jasoncwarner) (CTO GitHub), [Beyang Liu](https://twitter.com/beyang) (CTO Sourcegraph), [Josh Long](https://twitter.com/starbuxman) (Spring), [Shanea Leven](https://www.linkedin.com/in/shaneak/) (Founder Codesee), [Ellen Chisa](https://twitter.com/ellenchisa) (Founder Darklang), [Henry Zhu](https://twitter.com/left_pad) (Steward of BabelJS), [Maël Nison](https://twitter.com/arcanis) (Creator Yarn), [Nader Dabit](https://twitter.com/dabit3) (GraphQL & Serverless), [Anurag Goel](https://www.linkedin.com/in/anuragoel/) (Founder Render), [Yihong Cheng](https://github.com/xcv58) (Github1s), [Tuomas Artman](https://twitter.com/artman) (Founder Linear) and many more.
 
 ## Event retrospective
 
@@ -114,7 +114,7 @@ If you are the steward of one of the above, open-source projects, then there's o
 - 1. Go sign up to [GitHub Sponsors](https://github.com/sponsors) or [Open Collective](https://www.opencollective.com)
 - 2. Publically document the process of how companies can support your project.
 - 3. Send an email to <a href="mailto:contact@gitpod.io?subject=Distribution of DevX Open-source Funding">contact@gitpod.io</a>.
-- 4. Nominate where funding should be directed (if you wish to divert the funds to a cause that helps improve diversity in open-source such as [Outreachy](https://www.outreachy.org/) thats possible!)
+- 4. Nominate where funding should be directed (if you wish to divert the funds to a cause that helps improve diversity in open-source such as [Outreachy](https://www.outreachy.org/) that's possible!)
 
 ## Thanks
 

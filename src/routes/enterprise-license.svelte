@@ -12,7 +12,7 @@
   import Card from "$lib/components/ui-library/card";
 
   import { countryList } from "$lib/contents/license-key";
-  import type { Email, EmailToType } from "../functions/submit-form";
+  import type { Email, EmailToType } from "$lib/api/api";
   import Header from "$lib/components/header.svelte";
   import { noOfEngineers } from "$lib/contents/contact";
   import Checkbox from "$lib/components/ui-library/checkbox";
@@ -119,7 +119,7 @@
             }
           : email;
 
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: JSON.stringify(emailToSend),
       });

@@ -18,7 +18,7 @@ title: Workshops as code
 - Running workshops is easier and more productive with Gitpod.
 - There is an entire class of problems that attendees and educators continue to put up with when they shouldn’t need to because these concerns can be removed through automation.
 - People attend workshops because they want to learn about what is being taught and what device they are using, or how the device configured should not matter.
-- Hosting a workshop on Gitpod is as simple as supplying a `Dockerfile` and then specifying the commands to execute in a Git repository hosted on either GitHub, Gitlab or BitBucket.
+- Hosting a workshop on Gitpod is as simple as supplying a `Dockerfile` and then specifying the commands to execute in a Git repository hosted on either GitHub, GitLab or BitBucket.
 - DataStax have integrated their cloud-native database-as-a-service product offering with Gitpod.
 - Pulumi run their workshops with Gitpod, and we would love to work with you to integrate your workshop.
 
@@ -66,7 +66,7 @@ A Gitpod workspace gives you the same capabilities (yes, even root, Docker & qem
 
 ![Docker Compose Configuration](../../../static/images/blog/workshops-as-code/docker-compose.png)
 
-Hosting a workshop on Gitpod is as simple as supplying a [Dockerfile](https://github.com/gitpod-io/template-nixos/blob/main/.gitpod.Dockerfile) and then specifying the [commands to execute](https://github.com/gitpod-io/template-nixos/blob/main/.gitpod.yml) in a Git repository that is hosted on either GitHub, Gitlab or BitBucket.
+Hosting a workshop on Gitpod is as simple as supplying a [Dockerfile](https://github.com/gitpod-io/template-nixos/blob/main/.gitpod.Dockerfile) and then specifying the [commands to execute](https://github.com/gitpod-io/template-nixos/blob/main/.gitpod.yml) in a Git repository that is hosted on either GitHub, GitLab or BitBucket.
 
 Launching a workshop on Gitpod is as easy as prefixing any Git URL with `gitpod.io/#`. Thus if the workshop was hosted at `https://github.com/gitpod-io/template-nixos` then `https://gitpod.io/#https://github.com/gitpod-io/template-nixos` is the link that would be shared with attendees.
 

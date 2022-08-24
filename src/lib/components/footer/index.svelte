@@ -76,6 +76,9 @@
           </FooterLink>
         </li>
         <li>
+          <FooterLink href="/vs/coder">Gitpod vs Coder</FooterLink>
+        </li>
+        <li>
           <FooterLink
             href="https://www.gitpodstatus.com/"
             target="_blank"

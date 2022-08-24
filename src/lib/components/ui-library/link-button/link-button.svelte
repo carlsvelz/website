@@ -17,10 +17,10 @@
       "text-black bg-salmon hover:bg-salmon-hover dark:text-black focus:bg-salmon-hover",
     tertiary:
       "bg-important dark:bg-primary text-white dark:text-black hover:text-white hover:bg-less-important dark:hover:bg-quaternary",
-    cta: "text-black bg-sand-dark dark:bg-light-black dark:text-sand-dark hover:bg-tertiary hover:dark:bg-tertiary hover:dark:text-black focus:bg-tertiary",
-    gray: "bg-sand-dark dark:bg-light-black text-important dark:text-important hover:bg-tertiary focus:bg-tertiary hover:text-important focus:text-important dark:hover:bg-tertiary dark:hover:text-black",
+    cta: "text-black bg-sand-dark dark:bg-light-black dark:text-sand-dark hover:bg-sand-dark-hover hover:dark:bg-light-black-hover focus:dark:bg-light-black-hover focus:bg-sand-dark-hover",
+    gray: "bg-sand-dark dark:bg-light-black text-important dark:text-important hover:bg-sand-dark-hover focus:bg-sand-dark-hover focus:dark:bg-light-black-hover hover:text-important focus:text-important dark:hover:bg-light-black-hover",
     white:
-      "bg-card dark:bg-light-black text-important dark:text-important hover:bg-white focus:bg-tertiary hover:text-important focus:text-important dark:hover:bg-tertiary dark:hover:text-black",
+      "bg-card dark:bg-light-black text-important dark:text-important hover:bg-white focus:bg-white dark:focus:bg-light-black-hover hover:text-important focus:text-important dark:hover:bg-light-black-hover",
     disabled: "pointer-events-none text-body bg-sand-dark",
     medium: "py-2 px-6 text-btn-small leading-4 rounded-xl",
     large: "py-3 px-8 text-p-medium leading-[1.25] min-w-[10rem] rounded-2xl",
@@ -38,22 +38,23 @@
   {disabled}
   class:disabled
   class="
-    transition-all 
-    duration-200 
-    delay-[50ms] 
+    transition-all
+    duration-200
+    delay-[50ms]
     inline-block
     shadow-light
     {variant !== 'gray' ? 'dark:shadow-none' : 'dark:shadow-slight'}
-    font-semibold 
+    font-semibold
     whitespace-nowrap
     bg-none
-    {classMap[variant]} 
-    {classMap[size]} 
+    {classMap[variant]}
+    {classMap[size]}
     {className}
     {disabled ? classMap.disabled : ''}
   "
   class:text-center={textAlign === "center"}
   class:text-left={textAlign === "left"}
+  target={href.includes("https://") ? "_blank" : ""}
   {...$$restProps}
 >
   <slot name="image" />

@@ -21,24 +21,18 @@
   .active {
     @apply text-important;
   }
-
-  .highlight {
-    @apply relative;
-    &::after {
-      content: url("/indicator.svg");
-      @apply absolute -top-3 -right-2;
-    }
-  }
 </style>
 
 <a
   class:active={isActivePage && !isExternal}
-  class:highlight
+  class:flex={highlight}
   {href}
   on:click
-  on:focus
   sveltekit:prefetch={isPrefecthable}
   class="text-important sm:text-body text-p-large hover:text-important focus:text-important active:text-important"
 >
   {label}
+  {#if highlight}
+    <img src="/indicator.svg" alt="Highlight" class="h-1.5 w-1.5" />
+  {/if}
 </a>

@@ -1,4 +1,6 @@
 <script type="ts">
+  import BannerBg from "../banner-bg.svelte";
+
   import Section from "../section.svelte";
   export let bannerImg: string;
   export let text: string;
@@ -29,10 +31,7 @@
   </div>
 
   <div class="prose max-w-3xl mx-auto mt-x-large">
-    <div
-      class="h-36 bg-cover bg-center rounded-t-2xl mb-small"
-      style="background-image: url({bannerImg});"
-    />
+    <BannerBg {bannerImg} />
     <slot />
   </div>
 </Section>

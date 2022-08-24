@@ -25,8 +25,8 @@ Let’s use Gitpod to write <a class="no-nowrap" href="https://github.com/csweic
 
 ```dockerfile
 FROM gitpod/workspace-full-vnc
-RUN sudo apt-get update && \\
-    sudo apt-get install -y libgtk-3-dev && \\
+RUN sudo apt-get update && \
+    sudo apt-get install -y libgtk-3-dev && \
     sudo rm -rf /var/lib/apt/lists/*
 ```
 
@@ -47,8 +47,8 @@ Using this setup, we can build and [run Visual Studio Code in Gitpod](https://gi
 ```dockerfile
 FROM gitpod/workspace-full-vnc
 
-RUN sudo apt-get update && \\
-    sudo apt-get install -y libx11-dev libxkbfile-dev libsecret-1-dev libgconf2–4 libnss3 && \\
+RUN sudo apt-get update && \
+    sudo apt-get install -y libx11-dev libxkbfile-dev libsecret-1-dev libgconf2–4 libnss3 && \
     sudo rm -rf /var/lib/apt/lists/*
 ```
 

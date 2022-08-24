@@ -42,12 +42,13 @@
 
   onMount(() => {
     Cookies.set(cookies.NECESSARY, "true", { expires: 365 });
-    // If you change the cookie, please also change it in src/hooks.ts
-    document.cookie = `gitpod-marketing-website-visited=true; Domain=.gitpod.io; Path=/; max-age=${
-      365 * 24 * 60 * 60
-    }`;
-    if (Cookies.get(cookies.ANALYTICAL) !== "false" && !isEurope()) {
+
+    if (Cookies.get(cookies.ANALYTICAL) !== undefined && !isEurope()) {
       Cookies.set(cookies.ANALYTICAL, "true", { expires: 365 });
+    }
+
+    if (Cookies.get(cookies.ANALYTICAL) === "true") {
+      Cookies.set(cookies.VISITED, "true", { expires: 365 });
     }
   });
 

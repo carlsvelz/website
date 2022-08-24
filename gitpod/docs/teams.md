@@ -9,7 +9,7 @@ title: Create a Team Plan
 
 # Team Plans
 
-> **NOTE**  
+> **NOTE**
 > You can now configure [Team Billing](/docs/team-billing) directly from Teams & Projects with the following benefits:
 >
 > 1. Auto-subscribe new members when they join or leave the team.

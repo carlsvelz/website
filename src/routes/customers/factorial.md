@@ -1,11 +1,11 @@
 ---
 title: "From in-house to Gitpod: unlocking a collaboration culture"
-excerpt: Factorial embraced a collaboration culture by switching from their in-house dev environments to Gitpod. It saved each engineer 5 to 10 hours a month and freed the DevOps team to focus on production as they scaled from 45 developers to 110.
+excerpt: Factorial embraced a collaboration culture by switching from their in-house dev environments to Gitpod. It saved each engineer 5 to 10 hours a month and freed the DevOps team to focus on production as they scaled from 45 developers to 120.
 slug: factorial
 image: teaser.png
 date: Thursday, 23 June 2022 06:00:00 UTC
 pageTitle: "Factorial case study: From in-house remote development to unlocking a collaboration culture"
-pageDescription: From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 110.
+pageDescription: From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 120.
 keywords: DevX, velocity, growth, onboarding, factorial
 ---
 
@@ -25,7 +25,7 @@ keywords: DevX, velocity, growth, onboarding, factorial
 <OpenGraph
 data={{
     description:
-      "From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 110.",
+      "From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 120.",
     title: "Factorial case study: From in-house remote development to unlocking a collaboration culture",
     keywords: "DevX, velocity, growth, onboarding, factorial",
   }}
@@ -33,7 +33,7 @@ data={{
 
 <CustomerHero
 title="From in-house to Gitpod: unlocking a collaboration culture"
-text="Factorial embraced a collaboration culture by switching from their in-house dev environments to Gitpod. It saved each engineer 5 to 10 hours a month and freed the DevOps team to focus on production as they scaled from 45 developers to 110."
+text="Factorial embraced a collaboration culture by switching from their in-house dev environments to Gitpod. It saved each engineer 5 to 10 hours a month and freed the DevOps team to focus on production as they scaled from 45 developers to 120."
 card={{
 		image: "/images/customers/factorial/teaser.png",
 		details:{
@@ -41,7 +41,7 @@ card={{
 			plan: "Team Unlimited, SaaS",
 			people: {
 				title: "Engineers",
-				text: "110+"
+				text: "120+"
 			},
 			website: {
 				href: "https://factorialhr.com/",
@@ -83,7 +83,7 @@ text: "new developers hired",
 
 Factorial is a software company building an all-in-one human resources management application that handles document management, payroll, time tracking, and more.
 
-Director of Developer Experience Josep Jaume has spent the last 8 months improving the way developers at Factorial work. Since then, the company has grown from 45 developers to 110, and Gitpod has become a core part of their developer experience.
+Director of Developer Experience Josep Jaume has spent the last 8 months improving the way developers at Factorial work. Since then, the company has grown from 45 developers to 120, and Gitpod has become a core part of their developer experience.
 
 Josep tells us the story of Factorial's growth and what led the company to embrace Gitpod for all their development.
 
@@ -141,7 +141,7 @@ Rather than mandating that developers do their work with Gitpod, Josep focused o
 
 They shared a lot about their development process and had frequent pair sessions. Every time they found a pain point, they fixed it, and unlike the old dev environments that were unique to each developer, these fixes improved the developer experience for everyone. Changes to formatting or lint rules became part of the code that every new workspace would build from.
 
-Gitpod also transformed the way Factorial onboarded new hires. From November to June, Factorial grew from 45 developers to 110, and they all needed to be trained on Factorial's development process. With no experience using the old system, Gitpod was a much easier entry point. "You can either spend 3 days of your life setting them up, teaching them to use tmux, or you can just give them a button and say 'click here'."
+Gitpod also transformed the way Factorial onboarded new hires. From November to July, Factorial grew from 45 developers to 120, and they all needed to be trained on Factorial's development process. With no experience using the old system, Gitpod was a much easier entry point. "You can either spend 3 days of your life setting them up, teaching them to use tmux, or you can just give them a button and say 'click here'."
 
 ## Discovering a new collaborative way to work
 

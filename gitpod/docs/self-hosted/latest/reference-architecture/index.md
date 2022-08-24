@@ -1,5 +1,6 @@
 ---
 section: self-hosted/latest
+subsection: installation-guides
 title: Self-Hosted Reference Architectures
 ---
 
@@ -9,6 +10,6 @@ title: Self-Hosted Reference Architectures
 
 # Reference Architectures
 
-- Proof-of-Concept Reference Architecture (coming soon)
-- [Single-Cluster Production-Ready Reference Architecture](./reference-architecture/production-ready-single-cluster)
+- [Proof-of-Value Reference Architecture](./reference-architecture/proof-of-value)
+- [Single-Cluster Reference Architecture for Production Purposes](./reference-architecture/single-cluster-ref-arch)
 - Multi-Cluster Production-Ready Reference Architecture (coming soon)

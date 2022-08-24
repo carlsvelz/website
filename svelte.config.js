@@ -13,15 +13,45 @@ import rehypeWrap from "rehype-wrap-all";
 import { highlightCode } from "./src/lib/utils/highlight.js";
 import { mdsvexGlobalComponents } from "./src/lib/utils/mdsvex-global-components.js";
 import { h } from "hastscript";
+import { execSync } from "node:child_process";
+
+/** @type {Partial<import('vite').ServerOptions>} */
+let extendedViteServerOptions;
+
+try {
+  /**
+   * When changing this port number, remember to update it also in these files:
+   * - .gitpod.yml
+   * - cypress.json
+   */
+  const port = 3000;
+
+  const gitpodPortUrl = execSync(`gp url ${port}`).toString().trim();
+
+  extendedViteServerOptions = {
+    port,
+    hmr: {
+      protocol: "wss",
+      host: new URL(gitpodPortUrl).hostname,
+      clientPort: 443,
+    },
+  };
+} catch {
+  extendedViteServerOptions = {};
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
 
   kit: {
+    browser: {
+      hydrate: true,
+      router: true,
+    },
     trailingSlash: "never",
     adapter: adapterNetlify({
-      split: true,
+      split: false,
     }),
     amp: false,
     appDir: "_app",
@@ -32,26 +62,21 @@ const config = {
       routes: "src/routes",
       template: "src/app.html",
     },
-    hydrate: true,
     prerender: {
       crawl: true,
       enabled: true,
       onError: "fail", //once the netlify-endpoint for requesting the images isn't needed anymore this can be "fail" again
       entries: ["*"],
     },
-    router: true,
-    target: "#svelte",
     vite: {
       resolve: {
         preserveSymlinks: true,
       },
       server: {
-        hmr: {
-          clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 3000,
-          host: process.env.GITPOD_WORKSPACE_URL
-            ? process.env.GITPOD_WORKSPACE_URL.replace("https://", "3000-")
-            : "localhost",
+        fs: {
+          allow: [".."],
         },
+        ...extendedViteServerOptions,
       },
     },
   },

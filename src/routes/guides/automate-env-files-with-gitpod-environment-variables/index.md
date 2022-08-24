@@ -91,11 +91,11 @@ tasks:
           # There is no $DOTENV from a previous workspace
           # Default to the example .env
           echo "Setting example .env"
-          cp .env.example .env 
+          cp .env.example .env
         else
           # After making changes to .env, run this line to persist it to $DOTENV
           #   gp env DOTENV="$(base64 .env | tr -d '\n')"
-          # 
+          #
           # Environment variables set this way are shared between all your workspaces for this repo
           # The lines below will read $DOTENV and print a .env file
           echo "Restoring .env from Gitpod"

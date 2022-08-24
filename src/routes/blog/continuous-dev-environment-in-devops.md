@@ -25,7 +25,7 @@ Getting our dev environments into a ready-to-code state is usually still done ma
 
 ## Automated Dev Environments
 
-Automating dev environments is not new and usually focusses on the initial setup, but that doesn't quite cut it. Of course, we all have felt the pain of being on-boarded in a new project, spending the first week figuring out what tools to install and how to configure them correctly. Manually setting up a dev environment is a waste of energy. Surprising that we still do such things, given that we developers are usually busy automating everything else in the world.
+Automating dev environments is not new and usually focuses on the initial setup, but that doesn't quite cut it. Of course, we all have felt the pain of being on-boarded in a new project, spending the first week figuring out what tools to install and how to configure them correctly. Manually setting up a dev environment is a waste of energy. Surprising that we still do such things, given that we developers are usually busy automating everything else in the world.
 
 ![disposable dev environments](../../../static/images/blog/continuous-dev-environment-in-devops/gears.jpg)
 

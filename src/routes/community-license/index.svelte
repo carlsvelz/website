@@ -11,7 +11,7 @@
   import Button from "$lib/components/ui-library/button";
   import Card from "$lib/components/ui-library/card";
 
-  import type { Email } from "../../functions/submit-form";
+  import type { Email } from "$lib/api/api";
   import Header from "$lib/components/header.svelte";
   import { cloudPlatforms, noOfEngineers } from "$lib/contents/contact";
   import Checkbox from "$lib/components/ui-library/checkbox";
@@ -89,7 +89,7 @@
       message: `
         ${formData.company.value}
         ${formData.name.value}
-        
+
         developers: ${formData.noOfEngineers.value}
         Cloud Infrastructure: ${formData.cloudInfrastructure.value}
         Message:
@@ -104,7 +104,7 @@
     };
 
     try {
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: JSON.stringify(email),
       });

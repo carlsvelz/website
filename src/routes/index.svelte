@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import { testimonials, benefits } from "$lib/contents/home/index";
+  import { testimonials, featureTitles } from "$lib/contents/home/index";
   import {
     features,
     otherFeatures,
@@ -21,8 +21,8 @@
   import Section from "$lib/components/section.svelte";
   import Resources from "$lib/components/resources.svelte";
   import AnimatedLogos from "$lib/components/animated-logos.svelte";
-  import Benefits from "$lib/components/benefits.svelte";
   import UsedBy from "$lib/components/index/used-by.svelte";
+  import FeatureTitles from "$lib/components/feature-titles.svelte";
 </script>
 
 <OpenGraph
@@ -48,7 +48,10 @@
 <Hero />
 <AnimatedLogos />
 <Section>
-  <Benefits {benefits} />
+  <FeatureTitles
+    {featureTitles}
+    featureTitlePadding="px-macro py-xx-small sm:px-small sm:py-x-small"
+  />
 </Section>
 <ChooseProject />
 <div id="choose-project-observer-target-bottom">

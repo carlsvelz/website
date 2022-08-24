@@ -17,10 +17,6 @@ There is no hard-limit about how many IDE/editors can be connected to a running 
 
 VS Code in the browser in Gitpod uses a fork of [VS Code](https://github.com/microsoft/vscode) called [openvscode-server](https://github.com/gitpod-io/openvscode-server). Gitpod actively monitors VS Code's release cycle, and releases the latest version of VS Code shortly after the upstream repository is updated. You can find more information about which version of VS Code is running in the browser by navigating to "Help > About" from a running Gitpod workspace.
 
-## Why do I get prompted for a password when connecting to a workspace via SSH?
-
-To enable passwordless authentication, an [SSH key](/docs/configure/ssh#create-an-ssh-key) on your local machine is required.
-
 ## Does Gitpod VS Code Settings Sync work with other products (e.g. Codespaces)?
 
 Gitpod doesn't currently support settings sync with other hosted VS Code environments, such as [Codespaces](https://github.com/features/codespaces) or [vscode.dev](https://vscode.dev/).

@@ -40,6 +40,7 @@
   class="{background} {size} {className}"
   class:brand={brandShadow}
   class:stroked
+  class:stroked-light={background === "white"}
 >
   <slot />
 </div>

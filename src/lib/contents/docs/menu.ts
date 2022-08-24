@@ -21,7 +21,7 @@ export const MENU: MenuEntry[] = [
   M("Configure", "configure", [
     M(".gitpod.yml", "config-gitpod-file"),
     // Why is this side bar name different to the title / URL?
-    M("Configure Docker", "config-docker"),
+    M("Docker", "config-docker"),
     M("Start Tasks", "config-start-tasks"),
     M("Ports", "config-ports"),
     M("Prebuilds", "prebuilds"),
@@ -57,12 +57,7 @@ export const MENU: MenuEntry[] = [
     M("JetBrains Gateway", "ides-and-editors/jetbrains-gateway", [], "beta"),
     M("VS Code Extensions", "ides-and-editors/vscode-extensions"),
     M("VS Code Settings Sync", "ides-and-editors/settings-sync"),
-    M("Command Line (e.g. Vim)", "ides-and-editors/command-line", []),
-    M(
-      "Configure your IDE/editor",
-      "ides-and-editors/configure-your-editor-ide",
-      []
-    ),
+    M("Command Line (SSH)", "ides-and-editors/command-line", []),
     M("FAQs", "ides-and-editors/faqs", []),
   ]),
   M("Languages", "languages", [
@@ -84,7 +79,6 @@ export const MENU: MenuEntry[] = [
     M("LaTeX", "languages/latex"),
     M("R", "languages/r"),
     M("Kotlin", "languages/kotlin"),
-    M("Pandas", "languages/python#pandas"),
     M("Deno", "languages/deno"),
   ]),
   M("Integrations", "integrations", [
@@ -97,20 +91,36 @@ export const MENU: MenuEntry[] = [
     M("Browser Extension", "browser-extension"),
   ]),
   M("Gitpod Self-Hosted", "self-hosted/latest", [
-    M("Local Preview", "self-hosted/latest/local-preview", [], "alpha"),
-    M("Getting Started", "self-hosted/latest/getting-started"),
-    M("Reference Architectures", "self-hosted/latest/reference-architecture"),
-    M("Cluster Set-Up", "self-hosted/latest/cluster-set-up"),
-    M("Required Components", "self-hosted/latest/required-components"),
-    M("Advanced Installation", "self-hosted/latest/advanced"),
-    M("Updating Gitpod", "self-hosted/latest/updating"),
-    M("Monitoring", "self-hosted/latest/monitoring"),
+    M("Installation Guides", "self-hosted/latest/installation-guides", [
+      M("Local Preview", "self-hosted/latest/local-preview", [], "beta"),
+      M("Getting Started", "self-hosted/latest/getting-started"),
+      M(
+        "Reference Architectures",
+        "self-hosted/latest/reference-architecture",
+        [],
+        "alpha"
+      ),
+      M("Cluster Set-Up", "self-hosted/latest/cluster-set-up"),
+      M("Advanced Installation", "self-hosted/latest/advanced"),
+    ]),
+    M("Operational Guides", "self-hosted/latest/operational-guides", [
+      M("Updating", "self-hosted/latest/updating"),
+      M("Monitoring", "self-hosted/latest/monitoring"),
+      M("Backing Up", "self-hosted/latest/backup-restore"),
+    ]),
     M("Troubleshooting", "self-hosted/latest/troubleshooting", [
       M("Support Bundles", "self-hosted/latest/support-bundle", []),
-      M("Support Patches", "self-hosted/latest/support-patches", []),
+      M("Config Patches", "self-hosted/latest/config-patches", []),
     ]),
-    M("Telemetry", "self-hosted/latest/telemetry"),
-    M("Releases", "self-hosted/latest/releases"),
+    M("Background", "self-hosted/latest/background", [
+      M("Disaster Recovery", "self-hosted/latest/disaster-recovery"),
+    ]),
+    M("Reference", "self-hosted/latest/reference", [
+      M("Required Components", "self-hosted/latest/required-components"),
+      M("Telemetry", "self-hosted/latest/telemetry"),
+      M("Release Policies", "self-hosted/latest/releases"),
+      M("Upgrade Guides", "self-hosted/latest/upgrade-guides"),
+    ]),
   ]),
   M("References", "references", [
     M(".gitpod.yml", "references/gitpod-yml"),

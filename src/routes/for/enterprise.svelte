@@ -22,8 +22,8 @@
   import OpenGraph from "$lib/components/open-graph.svelte";
   import Hero from "$lib/components/hero.svelte";
   import SectionFeatures from "$lib/components/section-features.svelte";
-  import Benefits from "$lib/components/benefits.svelte";
-  import { benefits } from "$lib/contents/home";
+  import { featureTitles } from "$lib/contents/home";
+  import FeatureTitles from "$lib/components/feature-titles.svelte";
 </script>
 
 <OpenGraph
@@ -55,7 +55,10 @@
   }}
 />
 
-<Benefits {benefits} />
+<FeatureTitles
+  {featureTitles}
+  featureTitlePadding="px-macro py-xx-small sm:px-small sm:py-x-small"
+/>
 
 <UsedBy
   class="py-small"

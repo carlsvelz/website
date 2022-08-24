@@ -15,7 +15,7 @@
       title: "Amazon Web Services (AWS)",
       value: 2,
       slotName: "aws",
-      hidden: true, // hidden since it is not ready to publish yet
+      hidden: false, // hidden since it is not ready to publish yet
     },
     {
       mobileTitle: "Azure",
@@ -36,7 +36,7 @@
 
 <style lang="postcss">
   .box {
-    @apply px-4 py-2 rounded-b-2xl rounded-tr-2xl border-t-0;
+    @apply px-4 py-4 rounded-b-2xl rounded-tr-2xl border-t-0;
   }
 
   li {
@@ -45,7 +45,9 @@
 </style>
 
 <details open={open || null} {id}>
-  <summary class="text-p-medium">Cloud provider specific instructions</summary>
+  <summary class="text-p-medium"
+    ><b>Cloud provider specific instructions</b></summary
+  >
 
   <div class="my-8 mt-0">
     <ul class="flex flex-wrap !pl-0 !mb-0">

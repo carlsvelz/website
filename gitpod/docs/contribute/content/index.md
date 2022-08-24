@@ -9,7 +9,7 @@ title: Contribute Content
 
 # Contribute Content
 
-Creating content (blog posts, youtube and tiktok videos, presentations and demos) that shares tips+tricks and your experiences with Gitpod is amongst one of the most impactful ways you can help contribute. Everyone at Gitpod including our founders, engineers and product managers loves [reading](https://ghuntley.com/anywhere/) and [watching](https://www.youtube.com/watch?v=XLOwNev0TM0&t=18s) content created by people in our community.
+Creating content (blog posts, YouTube and TikTok videos, presentations and demos) that shares tips+tricks and your experiences with Gitpod is amongst one of the most impactful ways you can help contribute. Everyone at Gitpod including our founders, engineers and product managers loves [reading](https://ghuntley.com/anywhere/) and [watching](https://www.youtube.com/watch?v=XLOwNev0TM0&t=18s) content created by people in our community.
 
 Gitpod maintains an invitational showcase of community contributed guides which are used to highlight content that is hosted elsewhere. Please do not raise pull-requests to the website that adds guides or blog posts without prior discussion and consent.
 
@@ -17,7 +17,7 @@ Instead follow the IndieWeb guidelines of [POSSE](https://indieweb.org/POSSE) wh
 
 After the content has been published please:
 
-1. Send a tweet that that mentions the [@Gitpod](http://twitter.com/gitpod) twitter account which will broadcast the content internally within the company.
+1. Send a tweet that mentions the [@Gitpod](http://twitter.com/gitpod) Twitter account which will broadcast the content internally within the company.
 
 1. Add a link to the content at https://github.com/shaal/awesome-gitpod
 

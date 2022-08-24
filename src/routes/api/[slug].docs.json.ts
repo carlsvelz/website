@@ -1,6 +1,4 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import path from "path";
-import fs from "fs";
 import { compile } from "mdsvex";
 import slug from "remark-slug";
 import headings from "remark-autolink-headings";
@@ -14,70 +12,95 @@ import remarkLinkWithImageAsOnlyChild from "$lib/utils/remark-link-with-image-as
 import remarkHeadingsPermaLinks from "$lib/utils/remark-headings-permalinks.js";
 
 export const get: RequestHandler = async ({ params }) => {
-  const title = slugToTitle(params.slug);
-  const filePath = resolveFile(title);
-  const lastEdited = fs.statSync(filePath).mtimeMs;
-  const rawMarkdown = fs.readFileSync(filePath, "utf8");
-
-  const compiledMarkdown = await compile(rawMarkdown, {
-    remarkPlugins: [
-      [
-        remarkExternalLinks,
-        {
-          target: "_blank",
+  try {
+    if (params.slug.endsWith("__")) {
+      params.slug = params.slug.substring(0, params.slug.lastIndexOf("__"));
+    }
+    if (params.slug.endsWith("_")) {
+      return {
+        status: 400,
+        body: {
+          message: "please provide valid path",
         },
-      ],
-      slug,
-      [
-        headings,
-        {
-          behavior: "append",
-          linkProperties: {},
-          content: function (node) {
-            return [
-              h("span.icon.icon-link", {
-                ariaLabel: toString(node) + " permalink",
-              }),
-            ];
+      };
+    }
+    let title = slugToTitle(params.slug);
+    const allFiles = import.meta.glob(`/src/routes/docs/**/*.md`, {
+      as: "raw",
+    });
+
+    const filePath = resolveFile(
+      title,
+      Object.entries(allFiles).map((item) => item[0])
+    );
+    const rawMarkdown = allFiles[filePath] as any;
+
+    const compiledMarkdown = await compile(rawMarkdown, {
+      remarkPlugins: [
+        [
+          remarkExternalLinks,
+          {
+            target: "_blank",
           },
-        },
+        ],
+        slug,
+        [
+          headings,
+          {
+            behavior: "append",
+            linkProperties: {},
+            content: function (node) {
+              return [
+                h("span.icon.icon-link", {
+                  ariaLabel: toString(node) + " permalink",
+                }),
+              ];
+            },
+          },
+        ],
+        remarkSetImagePath,
+        remarkLinkWithImageAsOnlyChild,
+        remarkHeadingsPermaLinks,
+        getHeadings,
+        [
+          remarkEmbedVideo,
+          {
+            width: 800,
+            height: 400,
+            noIframeBorder: true,
+          },
+        ],
       ],
-      remarkSetImagePath,
-      remarkLinkWithImageAsOnlyChild,
-      remarkHeadingsPermaLinks,
-      getHeadings,
-      [
-        remarkEmbedVideo,
-        {
-          width: 800,
-          height: 400,
-          noIframeBorder: true,
-        },
-      ],
-    ],
-  });
+    });
 
-  return {
-    body: {
-      ...compiledMarkdown.data.fm,
-      lastEdited,
-    },
-  };
+    return {
+      body: {
+        ...compiledMarkdown.data.fm,
+      },
+    };
+  } catch (e) {
+    console.log(e.message);
+    return {
+      status: 200,
+      body: {
+        message: "exited gracefully",
+      },
+    };
+  }
 };
 
 function slugToTitle(slug: string) {
-  return slug.replace(/__/g, "/");
+  return `/src/routes${slug.replace(/__/g, "/")}`;
 }
 
-function resolveFile(fileName: string) {
+function resolveFile(fileName: string, markdownFiles: string[]) {
   let result: string;
-  const dir = path.join(process.cwd(), "src/routes/docs");
-  const markdownFiles = getMarkdownFiles(dir);
   const filteredMatches = markdownFiles.filter((file) => {
     const parsedFileName = parseFileNameFromPath(fileName);
     const parsedfile = parseFileNameFromPath(file);
     const match =
       normalizeFileName(parsedFileName) === normalizeFileName(parsedfile);
+
     return match;
   });
 
@@ -98,22 +121,6 @@ function resolveFile(fileName: string) {
     });
   }
   return result;
-}
-
-function getMarkdownFiles(dir: string) {
-  /** @type {any[]} */
-  var results: string[] = [];
-  const items = fs.readdirSync(dir);
-  items.forEach((doc) => {
-    doc = `${dir}/${doc}`;
-    const stat = fs.statSync(doc);
-    if (stat && stat.isDirectory()) {
-      results = results.concat(getMarkdownFiles(doc));
-    } else {
-      results.push(doc);
-    }
-  });
-  return results.filter((f) => f.endsWith(".md"));
 }
 
 function parseFileNameFromPath(path: string): string {

@@ -45,7 +45,7 @@ One day, we [were approached](https://github.com/gitpod-io/gitpod/issues/3258#is
 
 ![workspace-wide network namespace](../../../static/images/blog/workspace-networking/new-setup.png)
 
-We had solved this problem already for one specific use-case: the Docker daemon. Within a single day, [we wrapped the entire workspace in a network namespace](https://github.com/gitpod-io/gitpod/pull/6409), if the workspace had a new `experimentalNetwork: true` [config flag set.](https://github.com/gitpod-io/template-tailscale/blob/1091c778c7e608d58e6e3cb1d494c73d5b255558/.gitpod.yml#L12)
+We had solved this problem already for one specific use-case: the Docker daemon. Within a single day, [we wrapped the entire workspace in a network namespace](https://github.com/gitpod-io/gitpod/pull/6409), if the workspace had a new `experimentalNetwork: true` [config flag set.](https://github.com/gitpod-io/demo-tailscale-with-gitpod/blob/1091c778c7e608d58e6e3cb1d494c73d5b255558/.gitpod.yml#L12)
 
 Why make this optional behind a flag? Because this is a considerable change of the workspace networking setup, and we are careful not to break the existing experience. Also, the slirp4netns solution comes with a performance penalty (see above).
 

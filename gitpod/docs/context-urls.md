@@ -56,7 +56,7 @@ gitpod.io/#https://github.com/gitpod-io/website/commit/f5d4eb4cd3859a760ac613598
 
 The fastest way to work on an issue is to start a Gitpod workspace with an issue context. Gitpod automatically creates a local branch based on the following pattern:
 
-```
+```text
 <your-username>/<issue-title>-<issue-number>
 ```
 

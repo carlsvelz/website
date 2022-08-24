@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import type { Form } from "$lib/types/form.type";
-  import type { Email } from "../../functions/submit-form";
+  import type { Email } from "$lib/api/api";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import SubmissionSuccess from "$lib/components/submission-success.svelte";
   import { onMount, tick } from "svelte";
@@ -17,22 +17,51 @@
   import Button from "$lib/components/ui-library/button";
   import Card from "$lib/components/ui-library/card";
   import { scrollToElement } from "$lib/utils/helpers";
+  import {
+    cloudPlatforms,
+    noOfEngineers as noOfEngineersArray,
+  } from "$lib/contents/contact";
+  import Select from "$lib/components/ui-library/select/select.svelte";
+  import InputsHalf from "$lib/components/contact/inputs-half.svelte";
 
   const studentUnlimitedSubject = "Educational Discount Verification";
+
+  const selfHostingSubject = "Self-hosting Gitpod";
 
   const otherSubject = "Other";
   const subjects = [
     "Question",
-    "Issue",
+    "Technical Support",
     "Billing",
     studentUnlimitedSubject,
-    "Self-hosting Gitpod",
+    selfHostingSubject,
     "Open Source Sponsorship",
     otherSubject,
   ];
 
+  let isCloudPlatformsSelectShown = false;
+
+  let cloudInfrastructure = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
+  let noOfEngineers = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
+  let company = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
   let isStudentEmailNoteShown: boolean = false;
   let sectionStart: HTMLElement;
+  let isSubmissionInProgress: boolean = false;
 
   $: if (formData.selectedSubject.value === studentUnlimitedSubject) {
     isStudentEmailNoteShown = true;
@@ -67,6 +96,22 @@
       value: "",
     },
   };
+
+  $: if (formData.selectedSubject.value == selfHostingSubject) {
+    isCloudPlatformsSelectShown = true;
+    formData.cloudInfrastructure = cloudInfrastructure;
+    formData.noOfEngineers = noOfEngineers;
+    formData.company = company;
+  } else {
+    isCloudPlatformsSelectShown = false;
+    delete formData.cloudInfrastructure;
+    delete formData.noOfEngineers;
+    delete formData.company;
+  }
+
+  $: isSelfHostedSelected =
+    isCloudPlatformsSelectShown && formData.cloudInfrastructure;
+
   let isFormDirty = false;
   let isEmailSent = false;
 
@@ -79,6 +124,7 @@
       scrollToElement(sectionStart, ".error");
       return;
     }
+    isSubmissionInProgress = true;
 
     trackIdentity(
       {
@@ -106,11 +152,28 @@
         "  (from " +
         formData.email.value +
         ")",
-      message: formData.message.value,
+      message: `
+          ${
+            isCloudPlatformsSelectShown
+              ? `Cloud Infrastructure: ${formData.cloudInfrastructure.value}`
+              : ""
+          }
+          ${
+            isCloudPlatformsSelectShown
+              ? `Company: ${formData.company.value}`
+              : ""
+          }
+          Message: ${formData.message.value}
+          ${
+            isCloudPlatformsSelectShown
+              ? `Total number of engineers: ${formData.noOfEngineers.value}`
+              : ""
+          }
+      `,
     };
 
     try {
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: JSON.stringify(email),
       });
@@ -171,7 +234,7 @@
   text="Need help with any question or issue? Please get in contact and we’ll get
   onto it right away."
   tight={true}
-  class="max-w-2xl"
+  textClassNames="max-w-2xl mx-auto text-large"
 />
 
 <Card
@@ -189,8 +252,8 @@
       {:else}
         <form on:submit|preventDefault={handleSubmit} novalidate>
           <h2 class="h3 text-center">Send us a message</h2>
-          <ul class="space-y-8">
-            <li class:error={isFormDirty && !formData.selectedSubject.valid}>
+          <div class="space-y-8">
+            <div class:error={isFormDirty && !formData.selectedSubject.valid}>
               <fieldset class="flex">
                 <legend>Please choose a subject*</legend>
                 <ul>
@@ -216,45 +279,107 @@
                   {/each}
                 </ul>
               </fieldset>
-            </li>
-            <li>
-              <Input
-                hasError={isFormDirty && !formData.name.valid}
-                label="Name*"
-                id="name"
-                name="name"
-                bind:value={formData.name.value}
-                bind:element={formData.name.el}
-                on:change={() => {
-                  formData.name.valid =
-                    formData.name.value && formData.name.el.checkValidity();
-                }}
-                type="text"
-                autocomplete="name"
-              />
-            </li>
-            <li class:error={isFormDirty && !formData.email.valid}>
-              <label class="cursor-pointer" for="email"
-                >E-mail*
-                {#if isStudentEmailNoteShown}
-                  (Please use your student or faculty email)
-                {/if}
-              </label>
-              <Input
-                hasError={isFormDirty && !formData.email.valid}
-                id="email"
-                name="e-mail"
-                bind:value={formData.email.value}
-                bind:element={formData.email.el}
-                on:change={() => {
-                  formData.email.valid =
-                    formData.email.value && formData.email.el.checkValidity();
-                }}
-                type="email"
-                autocomplete="email"
-              />
-            </li>
-            <li>
+            </div>
+            <InputsHalf>
+              <div>
+                <Input
+                  hasError={isFormDirty && !formData.name.valid}
+                  label="Name*"
+                  id="name"
+                  name="name"
+                  bind:value={formData.name.value}
+                  bind:element={formData.name.el}
+                  on:change={() => {
+                    formData.name.valid =
+                      formData.name.value && formData.name.el.checkValidity();
+                  }}
+                  type="text"
+                  autocomplete="name"
+                />
+              </div>
+              <div class:error={isFormDirty && !formData.email.valid}>
+                <label class="cursor-pointer" for="email"
+                  >E-mail*
+                  {#if isStudentEmailNoteShown}
+                    (Please use your student or faculty email)
+                  {/if}
+                </label>
+                <Input
+                  hasError={isFormDirty && !formData.email.valid}
+                  id="email"
+                  name="e-mail"
+                  bind:value={formData.email.value}
+                  bind:element={formData.email.el}
+                  on:change={() => {
+                    formData.email.valid =
+                      formData.email.value && formData.email.el.checkValidity();
+                  }}
+                  type="email"
+                  autocomplete="email"
+                />
+              </div>
+            </InputsHalf>
+            {#if isSelfHostedSelected}
+              <InputsHalf>
+                <div
+                  class:error={isFormDirty && !formData.selectedSubject.valid}
+                >
+                  <Select
+                    hasError={isFormDirty &&
+                      !formData.cloudInfrastructure.valid}
+                    name="cloudInfrastructure"
+                    bind:value={formData.cloudInfrastructure.value}
+                    on:change={(e) => {
+                      formData.cloudInfrastructure.valid =
+                        formData.cloudInfrastructure.value &&
+                        // @ts-ignore
+                        e.target.validity.valid;
+                    }}
+                    options={cloudPlatforms}
+                    placeholder="Which cloud infrastructure do you use?"
+                    class="max-w-md"
+                  />
+                </div>
+                <div
+                  class:error={isFormDirty && !formData.selectedSubject.valid}
+                >
+                  <Select
+                    placeholder="Total number of engineers"
+                    hasError={isFormDirty && !formData.noOfEngineers.valid}
+                    name="noOfEngineers"
+                    bind:value={formData.noOfEngineers.value}
+                    bind:element={formData.noOfEngineers.el}
+                    on:change={() => {
+                      formData.noOfEngineers.valid =
+                        formData.noOfEngineers.value &&
+                        formData.noOfEngineers.el.checkValidity();
+                    }}
+                    options={noOfEngineersArray}
+                    class="max-w-md"
+                  />
+                </div>
+              </InputsHalf>
+              <InputsHalf>
+                <div class:error={isFormDirty && !formData.company.valid}>
+                  <Input
+                    label="Company*"
+                    hasError={isFormDirty && !formData.company.valid}
+                    id="company"
+                    name="company"
+                    bind:value={formData.company.value}
+                    bind:element={formData.company.el}
+                    on:change={() => {
+                      formData.company.valid =
+                        formData.company.value &&
+                        formData.company.el.checkValidity();
+                    }}
+                    type="text"
+                    autocomplete="organization"
+                  />
+                </div>
+              </InputsHalf>
+            {/if}
+            <div>
               <Textarea
                 id="message"
                 label="Your message*"
@@ -270,8 +395,8 @@
                 cols="30"
                 rows="10"
               />
-            </li>
-            <li>
+            </div>
+            <div>
               <Checkbox
                 hasError={isFormDirty && !formData.consent.valid}
                 label="I consent to having this website store my submitted information so that a support staff can respond to my inquiry."
@@ -283,8 +408,8 @@
                     formData.consent.el.validity.valid;
                 }}
               />
-            </li>
-            <li>
+            </div>
+            <div>
               <p class="text-sm my-4">
                 By submitting this form I acknowledge that I have read and
                 understood <a class="link" href="/privacy"
@@ -296,7 +421,9 @@
                 size="medium"
                 type="submit"
                 class="btn"
-                disabled={isFormDirty && !isFormValid}
+                disabled={(isFormDirty && !isFormValid) ||
+                  isSubmissionInProgress}
+                isLoading={isSubmissionInProgress}
                 >Send message
               </Button>
               {#if isFormDirty && !isFormValid}
@@ -304,8 +431,8 @@
                   Please fill out all required fields above
                 </legend>
               {/if}
-            </li>
-          </ul>
+            </div>
+          </div>
           {#if isEmailSent}
             <p>Thank you! We'll get back to you soon.</p>
           {/if}

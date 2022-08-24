@@ -1,5 +1,6 @@
 ---
 section: self-hosted/latest
+subsection: installation-guides
 title: Cluster Set-Up
 ---
 
@@ -34,7 +35,7 @@ After completing the guides you will still need to configure [DNS](./requirement
 
 ### Supported Kubernetes Distributions
 
-Gitpod requires Kubernetes as an orchestration technology in order to spin up and down workspaces--ideally in combination with cluster autoscaling to minimise cost. We strongly recommend deploying a dedicated Kubernetes cluster just for Gitpod Self-Hosted.
+Gitpod requires Kubernetes as an orchestration technology in order to spin workspaces up and down--ideally in combination with cluster autoscaling to minimise cost. We strongly recommend deploying a dedicated Kubernetes cluster just for Gitpod Self-Hosted.
 
 > Kubernetes version `1.21` or above is required
 
@@ -73,4 +74,8 @@ These are the components expected on each node:
 - Either Ubuntu 18.04 with ≥ v5.4 kernel or Ubuntu 20.04 with ≥ v5.4 kernel
 - Calico for the networking overlay and network policy
 - Containerd ≥ 1.5
-- At least 4 vCPU and 8GB of RAM
+- At least 4 vCPU and 16GB of RAM
+
+### Kubernetes Privilege Requirements
+
+Your Kubernetes cluster must allow Gitpod to run privileged pods and manage PodSecurityPolicies, as Gitpod depends on these privileges to provide workspace isolation.

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { logosAnimated } from "$lib/contents/home";
   import { onMount } from "svelte";
-  import Section from "./section.svelte";
 
   let sequence = [];
 
@@ -57,7 +56,7 @@
   }
 </style>
 
-<Section>
+<section class="mt-small md:mt-x-large">
   <h2 class="h5 text-center">Unleashing developer teams at</h2>
   <div class="flex justify-center gap-xx-small sm:gap-20 mt-large sm:mt-20">
     {#each sequence as i}
@@ -75,4 +74,4 @@
       </div>
     {/each}
   </div>
-</Section>
+</section>

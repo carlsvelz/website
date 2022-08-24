@@ -1,3 +1,5 @@
+https://blog.gitpod.io/* https://www.gitpod.io/blog/:splat 301!
+https://community.gitpod.io/* https://www.gitpod.io/chat 301!
 /blog/gitlab-integration/+ /blog/gitlab-integration 301
 /careers https://gitpod.crew.work/jobs 301
 /chat https://discord.com/invite/gitpod 301
@@ -48,6 +50,7 @@
 /docs/go-in-gitpod /docs/languages/go 301
 /docs/html-in-gitpod /docs/languages/html 301
 /docs/ide /docs/editors 301
+/docs/ides-and-editors/configure-your-editor-ide /docs/ides-and-editors 301
 /docs/editors /docs/ides-and-editors 301
 /docs/editors/vscode-browser /docs/ides-and-editors/vscode-browser
 /docs/editors/Goland /docs/ides-and-editors/Goland
@@ -107,3 +110,7 @@
 /gitpod-vs-github-codespaces /vs/github-codespaces 301
 /changelog/introducing-teams-&-projects /changelog/introducing-teams-and-projects
 /github-teacher-toolbox /pricing 301
+/customers/4geeks /for/education/4geeks 301
+/customers/bruno-rocha /for/education/bruno-rocha 301
+/docs/self-hosted/latest/reference-architecture/production-ready-single-cluster /docs/self-hosted/latest/reference-architecture/single-cluster-ref-arch 301
+/docs/self-hosted/latest/support-patches /docs/self-hosted/latest/config-patches 301

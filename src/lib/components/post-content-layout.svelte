@@ -7,6 +7,7 @@
   import Pill from "./pill.svelte";
   import type { ShareLink } from "$lib/types/share-link.type";
   import Hackernews from "./svgs/share/hackernews.svelte";
+  import RequestChanges from "./ui-library/request-changes.svelte";
 
   export let baseUrl: string;
   export let imagesDirectoryName: string;
@@ -125,10 +126,20 @@
       </p>
       <slot />
     </div>
-    <Share
-      text="Share this post"
-      {shareLinks}
-      class="border-t border-solid border-divider pt-xx-small md:pt-micro mt-small"
-    />
+    <div
+      class="flex flex-col-reverse items-center md:flex-row justify-between md:items-baseline border-t border-solid border-divider pt-4 mt-small"
+    >
+      <Share text="Share this post" {shareLinks} />
+      {#if imagesDirectoryName === "blog"}
+        <RequestChanges
+          href={`https://github.com/gitpod-io/website/edit/main/src/routes/blog/${slug}.md`}
+        />
+      {/if}
+      {#if imagesDirectoryName === "guides"}
+        <RequestChanges
+          href={`https://github.com/gitpod-io/website/edit/main/src/routes/guides/${slug}/index.md`}
+        />
+      {/if}
+    </div>
   </div>
 </div>

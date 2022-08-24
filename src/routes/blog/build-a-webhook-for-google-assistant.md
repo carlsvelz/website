@@ -19,19 +19,19 @@ This post is all about how to build your webhook for your Google Assistant actio
 
 - Node JS
 - Express JS
-- Basics on how to use Github
+- Basics on how to use GitHub
 
 If you have these in place, Let's get started.
 
 ## What is Gitpod?
 
-First of all I would like to start this section by saying, I ❤ Gitpod. Gitpod is an online IDE for Github. Gitpod provides you with a fully working developer environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand. Just prefix your Github repo URL with "https://gitpod.io/#", So that the final link looks something like this "https://gitpod.io/#https://github.com/<username>/<repo-name>" or you can also use the Gitpod [browser extension](https://chrome.google.com/webstore/detail/gitpod-online-ide/dodmmooeoklaejobgleioelladacbeki?hl=en) to add the Gitpod button to Github page.
+First of all I would like to start this section by saying, I ❤ Gitpod. Gitpod is an online IDE for GitHub. Gitpod provides you with a fully working developer environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand. Just prefix your GitHub repo URL with "https://gitpod.io/#", So that the final link looks something like this "https://gitpod.io/#https://github.com/<username>/<repo-name>" or you can also use the Gitpod [browser extension](https://chrome.google.com/webstore/detail/gitpod-online-ide/dodmmooeoklaejobgleioelladacbeki?hl=en) to add the Gitpod button to GitHub page.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/bFZMKpDV3GQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="Gitpod Always Ready-to-Code video" allowfullscreen></iframe>
 
 ## Let's start building
 
-I have created a Github repo which will help you get started without any hassle. The repo is basically a boilerplate to get started with building your webhook. The code is written in Node JS, So it would be easier for you to build on top of it if you are already familiar with Node JS. We will be using the [action-on-google](https://www.npmjs.com/package/actions-on-google) Node JS library (This client library makes it easy to create Actions for the Google Assistant and supports Dialogflow, Actions SDK, and Smart Home fulfillment.).
+I have created a GitHub repo which will help you get started without any hassle. The repo is basically a boilerplate to get started with building your webhook. The code is written in Node JS, So it would be easier for you to build on top of it if you are already familiar with Node JS. We will be using the [action-on-google](https://www.npmjs.com/package/actions-on-google) Node JS library (This client library makes it easy to create Actions for the Google Assistant and supports Dialogflow, Actions SDK, and Smart Home fulfillment.).
 
 ### Create your Action
 

@@ -4,13 +4,13 @@
 
 <script>
   import Cta from "$lib/components/support/cta.svelte";
-  import PopularArticles from "$lib/components/support/popular-articles.svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import { cards } from "$lib/contents/support";
   import Resources from "$lib/components/resources.svelte";
   import SectionCommon from "$lib/components/section-common.svelte";
   import Header from "$lib/components/header.svelte";
   import Search from "$lib/components/docs/search.svelte";
+  import Articles from "$lib/components/articles.svelte";
 </script>
 
 <OpenGraph
@@ -36,4 +36,12 @@
 <SectionCommon title="Helpful Resources">
   <Resources {cards} slot="content" />
 </SectionCommon>
-<PopularArticles />
+
+<Articles
+  title="Popular articles"
+  slugs={[
+    "i-said-goodbye-to-local-development-and-so-can-you",
+    "local-app",
+    "continuous-dev-environment-in-devops",
+  ]}
+/>

@@ -26,7 +26,7 @@ Assuming you understood the importance of it, I want to discuss the tools, the p
 
 Code reviews are super valuable but they add friction to our daily tasks. Without reviews you would probably write code all day, maybe have a discussion here and there. But you would would mostly working on a single task or at least one after the other.
 
-Therefore, changing our local dev environment between different branches is something we want to avoid. Especially if setup times (rebuilding, etc.) are long. So instead of doing our colleague a favor and providing a proper code review, we too often take the shortcut and just glimpse over the code online in a code review tool. Be it GitHub, Gitlab, Bitbucket, or Gerrit they all just present syntax coloured diffs. These tools allow us to glimpse over the changes, but we cannot run the code, navigate around (and use the smart editing features for that) or even add code (e.g. tests).
+Therefore, changing our local dev environment between different branches is something we want to avoid. Especially if setup times (rebuilding, etc.) are long. So instead of doing our colleague a favor and providing a proper code review, we too often take the shortcut and just glimpse over the code online in a code review tool. Be it GitHub, GitLab, Bitbucket, or Gerrit they all just present syntax coloured diffs. These tools allow us to glimpse over the changes, but we cannot run the code, navigate around (and use the smart editing features for that) or even add code (e.g. tests).
 
 As a result, many bugs are not spotted and potentially wrong assumptions are not identified during such shallow code reviews.
 

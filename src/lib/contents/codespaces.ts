@@ -285,7 +285,7 @@ export const codespacesColumn: FeatureTableColumn = {
         },
         {
           term: "Prebuilds",
-          availability: false,
+          availability: true,
         },
         {
           term: "Snapshots",

@@ -5,6 +5,7 @@
   import CookieSettings from "../cookie-settings.svelte";
   import Modal from "../ui-library/modal/modal.svelte";
   import Banner from "./base.svelte";
+  import Button from "../ui-library/button/button.svelte";
 
   let isModalOpen: boolean = false;
 
@@ -13,45 +14,40 @@
 
 <div data-analytics={`{"position":"cookie-consent"}`}>
   <Banner
-    location="bottom"
+    location="custom"
     storageKey="cookie-consent-bar"
     let:closeBanner
-    class="border-t border-divider border-solid flex flex-col space-y-micro lg:space-y-0 lg:flex-row"
+    class="fixed stroked stroked-sand bottom-0 md:bottom-macro md:left-macro z-50 w-full md:max-w-[410px] px-micro py-macro md:p-xx-small text-xs md:text-base md:rounded-2xl md:shadow-sm"
   >
-    <p
-      class="text-xs sm:text-sm lgx:text-lg text-center lg:text-left md:mr-micro"
-    >
+    <p>
       This website uses cookies to enhance the user experience. Read our <a
         href="/privacy">privacy policy</a
       > for more info.
     </p>
-
-    <div class="flex items-center space-x-micro">
-      <button
-        class="underline"
-        on:click={() => {
-          isModalOpen = true;
-          closeBanner();
-        }}
-      >
-        Cookie settings
-      </button>
-      <button
+    <div
+      class="flex flex-row-reverse md:flex-row items-center justify-between mt-micro md:mt-x-small"
+    >
+      <div class="space-x-micro">
+        <button on:click={closeBanner} class="underline">Opt-out</button>
+        <button
+          on:click={() => {
+            isModalOpen = true;
+          }}
+          class="underline"
+        >
+          Customise
+        </button>
+      </div>
+      <Button
+        variant="tertiary"
         on:click={() => {
           Cookies.set(cookies.ANALYTICAL, "true", { expires: 365 });
           Cookies.set(cookies.TARGETING, "true", { expires: 365 });
           closeBanner();
         }}
-        class="px-3 py-1 bg-card dark:bg-bg rounded-lg md:px-6 hover:bg-white hover:dark:bg-black"
       >
-        Accept Cookies
-      </button>
-      <button
-        on:click={closeBanner}
-        class="px-3 py-1 bg-card dark:bg-bg rounded-lg md:px-6 hover:bg-white hover:dark:bg-black"
-      >
-        Reject all
-      </button>
+        Accept
+      </Button>
     </div>
   </Banner>
 </div>

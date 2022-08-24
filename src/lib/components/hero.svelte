@@ -79,10 +79,10 @@
   </div>
   <img
     class="
-      max-w-lg 
-      -z-10 hidden 
+      max-w-lg
+      -z-10 hidden
       lg:block {darkSrc ? 'dark:lg:hidden' : ''}
-      w-[35vw] 
+      w-[35vw]
       {isCut
       ? 'xl:transform xl:translate-x-24 xl:translate-y-[20%] xl:scale-150'
       : 'absolute right-0 top-1/2 transform -translate-y-[40%]'}
@@ -93,11 +93,11 @@
   {#if darkSrc}
     <img
       class="
-        max-w-lg 
-        -z-10 hidden 
-        dark:lg:block 
+        max-w-lg
+        -z-10 hidden
+        dark:lg:block
         w-[35vw]
-        transfrom 
+        transfrom
         scale-[1.12]
         {isCut
         ? 'xl:transform xl:translate-x-24 xl:translate-y-[20%] xl:scale-[1.66]'

@@ -96,6 +96,17 @@ If you're using Gitpod [Self-Hosted](/docs/self-hosted/latest), to update the ho
     <figcaption>Setting the Gitpod host in the JetBrains Gateway plugin (OSX)</figcaption>
 </figure>
 
+### Configuring JetBrains Gateway Networking
+
+The following diagram details how the JetBrains Gateway client connects and communicates with Gitpod workspaces, for situations such as configuring corporate networking requirements.
+
+1. **JetBrains.com** - The JetBrains IDE thin client images are downloaded dynamically from JetBrains Gateway to match the exact IDE that is running in Gitpod. Access to jetbrains.com must be granted for an air-gapped Gitpod installation with JetBrains Gateway configuration to work.
+2. **JetBrains Gateway** - The JetBrains Gateway client is the component which fetches information about Gitpod workspaces, pulled from the Gitpod API via HTTPS.
+3. **JetBrains Thin Client** - The thin client connects to the Gitpod workspace via SSH, routed via the workspace proxy ("ws-proxy"). The SSH server (SSH Gateway) runs in the workspace proxy, not in the workspace directly.
+
+![JetBrains networking setup](/images/editors/jetbrains-architecture-dark-theme.png)
+![JetBrains networking setup](/images/editors/jetbrains-architecture-light-theme.png)
+
 ## Troubleshooting
 
 - [What should I do if JetBrains Gateway and Gitpod aren’t working?](/docs/troubleshooting#what-should-i-do-if-jetbrains-gateway-and-gitpod-arent-working)

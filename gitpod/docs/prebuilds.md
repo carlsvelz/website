@@ -84,7 +84,7 @@ gitpod.io/#prebuild/https://gitlab.com/gitpod-io/gitpod
 
 This will [start a prebuild](#manual-execution-of-prebuild), and also install a webhook that will trigger new Gitpod prebuilds for every new push to any of your branches to your repository.
 
-If you want to trigger new Gitpod prebuilds for specific branches only, you can configure this in your Gitlab [project settings](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#branch-filtering).
+If you want to trigger new Gitpod prebuilds for specific branches only, you can configure this in your GitLab [project settings](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#branch-filtering).
 
 #### Bitbucket
 
@@ -209,13 +209,10 @@ If you don't want the comments to be added, disable them using `addComment: fals
 
 ## User specific environment variables in prebuilds
 
-It is not necessarily best practice to have user specific environment variables in a prebuild `before` or `init` block, but sometimes there are build time requirements that mean certain tokens need setting or files need creating. Environment variables defined within your Gitpod Variables preferences are not imported by default, but they can be accessed with the following command within a `before` or `init` block:
+It is not necessarily best practice to have user specific environment variables in a prebuild `init` block, but sometimes there are build time requirements that mean certain tokens need setting or files need creating. Environment variables defined within your Gitpod Variables preferences are not imported by default, but they can be accessed with the following command within a `before` or `init` block:
 
 ```yaml
 tasks:
-  - before: |
-      eval $(command gp env -e)
-      echo "Hello ${MY_VAR}"
   - init: |
       eval $(command gp env -e)
       echo "Hello ${MY_VAR}"

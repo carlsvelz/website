@@ -8,13 +8,19 @@
 
   export let post: BlogPost;
   export let isMostRecent: boolean = false;
-  export let type: "blog" | "guides" | "customers";
+  export let type: "blog" | "guides" | "customers" | "education";
   export let layout: "row" | "column" = "column";
   export let teaserHeightClass: string = "h-64";
   export let availability: boolean = true;
   export let headlineOrder: "h3" | "" = "";
 
-  const href = post && post.href ? post.href : `/${type}/${post.slug}`;
+  const generateURL = () => {
+    if (post && post.href) return post.href;
+    if (type === "education") return `/for/education/${post.slug}`;
+    return `/${type}/${post.slug}`;
+  };
+
+  const href = generateURL();
   const target =
     post && post.href && isAnExternalLink(post.href) ? "_blank" : undefined;
 </script>

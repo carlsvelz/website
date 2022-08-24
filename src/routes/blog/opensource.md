@@ -23,7 +23,7 @@ For those of you who know us, this probably does not come as a big surprise. Wor
 
 ## Open-Source Contributions
 
-Contributing to Gitpod should be easy and accessible for everyone. All contributions are welcome, including pull requests, issues, documentation as well as updates and tweaks, blog posts, tutoials, and more. Please head over to [Github](https://github.com/gitpod-io/gitpod) to find out about the various ways you can contribute and join our [Gitpod Community](https://community.gitpod.io/).
+Contributing to Gitpod should be easy and accessible for everyone. All contributions are welcome, including pull requests, issues, documentation as well as updates and tweaks, blog posts, tutoials, and more. Please head over to [GitHub](https://github.com/gitpod-io/gitpod) to find out about the various ways you can contribute and join our [Gitpod Community](https://community.gitpod.io/).
 
 Over the past year, Gitpod has simplified contributions to many open source projects (see [contribute.dev](https://contribute.dev/) for examples). Today, everyone in our team is excited to share our own streamlined development pipeline including Kubernetes preview deployments, an aggressively cached build system, our own slim and fast CI system and of course Gitpod, which continuously beams us into ready-to-code (and debug) dev environments. [Chris](https://github.com/csweichel) gave a great talk about this setup earlier this year 👇
 

@@ -45,7 +45,7 @@ gp init
 
 This generates example content you can adjust to meet your needs.
 
-Alternatively, you can use the interactive mode with `gp init -i`. It will ask you about the different configuration options, generate the `.gitpod.yml` file and open it in an editor tab so you can review and extend as neccesary.
+Alternatively, you can use the interactive mode with `gp init -i`. It will ask you about the different configuration options, generate the `.gitpod.yml` file and open it in an editor tab so you can review and extend as necessary.
 
 Gitpod provides auto-complete, hover info and validation for the `.gitpod.yml` file so you get instant feedback and can rest assure your configuration is valid.
 

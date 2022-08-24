@@ -22,7 +22,7 @@ Instructions on how to create an Amazon EKS environment that is ready to install
   - Stargz Snapshotter: v0.7.0
 
 - ALB load balancer with TLS termination and re-encryption
-- RDS Mysql database
+- RDS MySQL database
 - Two autoscaling groups, one for gitpod components and another for workspaces
 - In-cluster Docker registry using S3 as storage backend
 - IAM account with S3 access (docker-registry and gitpod user content)

@@ -29,5 +29,4 @@ Below is a list of language specific tips & tricks
 - [LaTeX](/docs/languages/latex)
 - [R](/docs/languages/r)
 - [Kotlin](/docs/languages/kotlin)
-- [Pandas](/docs/languages/python#pandas)
 - [Deno](/docs/languages/deno)

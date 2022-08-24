@@ -102,7 +102,7 @@ Here is what you can do today:
 
 <ol>
     <li>
-      <span>1- </span>Generate the bill of materials in your commerical software.
+      <span>1- </span>Generate the bill of materials in your commercial software.
     </li>
     <li>
       <span>2- </span>Identify whom your unpaid vendors are.

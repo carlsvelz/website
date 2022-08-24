@@ -43,8 +43,9 @@ These cookies record your visit to our Website, the pages you have visited and t
 
 ## Disabling cookies
 
-The effect of disabling cookies depends on which cookies you disable but, in general, the Site may not operate properly if all cookies are switched off.\
-If you want to disable cookies on our Website, you can click on "Cookie Preferences" in the footer.
+The effect of disabling cookies depends on which cookies you disable but, in general, the Site may not operate properly if all cookies are switched off. If you want to disable cookies on our Website, you can click on "Cookie Preferences" in the footer.
+
+You can also change your browser settings to reject cookies. How you can do this will depend on the browser you use and you can find more information here: https://www.allaboutcookies.org/
 
 ## Specific details on Cookies
 

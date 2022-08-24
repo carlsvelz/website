@@ -1,7 +1,8 @@
 <script lang="ts">
   export let isDark: boolean = false;
   export let isAQuoteLogo: boolean = false;
-  export let inActive: boolean;
+  export let inActive: boolean = undefined;
+  export let notDarkWhenDark: boolean = false;
 </script>
 
 <style lang="postcss">
@@ -13,22 +14,30 @@
     @apply fill-white;
   }
 
-  :global(body.dark) .is-a-quote-logo {
-    &.active {
-      .bg {
-        @apply fill-black;
-      }
-
+  :global(body.dark) {
+    .not-dark-when-dark {
       .text {
-        @apply fill-white;
+        @apply fill-bg;
       }
     }
 
-    .bg {
-      @apply fill-divider-light;
-    }
-    .text {
-      @apply fill-card;
+    .is-a-quote-logo {
+      &.active {
+        .bg {
+          @apply fill-black;
+        }
+
+        .text {
+          @apply fill-white;
+        }
+      }
+
+      .bg {
+        @apply fill-sub;
+      }
+      .text {
+        @apply fill-card;
+      }
     }
   }
 </style>
@@ -42,10 +51,13 @@
   {...$$restProps}
   class:is-a-quote-logo={isAQuoteLogo}
   class:active={!inActive}
+  class:not-dark-when-dark={notDarkWhenDark}
 >
   <path
     d="M0.942383 0.309082H42.4083V41.3091H0.942383V0.309082Z"
-    class="{isDark ? 'fill-black' : 'fill-sub dark:fill-divider-light'} bg"
+    class="{isDark
+      ? `fill-black ${notDarkWhenDark ? 'dark:fill-sub' : ''}`
+      : 'fill-sub'} bg"
   />
   <path
     d="M5.45605 33.6216H21.0058V36.1841H5.45605V33.6216Z"

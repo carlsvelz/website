@@ -75,7 +75,7 @@ With this, you should be able to set breakpoints in your C++ code directly from 
 
 If that doesn't work, please feel free to ask for help in [community.gitpod.io](https://community.gitpod.io) and we'll be happy to help you make debugging work for your project.
 
-For a more in-depth walkthrough of how do debug applications, please [refer to this comment on GitHub](https://github.com/gitpod-io/gitpod/issues/4805#issuecomment-883228543).
+For a more in-depth walk-through of how do debug applications, please [refer to this comment on GitHub](https://github.com/gitpod-io/gitpod/issues/4805#issuecomment-883228543).
 
 ## Further Reading
 

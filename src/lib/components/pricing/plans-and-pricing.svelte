@@ -1,10 +1,10 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
-  import Section from "../section.svelte";
   import Toggle from "../toggle.svelte";
   import PricingBoxes from "./pricing-boxes.svelte";
   import type { Pricing } from "$lib/types/pricing.type";
+  import Header from "../header.svelte";
 
   export let pricingPlans: Pricing[];
 
@@ -31,20 +31,22 @@
   };
 </script>
 
-<Section>
-  <h1 class="text-center">Plans and pricing</h1>
-  <Toggle
-    id="pricing"
-    class="mb-xx-small"
-    labelLeft="SaaS"
-    labelRight="Self-Hosted"
-    on:change={handleChange}
-    isInversed={$page.url.pathname.includes("self-hosted")}
-    checked={toggled}
-  />
-  <PricingBoxes {pricingPlans} />
-  <p class="mt-micro text-center">
-    Can’t find the answer here? Please <a href="/contact/sales">contact sales</a
-    >.
-  </p>
-</Section>
+<Header title="Plans and pricing" fullWidth={true}>
+  <div slot="content" class="mt-small">
+    <Toggle
+      id="pricing"
+      class="mb-xx-small"
+      labelLeft="SaaS"
+      labelRight="Self-Hosted"
+      on:change={handleChange}
+      isInversed={$page.url.pathname.includes("self-hosted")}
+      checked={toggled}
+    />
+    <PricingBoxes {pricingPlans} />
+    <p class="mt-micro text-center">
+      Can’t find the answer here? Please <a href="/contact/sales"
+        >contact sales</a
+      >.
+    </p>
+  </div>
+</Header>

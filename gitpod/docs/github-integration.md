@@ -11,7 +11,7 @@ title: GitHub Integration
 
 Gitpod works well with public or private repositories from [github.com](https://github.com/).
 
-The first time you login to Gitpod with GitHub, you will be prompted to "Authorize Gitpod" to access your GitHub account. This creates a connection between Gitpod and your Github account, and installs an OAuth App in your GitHub [settings](https://github.com/settings/applications).
+The first time you login to Gitpod with GitHub, you will be prompted to "Authorize Gitpod" to access your GitHub account. This creates a connection between Gitpod and your GitHub account, and installs an OAuth App in your GitHub [settings](https://github.com/settings/applications).
 
 Gitpod uses the name and email from your GitHub account ID to create a new Gitpod user account. This is sufficient to start a Gitpod workspace on a public repository.
 
@@ -48,7 +48,7 @@ The App must be installed on every GitHub user or organization account with repo
 If you encounter errors setting up a Gitpod project on a private repository in a GitHub org, you may need to approve the Gitpod OAuth app for 3rd party access to the org.
 
 1. In https://github.com/settings/connections/applications/484069277e293e6d2a2a.
-2. Look for the org in queston in the lower section of the page under 'Organization access'.
+2. Look for the org in question in the lower section of the page under 'Organization access'.
 3. Click on the Grant button.
 
 For more details, see [Issue #8076](https://github.com/gitpod-io/gitpod/issues/8076).

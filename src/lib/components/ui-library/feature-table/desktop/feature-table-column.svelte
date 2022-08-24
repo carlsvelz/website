@@ -16,7 +16,7 @@
   <div
     class="{!hasASingleEntry
       ? ''
-      : 'grid grid-cols-1 auto-rows-[3.75rem]'} {!firstEntry.users
+      : 'grid grid-cols-1 auto-rows-[3rem]'} {!firstEntry.users
       ? 'border-t border-divider'
       : ''} inner-grid-desktop"
   >
@@ -34,7 +34,7 @@
     {:else}
       <div class="flex justify-around px-small gap-xx-small">
         {#each featureData.enteries as entry}
-          <div class="grid grid-cols-1 auto-rows-[3.75rem] flex-1">
+          <div class="grid grid-cols-1 auto-rows-[3rem] flex-1">
             <h4 class="h5 text-center border-b border-divider">
               {entry.users}
             </h4>

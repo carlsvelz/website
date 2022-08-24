@@ -62,13 +62,13 @@ export const primaryCtas: Card[] = [
 export const contributeToGitpod: Feature = {
   title: "Contribute to Gitpod",
   paragraph:
-    "Gitpod’s source code is open-source and we are more than happy to receive community contributions. The best way to get started is to head over to GitHub and to pick an issue labeled with <code>good-first-issue</code>.",
+    "Gitpod’s source code is open-source and we are more than happy to receive community contributions.",
   moreButton: {
-    href: "https://github.com/gitpod-io/gitpod/",
+    href: "https://www.gitpod.io/docs/contribute/features-and-patches",
     text: "Contribute to Gitpod",
   },
   secondaryButton: {
-    href: "https://github.com/gitpod-io/website/",
+    href: "https://www.gitpod.io/docs/contribute/documentation",
     text: "Contribute to website",
   },
   image: {

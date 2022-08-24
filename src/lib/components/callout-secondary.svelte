@@ -14,9 +14,9 @@
   <p class="text-large mb-x-small max-w-4xl mx-auto">
     {@html text}
   </p>
-  <LinkButton variant="primary" size="large" href={link.href}
-    >{link.text}</LinkButton
-  >
+  <LinkButton variant="primary" size="large" href={link.href}>
+    {link.text}
+  </LinkButton>
   <slot name="image" />
   <slot name="image-mobile" />
 </Section>

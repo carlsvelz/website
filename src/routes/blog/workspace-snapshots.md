@@ -55,10 +55,10 @@ In the case of this project I added a task to start the failing Java process:
 ```yaml
 tasks:
     - command: >
-    mvn -q exec:exec \\
-        -Dexec.executable=java \\
-        -Dexec.args=”-cp %classpath com.example.beanoverriding.EmbeddedApplication” \\
-        -Dexec.classpathScope=”test”
+    mvn -q exec:exec
+        -Dexec.executable=java \
+        -Dexec.args="-cp %classpath com.example.beanoverriding.EmbeddedApplication" \
+        -Dexec.classpathScope="test"
 ```
 
 > Btw. to figure out how to start that damn thing using Maven, I had to ask the community on StackOverflow. Of course, by providing a Gitpod Snapshot :-)

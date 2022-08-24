@@ -4,6 +4,7 @@
   import { createEventDispatcher, onMount } from "svelte";
   import { focusTrap } from "svelte-focus-trap";
   let backdrop: HTMLElement;
+  export let buttonClassNames: string = "right-6 top-6";
 
   export let isOpen: boolean = false;
 
@@ -72,7 +73,7 @@
   >
     <div class="flex justify-center items-center relative">
       <button
-        class="absolute right-6 top-6 z-10 h-10 w-10 md:h-5 md:w-5 flex items-center justify-center"
+        class="absolute z-10 h-10 w-10 md:h-5 md:w-5 flex items-center justify-center {buttonClassNames}"
         bind:this={closeEl}
         aria-label="close this popup"
         on:click={closeModal}

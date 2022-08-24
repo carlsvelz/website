@@ -49,11 +49,13 @@
   let isFormDirty = false;
   let isFeedbackSent = false;
   let form: HTMLElement;
+  let isSubmissionInProgress: boolean = false;
 
   $: isFormValid = Object.values(formData).every((field) => field.valid);
 
   const handleSubmit = async () => {
     isFormDirty = true;
+    isSubmissionInProgress = true;
     if (!isFormValid) {
       await tick();
       scrollToElement(form, ".error");
@@ -61,7 +63,7 @@
     }
 
     try {
-      const response = await fetch("/.netlify/functions/feedback", {
+      const response = await fetch("/api/feedback", {
         method: "post",
         body: JSON.stringify({
           type: "browser-extension",
@@ -203,6 +205,7 @@
           variant="cta"
           size="large"
           disabled={(isFormDirty && !isFormValid) || isFeedbackSent}
+          isLoading={isSubmissionInProgress}
           type="submit">Send</Button
         >
         {#if isFormDirty && !isFormValid}

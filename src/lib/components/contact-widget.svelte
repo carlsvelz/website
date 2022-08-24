@@ -12,31 +12,47 @@
   let isToggleShown: boolean = false;
   let linksWrapper: HTMLElement;
   let iconWrapper: HTMLElement;
+  let isButtonActive: boolean = false;
 
   const buttons: {
     text: string;
     href: string;
-    icon: any;
+    icon: {
+      component: any;
+      size?: any;
+    };
   }[] = [
     {
       text: "Schedule a demo",
       href: "/contact/sales?get-a-demo",
-      icon: Play,
+      icon: {
+        component: Play,
+        size: "h-[12.94px] w-[10.78px]",
+      },
     },
     {
       text: "Contact Sales",
       href: "/contact/sales",
-      icon: Headphones,
+      icon: {
+        component: Headphones,
+        size: "h-[14.38px] w-[20.48px]",
+      },
     },
     {
       text: "Get support",
       href: "/contact/support",
-      icon: Chat,
+      icon: {
+        component: Chat,
+        size: "h-[13.33px] w-[16.74px]",
+      },
     },
     {
       text: "View documentation",
       href: "/docs",
-      icon: File,
+      icon: {
+        component: File,
+        size: "h-[17.28px] w-[14.78px]",
+      },
     },
   ];
 
@@ -48,14 +64,21 @@
 
   onMount(() => {
     window.addEventListener("click", handleClickOutside);
+    const query = window.matchMedia("(max-width: 900px)");
 
-    setTimeout(() => {
-      isToggleShown = true;
-
+    if (query.matches) {
       setTimeout(() => {
-        areButtonsShown = true;
-      }, 500);
-    }, 5000);
+        isToggleShown = true;
+      }, 5000);
+    } else {
+      setTimeout(() => {
+        isToggleShown = true;
+
+        setTimeout(() => {
+          areButtonsShown = true;
+        }, 500);
+      }, 5000);
+    }
 
     return () => {
       window.removeEventListener("click", handleClickOutside);
@@ -64,22 +87,8 @@
 </script>
 
 <style lang="postcss">
-  .links {
-    @apply relative;
-
-    .before,
-    .after {
-      @apply absolute bottom-0 right-6 h-6 w-6;
-    }
-
-    .before {
-      @apply bg-sand-dark dark:bg-card h-[1px] w-[31px] right-[20px];
-    }
-
-    .after {
-      @apply -z-10;
-      transform: translateY(47%) rotate(45deg);
-    }
+  :global(body.consent-is-shown) .parent {
+    @apply bottom-[105px] md:bottom-2;
   }
 
   .icon-wrapper {
@@ -88,48 +97,84 @@
       @apply absolute rounded-full top-0 right-0 bottom-0 left-0 z-50;
     }
   }
+
+  button.stroked {
+    &:hover,
+    &:focus {
+      &::after {
+        @apply bg-white;
+      }
+    }
+  }
+
+  :global(body.dark) button.stroked {
+    &:hover,
+    &:focus {
+      &::after {
+        @apply bg-black;
+      }
+    }
+  }
 </style>
 
 <div
-  class="fixed bottom-4 right-4 flex flex-col items-end z-50"
+  class="fixed bottom-2 right-2 sm:right-4 flex flex-col items-end z-50 parent"
   data-analytics={`{"context":"contact_widget"}`}
 >
   {#if areButtonsShown}
-    <div data-analytics={`{"label":"Close Contact Widget"}`}>
-      <button
-        on:click={() => (areButtonsShown = false)}
-        in:fade={{ duration: 200, delay: 300 }}
-        out:fade={{ duration: 300 }}
-      >
-        <Close class="h-6 w-6 mb-macro" />
-      </button>
-    </div>
     <div
-      in:fade={{ duration: 600 }}
-      out:fade={{ duration: 300 }}
+      in:fade={{ duration: 400 }}
+      out:fade={{ duration: 100 }}
       bind:this={linksWrapper}
-      class="stroked stroked-sand flex flex-col rounded-2xl mb-xx-small"
+      class="stroked stroked-sand flex flex-col rounded-2xl mb-3 p-micro pt-x-small shadow-light
+      "
     >
-      <div class="links p-xx-small">
-        <div class="before" />
-        <div class="space-y-macro">
-          {#each buttons as { href, text, icon }}
-            <LinkButton
-              {href}
-              variant="white"
-              textAlign="left"
-              class="flex items-center max-w-[205px] group"
+      <div
+        data-analytics={`{"label":"Close Contact Widget"}`}
+        class="absolute -top-2 -right-2"
+      >
+        <button
+          on:click={() => (areButtonsShown = false)}
+          aria-label="Close the menu"
+          class="h-12 w-12 flex items-center justify-center rounded-full"
+          on:mouseenter={() => {
+            isButtonActive = true;
+          }}
+          on:mouseleave={() => {
+            isButtonActive = false;
+          }}
+          on:focus={() => {
+            isButtonActive = true;
+          }}
+          on:blur={() => {
+            isButtonActive = false;
+          }}
+        >
+          <Close class="h-2.5 w-2.5" active={isButtonActive} />
+        </button>
+      </div>
+      <div class="before" />
+      <div class="space-y-macro max-w-[195px]">
+        {#each buttons as { href, text, icon }}
+          <LinkButton
+            {href}
+            variant="white"
+            textAlign="left"
+            class="inline-flex items-center group"
+            style="padding: 0.25rem var(--micro)"
+          >
+            <div
+              slot="image"
+              class="flex items-center justify-center h-6 w-6 mr-2"
             >
               <svelte:component
-                this={icon}
-                class="h-4 w-4 mr-3 filter grayscale group-hover:grayscale-0 transition-all duration-200"
-                slot="image"
+                this={icon.component}
+                class="{icon.size} filter grayscale group-hover:grayscale-0 transition-all duration-200"
               />
-              {text}
-            </LinkButton>
-          {/each}
-        </div>
-        <div class="stroked stroked-sand after" />
+            </div>
+            {text}
+          </LinkButton>
+        {/each}
       </div>
     </div>
   {/if}
@@ -138,7 +183,7 @@
     <div data-analytics={`{"label":"Hide/Show Contact Widget"}`}>
       <button
         in:fade={{ duration: 200 }}
-        class="stroked flex group justify-center items-center bg-card h-14 w-14 rounded-full"
+        class="stroked flex group justify-center items-center bg-card h-12 w-12 rounded-full shadow-normal"
         on:click={() => {
           areButtonsShown = !areButtonsShown;
         }}
@@ -146,9 +191,8 @@
         <div class="icon-wrapper" bind:this={iconWrapper}>
           <svelte:component
             this={Chat}
-            class="h-8 w-8 filter group-hover:grayscale transition-all duration-200 {areButtonsShown
-              ? 'grayscale'
-              : ''}"
+            class="h-6 w-6 transition-all duration-200"
+            id="toggle-button"
           />
         </div>
       </button>

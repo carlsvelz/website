@@ -1,7 +1,7 @@
 import type { RequestHandler } from "@sveltejs/kit";
 
-const startDate = new Date("Apr 28 2022 06:00:00 EST");
-const endDate = new Date("May 28 2022 06:00:00 EST");
+const startDate = new Date("Aug 1 2022 00:00:00 EST");
+const endDate = new Date("Aug 4 2022 10:00:00 EST");
 export const get: RequestHandler = async () => {
   const currentDate = new Date();
 

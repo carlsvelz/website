@@ -46,16 +46,36 @@ Gitpod workspaces can be configured - see [Configuring Workspaces](/docs/configu
 
 Alternatively, `gp init -i` is an interactive guide which helps create the `.gitpod.yml` configuration file based on a few questions you answer.
 
+Example to start a interactive guide of `.gitpod.yml` configuration file:
+
+```sh
+gp init -i
+```
+
 ## open
 
 Modern editors/IDE's support command line tooling to open a file (e.g. VS Code `code foo.txt`). In Gitpod, this can be done using `gp open <filename>`.
 We also added common aliases for `gp open`: `code` and `open`.
 
+Example to open the `README.md` file in the current directory:
+
+```sh
+gp open README.md
+```
+
 ## preview
 
-`gp preview` is similar to `gp open`, except that it does not open a file in the editor but a URL in a preview pane on the right.
+`gp preview` opens a URL. The default is to show the URL in a preview pane within the editor or IDE directly. Alternatively, you can show the preview a new tab with the `--external` flag.
 
 Make sure you provide a valid URL, i.e. including the protocol. For example, http://localhost:8080.
+
+You can also use `gp preview <url> --external` to open the URL in a new browser tab.
+
+Example opening a gitpod workspace port 3000 as a tab using `gp url` and `gp preview`:
+
+```sh
+gp preview $(gp url 3000) --external
+```
 
 ## url
 
@@ -79,6 +99,12 @@ To delete or unset an environment variable, you use `gp env -u API_ENDPOINT`.
 
 Please refer to the help output provided by `gp env --help` for more use cases of the `gp env` command.
 
+For instance, you can use following to get your all Gitpod environment variables:
+
+```sh
+gp env
+```
+
 ## sync-await
 
 In situations where you work with multiple terminals and one depends on a task in another terminal to complete, `gp sync-await <name>` waits until you call `gp sync-done <name>` in another terminal.
@@ -101,9 +127,19 @@ See [Start Tasks](/docs/config-start-tasks#wait-for-commands-to-complete) for a 
 
 For sharing a complete clone of a workspace with others, `gp snapshot` is basically the CLI method for getting a snapshot URL. To learn more about snapshots, see [Collaboration & Sharing of Workspaces](/docs/sharing-and-collaboration#sharing-snapshots)
 
+```sh
+gp snapshot
+```
+
 ## stop
 
 `gp stop` is the CLI method of stopping a workspace.
+
+Example to stop the current gitpod workspace using gitpod CLI:
+
+```sh
+gp stop
+```
 
 ## tasks
 
@@ -112,6 +148,8 @@ Programmatically view and interact with workspace tasks as defined in the projec
 ### list
 
 Returns a table-formatted list of tasks, their name, state and the ID of the terminal in which the task is executed.
+
+> **Tip**: You can see the task you are currently attached to highlighted in green.
 
 ```sh
 gp tasks list
@@ -137,6 +175,10 @@ gp tasks attach <id>
 
 Interact with workspace timeout configuration. You can learn more in [Life of a Workspace](/docs/life-of-workspace#timeouts).
 
+```sh
+gp timeout
+```
+
 ### extend
 
 Extends the current workspace's timeout.
@@ -145,9 +187,19 @@ Extends the current workspace's timeout.
 
 The default timeout, and the ability to extend a workspace timeout depends on your [plan](https://gitpod.io/plans) or [team plan](https://gitpod.io/teams).
 
+Example of how to extend the current workspace timeout:
+
+```sh
+gp timeout extend
+```
+
 ### show
 
-Shows the current workspace's timeout. The workspace timeout may be extended using `gp timeout extend` if available on the user's [plan](https://gitpod.io/plans) or [team plan](https://gitpod.io/teams).
+Shows the current workspace's timeout.
+
+```sh
+gp timeout show
+```
 
 ## ports
 
@@ -185,3 +237,7 @@ gp ports await 3000 && gp preview $(gp url 3000)/my/path/index.html
 ## top
 
 Displays the used and available workspace CPU and memory.
+
+```sh
+gp top
+```

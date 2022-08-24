@@ -13,10 +13,6 @@
       width: 320px;
     }
   }
-
-  img {
-    max-width: 200px;
-  }
 </style>
 
 <section class="mt-large">
@@ -31,7 +27,11 @@
           <br />
           <span>{jobTitle}</span>
         </div>
-        <img src={companyLogo.src} alt={companyLogo.alt} class="h-6 mt-micro" />
+        <img
+          src={companyLogo.src}
+          alt={companyLogo.alt}
+          class="h-6 mt-micro !rounded-none max-w-[200px]"
+        />
       </div>
     {/each}
   </Carousel>

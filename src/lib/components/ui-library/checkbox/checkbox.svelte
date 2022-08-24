@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { nanoid } from "nanoid";
+
   let className: string = "";
   export let checked: boolean = false;
   export let label: string = "";
@@ -6,7 +8,9 @@
   export let hasError: boolean = false;
   export let disabled: boolean = false;
   export let labelClasses: string = "";
+  export let textClassName: string = "text-body";
   export { className as class };
+  const uid = nanoid();
 </script>
 
 <style lang="postcss">
@@ -37,7 +41,7 @@
   class:error={hasError}
   class:disabled
   {disabled}
-  id={label}
+  id={uid + label}
   bind:checked
   bind:this={element}
   on:change
@@ -46,10 +50,10 @@
 />
 {#if label}
   <label
-    class="flex cursor-pointer text-body mt-1 mb-2 {labelClasses} {disabled
+    class="flex cursor-pointer mt-1 mb-2 {textClassName} {labelClasses} {disabled
       ? 'pointer-events-none'
       : ''}"
-    for={label}
+    for={uid + label}
   >
     <span />
     {@html label}

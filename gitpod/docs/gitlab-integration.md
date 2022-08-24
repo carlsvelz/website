@@ -37,7 +37,7 @@ The webhook will be automatically installed when you trigger the first prebuild 
 
 ## Connecting Your GitLab Account
 
-To use Gitpod on a GitLab repository, you have to connect your GitLab account with your Gitpod account. In the follwoing, we assume that you already have a valid account on the GitLab instance you want to connect to.
+To use Gitpod on a GitLab repository, you have to connect your GitLab account with your Gitpod account. In the following, we assume that you already have a valid account on the GitLab instance you want to connect to.
 
 Gitpod supports the following use cases:
 
@@ -88,7 +88,7 @@ The SaaS service `GitLab.com` is already pre-configured in Gitpod. But if you ar
 
 Here is how to register your Self-Hosted GitLab installation:
 
-1. In your GitLab installation, enable the native Gitpod integration as described in the [GitLab docs](https://docs.gitlab.com/ce/integration/gitpod.html). This needs adminstrator privileges on the GitLab installation.
+1. In your GitLab installation, enable the native Gitpod integration as described in the [GitLab docs](https://docs.gitlab.com/ce/integration/gitpod.html). This needs administrator privileges on the GitLab installation.
 
 2. Head over to [the integrations page](https://gitpod.io/integrations/) on Gitpod. Scroll to the section about `Git Integrations` and click on the "New Integration" button.
 
@@ -108,4 +108,4 @@ Here is how to register your Self-Hosted GitLab installation:
 
 <img alt="link new GitLab app to Gitpod" src="https://user-images.githubusercontent.com/372735/91142160-9f54f880-e6b0-11ea-8436-6a9c8bc67d9f.png">
 
-7. Press _Connect_ and go through the GitHub authentication flow to connect your user account.
+7. Press _Connect_ and go through the GitLab authentication flow to connect your user account.

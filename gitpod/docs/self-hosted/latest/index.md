@@ -23,7 +23,13 @@ data={{
 
 Gitpod can be deployed and operated on your own infrastructure. It supports different cloud providers, self-managed Kubernetes clusters, corporate firewalls, and even off-grid / air-gapped networks.
 
+## Local Preview
+
+The [Local Preview](./latest/local-preview) provides a way to run Gitpod Self-Hosted locally on your machine to experience Gitpod without having to spin up a Kubernetes cluster. It is intended for preview purposes only - we strongly encourage the Kubernetes-based installation below for continuous usage.
+
 ## Prerequisites to Install Gitpod Self-Hosted
+
+> **Note:** Gitpod is not just a simple Kubernetes application like a web shop app. It is more of an infrastructure tool comparable to a build system that heavily makes use of Kubernetes internals to build and deploy images, control Kubernetes containers (the workspaces) and more. This is why it needs more permissions in Kubernetes than a simple web app.
 
 - **Kubernetes expertise** <br />
   Gitpod is a Kubernetes application that makes heavy use of various Kubernetes features. It is highly recommended to have sufficient Kubernetes experience in order to install Gitpod. These docs expect that you are able to create and maintain a Kubernetes cluster that meets our [requirements](./latest/cluster-set-up) on your own.
@@ -40,10 +46,6 @@ Gitpod can be deployed and operated on your own infrastructure. It supports diff
 - **Gitpod product license** <br />
   To install Gitpod, you need a license which you can get [here](/community-license).
 
-## Local Preview
-
-The [Local Preview](./latest/local-preview) provides you with a way to run Gitpod Self-Hosted locally on your machine to be able to experience it without having to spin up a Kubernetes cluster.
-
 ## Getting Started
 
 The [getting started guide](./latest/getting-started) provides you with step-by-step instructions on how to install Gitpod on your infrastructure.
@@ -54,4 +56,4 @@ You want to use your own database, registry, object storage, or source control m
 
 ## Troubleshooting
 
-The [troubleshooting guide](./latest/troubleshooting) shows you how to create a support bundle. Take a look at our [support page](/support) to learn how to reach our community and support team.
+Refer to the [troubleshooting section](./latest/troubleshooting) for help with your Gitpod Self-Hosted Instance. You can also take a look at our [support page](/support) to learn how to reach our community and support team.

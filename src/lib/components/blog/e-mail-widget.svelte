@@ -45,7 +45,7 @@
 
     trackEvent("email_submitted", {}, true);
 
-    const response = await fetch("/.netlify/functions/signup", {
+    const response = await fetch("/api/signup", {
       method: "post",
       body: JSON.stringify({
         type,

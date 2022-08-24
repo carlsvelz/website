@@ -45,6 +45,7 @@ module.exports = {
         "less-important": "var(--less-important)",
 
         "sand-dark": "var(--sand-dark)",
+        "sand-dark-hover": "var(--sand-dark-hover)",
         "sand-light": "var(--sand-light)",
         white: "var(--white)",
 
@@ -62,6 +63,7 @@ module.exports = {
         black: "var(--black)",
         "off-black": "var(--off-black)",
         "light-black": "var(--light-black)",
+        "light-black-hover": "var(--light-black-hover)",
         "dark-grey": "var(--dark-grey)",
       },
       fontSize: {
@@ -183,7 +185,6 @@ module.exports = {
             },
             h2: {
               marginTop: "var(--x-large)",
-              marginBottom: "var(--micro)",
               fontSize: "var(--p-large)",
               fontWeight: "700",
               code: {
@@ -192,7 +193,6 @@ module.exports = {
             },
             h3: {
               marginTop: "var(--medium)",
-              marginBottom: "var(--macro)",
               fontSize: "var(--h6)",
               fontWeight: "700",
               code: {
@@ -204,7 +204,6 @@ module.exports = {
             },
             h4: {
               marginTop: "var(--small)",
-              marginBottom: ".25rem",
               fontSize: "var(--p-medium)",
             },
             iframe: {

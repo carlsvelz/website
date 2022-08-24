@@ -49,6 +49,7 @@
 
   const handleBodyKeyDown = (event: KeyboardEvent) => {
     if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+      event.preventDefault();
       docSearchInput.focus();
     }
   };

@@ -1,5 +1,6 @@
 ---
 section: self-hosted/latest
+subsection: operational-guides
 title: Monitoring Gitpod Self-Hosted
 ---
 

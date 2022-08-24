@@ -85,6 +85,6 @@ Besides the ability to run Theia in browsers there is another important differen
 
 Providing automated and disposable workspaces that tightly integrate with GitHub projects and the different contexts eliminates time-consuming transitions and streamlines the developer experience. No more ‘it works on my machine’ conversations can happen, because everybody uses the very same setup, which matches the production environment. The smooth onboarding experience will not only help professional developers but lower the barrier for contributions on open-source projects and start coding in general.
 
-Gitpod is currently going through a public beta phase, where it can be used on public repositories. We are working on improved security, better performance and more cool features. Also, Gitpod is getting support for integration with additional applications, such as Bitbucket, Gitlab, and Gerrit.
+Gitpod is currently going through a public beta phase, where it can be used on public repositories. We are working on improved security, better performance and more cool features. Also, Gitpod is getting support for integration with additional applications, such as Bitbucket, GitLab, and Gerrit.
 
 Open-source projects like Kubernetes, Theia, TypeScript, VS Code and thousands of other libraries are the giant’s shoulders Gitpod is based on. We hope by offering free usage of Gitpod for public GitHub projects we can further support the flourishing landscape of open-source projects, making it easier for everyone to contribute and for maintainers to review those contributions.

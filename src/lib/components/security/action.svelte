@@ -10,10 +10,10 @@
 
 <div class="max-w-xs {clazz}">
   <h2 class="h3">{title}</h2>
-  <p class="my-x-small">
+  <p class="mt-micro mb-x-small">
     {description}
   </p>
-  <LinkButton variant="primary" size="medium" href={link.href}
+  <LinkButton variant="cta" size="medium" href={link.href}
     >{link.text}</LinkButton
   >
 </div>

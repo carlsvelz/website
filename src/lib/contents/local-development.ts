@@ -74,6 +74,7 @@ export const bobTableData: FeatureTableColumn = {
     image: {
       path: "/images/local-development/bob.png",
       alt: "Bob",
+      height: "h-20",
     },
   },
   enteries: [
@@ -138,6 +139,7 @@ export const aliceTableData: FeatureTableColumn = {
     image: {
       path: "/images/local-development/alice.png",
       alt: "alice",
+      height: "h-20",
     },
   },
   enteries: [

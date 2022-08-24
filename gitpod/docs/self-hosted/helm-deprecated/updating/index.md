@@ -53,11 +53,11 @@ helm install -f values.custom.yaml gitpod gitpod.io/gitpod --version=0.10.0
 
 ## Upgrading Gitpod from v0.8.0 to v0.10.0
 
-With version 0.10.0 there is one change that requires user action regarding the rabbitmq messagebus:
+With version 0.10.0 there is one change that requires user action regarding the RabbitMQ messagebus:
 
-### rabbitmq now requires dexplicitly set password and username
+### RabbitMQ now requires explicitly set password and username
 
-Gitpod uses a rabbitmq installation for distributing messages between components. So far that has been using default credentials if not configured otherwise. With v0.10.0 this is now explicitly required.
+Gitpod uses a RabbitMQ installation for distributing messages between components. So far that has been using default credentials if not configured otherwise. With v0.10.0 this is now explicitly required.
 To do so add the following to your `values.custom.yaml`:
 
 ```
@@ -69,15 +69,15 @@ rabbitmq:
 
 If this is not present, `helm` will fail with the following message:
 
-> rabbitmq username is required, please add a value to your values.yaml or with the helm flag --set rabbitmq.auth.username=xxxxx
+> RabbitMQ username is required, please add a value to your values.yaml or with the helm flag --set rabbitmq.auth.username=xxxxx
 
 ## Upgrading Gitpod from v0.6.0 to v0.7.0
 
 With version 0.7.0 there are two major changes that require a user action. Both relate to the remote storage.
 
-### Built-in MinIO is now accessable at minio.your-gitpod-domain.com
+### Built-in MinIO is now accessible at minio.your-gitpod-domain.com
 
-When you install Gitpod on your own Kubernetes installation, it brings a built-in MinIO object storage (unless disabled). As of v0.7.0, the built-in MinIO instance is accessable at https://minio.your-gitpod-domain.com. That's the reason that (for security reasons) we do not set a default access and secret key for the built-in MinIO installation anymore. That means, you need to add your own random keys in your values files like this:
+When you install Gitpod on your own Kubernetes installation, it brings a built-in MinIO object storage (unless disabled). As of v0.7.0, the built-in MinIO instance is accessible at https://minio.your-gitpod-domain.com. That's the reason that (for security reasons) we do not set a default access and secret key for the built-in MinIO installation anymore. That means, you need to add your own random keys in your values files like this:
 
 ```
 minio:

@@ -2,8 +2,24 @@
 .content-blog {
   line-height: 177.7%;
 
+  h2 + * {
+    @apply mt-micro;
+  }
+
+  h3 + * {
+    @apply mt-macro;
+  }
+
+  h4 + * {
+    @apply mt-1;
+  }
+
   p {
     margin-top: 0;
+  }
+
+  a + p {
+    @apply mt-micro;
   }
 
   p + p,

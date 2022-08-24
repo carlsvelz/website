@@ -20,5 +20,13 @@ We use a different registry for each of the three items in this reference archit
 By enabling the service `containerregistry.googleapis.com` (see above), your project provides you with an OCI Image Registry. As credentials, we need the [object storage](#object-storage) service account key that we will create below. Therefore, there is no further action needed to use the registry in Gitpod.
 
 </div>
-<div slot="aws"></div>
+<div slot="aws">
+
+ECR is currently not supported, so configuring the registry will require using an S3 bucket. You can reuse the same S3 bucket used for object storage or a separate one. The steps would be identical in creation, just use different names for both the bucket and the IAM user account.
+
+> Please refer to the [Object Storage](./single-cluster-ref-arch#object-storage) section for instructions on how to create an S3 bucket. You can re-use the bucket created there as your registry storage backe-end.
+
+To configure Gitpod to use the bucket created, ensure you select `In-cluster Registry`, and `S3 storage` in the installation UI. Then input the values of the bucket you've created. When setting the endpoint, please include the region such that `s3.amazonaws.com` becomes `s3.eu-west-1.amazonaws.com`.
+
+</div>
 </CloudPlatformToggle>

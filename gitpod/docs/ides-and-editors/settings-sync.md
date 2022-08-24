@@ -47,10 +47,9 @@ VS Code in the browser with Gitpod has Settings Sync enabled by default, syncing
 
 2. Using the [Command Palette](https://code.visualstudio.com/api/ux-guidelines/command-palette) select: "Settings Sync: Enable signing in with Gitpod".
 
-<figure>
-<img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Enable Settings Sync with Gitpod" src="/images/editors/enable-signin-with-gitpod.png">
-    <figcaption>Enable Settings Sync with Gitpod</figcaption>
-</figure>
+![Enable Settings Sync with Gitpod](/images/editors/enable-signin-with-gitpod-light-theme.png)
+![Enable Settings Sync with Gitpod](/images/editors/enable-signin-with-gitpod-dark-theme.png)
+_Enable Settings Sync with Gitpod_
 
 3. Restart your VS Code Desktop application.
 

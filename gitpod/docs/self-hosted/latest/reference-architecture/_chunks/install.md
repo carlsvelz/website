@@ -58,5 +58,51 @@ Keep cert-manager selected for the TLS certificates options.
 
 </div>
 
-<div slot="aws"></div>
+<div slot="aws">
+
+If you followed the steps to create your infrastructure on the AWS portion of this guide, you need to use the following config settings for your Gitpod installation:
+
+| General Settings |                         |
+| ---------------- | ----------------------- |
+| Domain name      | value of `$DOMAIN_NAME` |
+
+Select the in-cluster registry checkbox, and select the **S3** storage provider.
+
+| Container registry |                                                                                                      |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+| Storage region     | The S3 bucket region (such as `eu-west-1`)                                                           |
+| Storage endpoint   | `s3.${S3_BUCKET_REGION}.amazonaws.com`<br/>(Replace `${S3_BUCKET_REGION}` with the s3 bucket region) |
+| S3 bucket name     | value of `${S3_BUCKET_NAME}`                                                                         |
+| S3 access key      | value of `AccessKeyId`                                                                               |
+| S3 secret key      | value of `SecretAccessKey`                                                                           |
+
+Unselect the **Use MySQL in-cluster** checkbox and also make sure that the **Use Google Cloud SQL Proxy** checkbox is not selected.
+
+| Database |                                  |
+| -------- | -------------------------------- |
+| Hostname | value of `${MYSQL_RDS_ENDPOINT}` |
+| Username | `gitpod`                         |
+| Password | value of `${MYSQL_GITPOD_PW}`    |
+
+Select **S3** as the object storage provider.
+
+| Object storage   |                                                                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| Storage region   | The S3 bucket region (such as `eu-west-1`)                                                           |
+| Storage endpoint | `s3.${S3_BUCKET_REGION}.amazonaws.com`<br/>(Replace `${S3_BUCKET_REGION}` with the s3 bucket region) |
+| S3 bucket name   | value of `${S3_BUCKET_NAME}`                                                                         |
+| S3 access key    | value of `AccessKeyId`                                                                               |
+| S3 secret key    | value of `SecretAccessKey`                                                                           |
+
+Keep cert-manager selected for the TLS certificates options.
+
+| TLS certificates            |                         |
+| --------------------------- | ----------------------- |
+| Self-signed TLS certificate | no                      |
+| cert-manager                | yes                     |
+| Issuer name                 | `gitpod-issuer`         |
+| Issuer type                 | Select “cluster issuer” |
+
+</div>
+
 </CloudPlatformToggle>

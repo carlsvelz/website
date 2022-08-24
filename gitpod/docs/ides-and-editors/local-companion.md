@@ -13,10 +13,6 @@ title: Gitpod Local Companion
 
 Please refer to the [Gitpod Local Companion - localhost is going remote](/blog/local-app) announcement blog post for more details on how to explore the beta release of the _Gitpod local companion_.
 
-## For workspace SSH access
-
-The preferred method for SSH access into Gitpod is via the copy/paste command available in the Gitpod dashboard, see [command line](/docs/ides-and-editors/command-line) for more information.
-
 ## Connect To VS Code Desktop
 
 Whilst it is possible to use the Gitpod local companion to connect your desktop VS Code application to Gitpod, the best way is to use the Gitpod VSCode Plugin, which you can access directly from the command pallette via any Gitpod the workspace. For more details about VS Code Desktop, please refer to the [VS Code desktop support docs](/docs/ides-and-editors/vscode).

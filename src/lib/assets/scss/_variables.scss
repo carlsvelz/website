@@ -5,6 +5,7 @@
   --off-black: #191712;
   --mid-black: #23211e;
   --light-black: #514f4d;
+  --light-black-hover: #63615e;
   --dark-grey: #565451;
   --light-grey: #666564;
   --slight-grey: #999795;
@@ -14,10 +15,12 @@
   --brand-light: #ffe4bc;
   --divider-light: #dadada;
   --sand-dark: #ece7e5;
-  --sand-light: #f5f4f4;
+  --sand-light: #f3f1f0;
+  --off-white-1: #f5f4f4;
   --off-white: #f9f9f9;
   --white: #ffffff;
   --salmon: #ffb0ae;
+  --sand-dark-hover: #f0ecea;
 
   --salmon-hover: #ffc0be;
   --blue: #00a3ff;
@@ -86,7 +89,7 @@ body.light {
   --body: var(--dark-grey);
   --sub: var(--light-grey);
 
-  --bg: var(--sand-light);
+  --bg: var(--off-white-1);
   --card: var(--off-white);
   --nav: #f5f4f4d9;
 

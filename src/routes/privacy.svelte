@@ -55,7 +55,7 @@
 />
 <article class="max-w-[94vw] mt-20 mx-auto mb-8 leading-7 lg:w-[50rem]">
   <h1>Privacy Policy</h1>
-  <p class="mb-4">Effective Date: 9th of June, 2022</p>
+  <p class="mb-4">Effective Date: 18th of August, 2022</p>
   <p class="mb-4">
     Below we provide you with an overview of what data we collect for what
     purpose and how we ensure the protection of the data <a href="#short"
@@ -398,6 +398,19 @@
         For further information on the cookies in use by the Website and the
         Service please see our separate
         <a href="http://www.gitpod.io/cookies">Cookies Policy. </a>
+      </p>
+
+      <h3 class="mx-0 my-4">Salesforce</h3>
+      <p class="mb-4">
+        We use Salesforce, provided by Salesforce, Inc. as our Customer
+        Relationship Management System, which is also integrated with the
+        contact forms on this website. The information stored in this system
+        includes contact data such as your name, email or phone number and
+        associated organisation (where applicable). You can also find more
+        information in Salesforce's privacy policy: <a
+          href="https://www.salesforce.com/eu/company/privacy/full_privacy/"
+          >https://www.salesforce.com/eu/company/privacy/full_privacy/</a
+        >
       </p>
 
       <h3 class="mx-0 my-4">Customer.io</h3>

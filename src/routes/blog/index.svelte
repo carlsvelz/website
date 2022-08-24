@@ -36,13 +36,14 @@
       keywords: "blog, tutorial, news, articles",
     }}
   />
-  <Section>
-    <Header
-      title="Blog"
-      text="The latest news, articles, and opinions around developer <br class='hidden sm:block'/>experience and remote development in the cloud."
-      tight={true}
-    />
+  <Header
+    title="Blog"
+    text="The latest news, articles, and opinions around developer <br class='hidden sm:block'/>experience and remote development in the cloud."
+    fullWidth={true}
+    textClassNames="mb-small text-large"
+  >
     <div
+      slot="content"
       class="grid m-auto max-w-7xl w-full gap-6 grid-cols-none justify-center md:grid-cols-2 lg:grid-cols-3"
     >
       {#each posts.slice(0, 6) as post}
@@ -51,7 +52,7 @@
         </div>
       {/each}
     </div>
-  </Section>
+  </Header>
 
   <Section>
     <h2 class="mb-small text-center">Previous posts</h2>

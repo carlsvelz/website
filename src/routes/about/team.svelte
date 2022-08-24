@@ -18,8 +18,7 @@
 
 <style lang="postcss">
   iframe {
-    @apply w-full max-w-5xl;
-    height: 700px;
+    @apply w-full max-w-5xl h-[300px] sm:h-[400px] md:h-[580px] xl:h-[630px] 2xl:h-[660px];
   }
 </style>
 

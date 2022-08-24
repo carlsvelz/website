@@ -319,12 +319,11 @@ export const compatibilityMatrix: Matrix[] = [
         limitations:
           "Cert-Manager is required even if you don't use it for your own certificates because Gitpod uses it internally.",
         policy: {
-          text: "Versions using cert-manager API V1",
+          text: "> 1.5",
           description:
-            'More info: <a href="https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1" target=”_blank”>cert-manager.io/v1</a>',
+            'Gitpod uses <a href="https://cert-manager.io/docs/usage/certificate/#creating-certificate-resources" target=”_blank”>secretTemplate</a>- currently this means only versions above 1.5 are supported. and requires cert-manager <a href="https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1" target=”_blank”>API v1</a>- currently this means only versions above 1.5 are supported.',
         },
-        supportedVersions:
-          '<a href="https://cert-manager.io/docs/release-notes/" target=”_blank">see cert-manager release notes</a>',
+        supportedVersions: "> 1.5",
       },
     ],
   },

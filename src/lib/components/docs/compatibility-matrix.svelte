@@ -24,6 +24,9 @@
     if (window.location.search.includes("user")) {
       selectValue = "Users";
       matrixToRender = filterMatrixByRelevance("users");
+    } else if (window.location.search.includes("admin")) {
+      selectValue = "Self-Hosted Admins";
+      matrixToRender = filterMatrixByRelevance("self-hosted admins");
     }
   });
 </script>

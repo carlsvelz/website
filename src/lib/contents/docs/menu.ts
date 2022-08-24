@@ -117,13 +117,17 @@ export const MENU: MenuEntry[] = [
     ]),
     M("Reference", "self-hosted/latest/reference", [
       M("Required Components", "self-hosted/latest/required-components"),
+      M(
+        "Compatibility Matrix",
+        "references/product-compatibility-matrix?admin"
+      ),
       M("Telemetry", "self-hosted/latest/telemetry"),
       M("Release Policies", "self-hosted/latest/releases"),
       M("Upgrade Guides", "self-hosted/latest/upgrade-guides"),
     ]),
   ]),
   M("References", "references", [
-    M("Compatibility Matrix", "references/product-compatibility-matrix"),
+    M("Compatibility Matrix", "references/product-compatibility-matrix?user"),
     M(".gitpod.yml", "references/gitpod-yml"),
     M("Command Line Interface", "command-line-interface"),
     // M("Custom Docker image", "references/gitpod-dockerfile"),

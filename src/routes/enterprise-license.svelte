@@ -102,7 +102,6 @@
         ${formData.firstName.value} ${formData.lastName.value}
 
         developers: ${formData.noOfEngineers.value}
-        Referrer: ${formData.referrer.value}
         Message:
         ${formData.message.value}
       `,
@@ -300,7 +299,7 @@
           </div>
           <div>
             <Select
-              label="How did you hear about the professional license?"
+              label="What brought you here?"
               hasError={isFormDirty && !formData.referrer.valid}
               name="referrer"
               bind:value={formData.referrer.value}
@@ -311,7 +310,7 @@
                   e.target.validity.valid;
               }}
               options={licenseFormsQuestions}
-              placeholder="How did you hear about the professional license?"
+              placeholder="Select..."
             />
           </div>
         </div>

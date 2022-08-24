@@ -101,7 +101,6 @@
 
         developers: ${formData.noOfEngineers.value}
         Cloud Infrastructure: ${formData.cloudInfrastructure.value}
-        Referrer: ${formData.referrer.value}
         Message:
         ${formData.message.value}
       `,
@@ -259,7 +258,7 @@
         </div>
         <div>
           <Select
-            label="How did you hear about the community license?"
+            label="What brought you here?"
             hasError={isFormDirty && !formData.referrer.valid}
             name="referrer"
             bind:value={formData.referrer.value}
@@ -270,7 +269,7 @@
                 e.target.validity.valid;
             }}
             options={licenseFormsQuestions}
-            placeholder="How did you hear about the community license?"
+            placeholder="Select..."
           />
         </div>
       </div>
